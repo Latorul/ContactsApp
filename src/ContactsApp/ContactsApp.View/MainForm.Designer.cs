@@ -296,7 +296,7 @@
             // RemoveContactButton
             // 
             RemoveContactButton.Dock = DockStyle.Fill;
-            RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_gray;
+            RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_grey;
             RemoveContactButton.Location = new Point(162, 0);
             RemoveContactButton.Margin = new Padding(0);
             RemoveContactButton.Name = "RemoveContactButton";
@@ -311,7 +311,7 @@
             // EditContactButton
             // 
             EditContactButton.Dock = DockStyle.Fill;
-            EditContactButton.Image = Properties.Resources.edit_contact_32x32_gray;
+            EditContactButton.Image = Properties.Resources.edit_contact_32x32_grey;
             EditContactButton.Location = new Point(81, 0);
             EditContactButton.Margin = new Padding(0);
             EditContactButton.Name = "EditContactButton";
@@ -326,7 +326,7 @@
             // AddContactButton
             // 
             AddContactButton.Dock = DockStyle.Fill;
-            AddContactButton.Image = Properties.Resources.add_contact_32x32_gray;
+            AddContactButton.Image = Properties.Resources.add_contact_32x32_grey;
             AddContactButton.Location = new Point(0, 0);
             AddContactButton.Margin = new Padding(0);
             AddContactButton.Name = "AddContactButton";
@@ -414,6 +414,7 @@
         private TextBox VkTextBox;
         private TextBox PhoneNumberTextBox;
         private TextBox EmailTextBox;
+        private TextBox DateOfBirthTextBox;
         private TextBox FullNameTextBox;
         private Label FindLabel;
         private Label BirthdayPeopleLabel;
@@ -423,6 +424,5 @@
         private Label PhoneNumberLabel;
         private Label EmailLabel;
         private Label FullNameLabel;
-        private TextBox DateOfBirthTextBox;
     }
 }

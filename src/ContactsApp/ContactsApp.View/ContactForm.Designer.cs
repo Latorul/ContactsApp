@@ -169,7 +169,7 @@
             // 
             // AddPhotoButton
             // 
-            AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
+            AddPhotoButton.Image = Properties.Resources.add_photo_32x32_grey;
             AddPhotoButton.Location = new Point(12, 112);
             AddPhotoButton.Name = "AddPhotoButton";
             AddPhotoButton.Size = new Size(100, 50);
@@ -222,20 +222,20 @@
 
         #endregion
 
+        private Panel ButtonsPanel;
+        private PictureBox ProfilePictureBox;
+        private PictureBox AddPhotoButton;
+        private Button CancelButton;
+        private Button OkButton;
+        private TextBox FullNameTextBox;
+        private TextBox EmailTextBox;
+        private TextBox PhoneNumberTextBox;
+        private TextBox DateOfBirthTextBox;
         private TextBox VkTextBox;
         private Label VkLabel;
         private Label DateOfBirthLabel;
-        private TextBox PhoneNumberTextBox;
         private Label PhoneNumberLabel;
-        private TextBox EmailTextBox;
         private Label EmailLabel;
-        private TextBox FullNameTextBox;
         private Label FullNameLabel;
-        private PictureBox ProfilePictureBox;
-        private Panel ButtonsPanel;
-        private Button CancelButton;
-        private Button OkButton;
-        private PictureBox AddPhotoButton;
-        private TextBox DateOfBirthTextBox;
     }
 }

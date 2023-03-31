@@ -198,11 +198,12 @@
 
         #endregion
 
+        private Panel ButtonsPanel;
+        private TextBox LicenseTextBox;
         private Button OkButton;
         private LinkLabel IconsReferenceLinkLabel;
-        private Label IconsReferenceLabel;
-        private TextBox LicenseTextBox;
         private LinkLabel GithubLlinkLabel;
+        private Label IconsReferenceLabel;
         private Label GithubLabel;
         private Label AuthorEmailLabel;
         private Label EmailLabel;
@@ -210,6 +211,5 @@
         private Label AuthorLabel;
         private Label VersionLabel;
         private Label ProgramNameLabel;
-        private Panel ButtonsPanel;
     }
 }

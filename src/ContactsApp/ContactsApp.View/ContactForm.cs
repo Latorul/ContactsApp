@@ -11,6 +11,7 @@ public partial class ContactForm : Form
 
     private void AddPhotoButton_Click(object sender, EventArgs e)
     {
+        //todo
     }
 
     private void OkButton_Click(object sender, EventArgs e)
@@ -35,7 +36,7 @@ public partial class ContactForm : Form
 
     private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
     {
-        AddPhotoButton.Image = Properties.Resources.add_contact_32x32_gray;
+        AddPhotoButton.Image = Properties.Resources.add_contact_32x32_grey;
         AddPhotoButton.BackColor = Color.White;
     }
 

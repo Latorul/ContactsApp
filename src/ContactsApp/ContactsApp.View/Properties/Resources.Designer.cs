@@ -73,9 +73,9 @@ namespace ContactsApp.View.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add_contact_32x32_gray {
+        internal static System.Drawing.Bitmap add_contact_32x32_grey {
             get {
-                object obj = ResourceManager.GetObject("add_contact_32x32_gray", resourceCulture);
+                object obj = ResourceManager.GetObject("add_contact_32x32_grey", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace ContactsApp.View.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add_photo_32x32_gray {
+        internal static System.Drawing.Bitmap add_photo_32x32_grey {
             get {
-                object obj = ResourceManager.GetObject("add_photo_32x32_gray", resourceCulture);
+                object obj = ResourceManager.GetObject("add_photo_32x32_grey", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace ContactsApp.View.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit_contact_32x32_gray {
+        internal static System.Drawing.Bitmap edit_contact_32x32_grey {
             get {
-                object obj = ResourceManager.GetObject("edit_contact_32x32_gray", resourceCulture);
+                object obj = ResourceManager.GetObject("edit_contact_32x32_grey", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +193,9 @@ namespace ContactsApp.View.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap remove_contact_32x32_gray {
+        internal static System.Drawing.Bitmap remove_contact_32x32_grey {
             get {
-                object obj = ResourceManager.GetObject("remove_contact_32x32_gray", resourceCulture);
+                object obj = ResourceManager.GetObject("remove_contact_32x32_grey", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

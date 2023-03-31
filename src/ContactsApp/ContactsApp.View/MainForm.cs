@@ -84,19 +84,19 @@ public partial class MainForm : Form
 
     private void AddContactButton_MouseLeave(object sender, EventArgs e)
     {
-        AddContactButton.Image = Properties.Resources.add_contact_32x32_gray;
+        AddContactButton.Image = Properties.Resources.add_contact_32x32_grey;
         AddContactButton.BackColor = Color.White;
     }
 
     private void EditContactButton_MouseLeave(object sender, EventArgs e)
     {
-        EditContactButton.Image = Properties.Resources.edit_contact_32x32_gray;
+        EditContactButton.Image = Properties.Resources.edit_contact_32x32_grey;
         EditContactButton.BackColor = Color.White;
     }
 
     private void RemoveContactButton_MouseLeave(object sender, EventArgs e)
     {
-        RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_gray;
+        RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_grey;
         RemoveContactButton.BackColor = Color.White;
     }
 
