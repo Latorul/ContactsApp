@@ -187,6 +187,8 @@
             Controls.Add(VersionLabel);
             Controls.Add(ProgramNameLabel);
             Controls.Add(ButtonsPanel);
+            MaximumSize = new Size(541, 447);
+            MinimumSize = new Size(541, 447);
             Name = "AboutForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
