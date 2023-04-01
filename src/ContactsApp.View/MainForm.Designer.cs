@@ -165,7 +165,7 @@
             VkTextBox.Location = new Point(109, 240);
             VkTextBox.Name = "VkTextBox";
             VkTextBox.Size = new Size(200, 23);
-            VkTextBox.TabIndex = 11;
+            VkTextBox.TabIndex = 7;
             VkTextBox.Text = "https://vk.com/";
             VkTextBox.KeyPress += VkTextBox_KeyPress;
             // 
@@ -194,7 +194,7 @@
             DateOfBirthTextBox.Location = new Point(109, 186);
             DateOfBirthTextBox.Name = "DateOfBirthTextBox";
             DateOfBirthTextBox.Size = new Size(200, 23);
-            DateOfBirthTextBox.TabIndex = 7;
+            DateOfBirthTextBox.TabIndex = 6;
             DateOfBirthTextBox.Text = "01.04.2023";
             DateOfBirthTextBox.KeyPress += DateOfBirthTextBox_KeyPress;
             // 
@@ -203,7 +203,7 @@
             PhoneNumberTextBox.Location = new Point(109, 132);
             PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             PhoneNumberTextBox.Size = new Size(200, 23);
-            PhoneNumberTextBox.TabIndex = 7;
+            PhoneNumberTextBox.TabIndex = 5;
             PhoneNumberTextBox.Text = "+7 (900) 000-00-00";
             PhoneNumberTextBox.KeyPress += PhoneNumberTextBox_KeyPress;
             // 
@@ -223,7 +223,7 @@
             EmailTextBox.Location = new Point(109, 78);
             EmailTextBox.Name = "EmailTextBox";
             EmailTextBox.Size = new Size(432, 23);
-            EmailTextBox.TabIndex = 5;
+            EmailTextBox.TabIndex = 4;
             EmailTextBox.Text = "novikova.anna@e.mail";
             EmailTextBox.KeyPress += EmailTextBox_KeyPress;
             // 
@@ -343,7 +343,7 @@
             SearchTextBox.Location = new Point(45, 3);
             SearchTextBox.Name = "SearchTextBox";
             SearchTextBox.Size = new Size(199, 23);
-            SearchTextBox.TabIndex = 4;
+            SearchTextBox.TabIndex = 1;
             // 
             // FindLabel
             // 

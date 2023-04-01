@@ -37,4 +37,9 @@ public partial class AboutForm : Form
     {
         Close();
     }
+
+    private void LicenseTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        e.Handled = true;
+    }
 }
