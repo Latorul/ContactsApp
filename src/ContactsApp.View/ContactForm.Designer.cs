@@ -42,7 +42,7 @@
             CancelButton = new Button();
             OkButton = new Button();
             AddPhotoButton = new PictureBox();
-            DateOfBirthTextBox = new TextBox();
+            DateOfBirthDateTimePicker = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).BeginInit();
             ButtonsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AddPhotoButton).BeginInit();
@@ -180,12 +180,12 @@
             AddPhotoButton.MouseEnter += AddPhotoButton_MouseEnter;
             AddPhotoButton.MouseLeave += AddPhotoButton_MouseLeave;
             // 
-            // DateOfBirthTextBox
+            // DateOfBirthDateTimePicker
             // 
-            DateOfBirthTextBox.Location = new Point(118, 195);
-            DateOfBirthTextBox.Name = "DateOfBirthTextBox";
-            DateOfBirthTextBox.Size = new Size(200, 23);
-            DateOfBirthTextBox.TabIndex = 26;
+            DateOfBirthDateTimePicker.Location = new Point(118, 195);
+            DateOfBirthDateTimePicker.Name = "DateOfBirthDateTimePicker";
+            DateOfBirthDateTimePicker.Size = new Size(200, 23);
+            DateOfBirthDateTimePicker.TabIndex = 26;
             // 
             // ContactForm
             // 
@@ -193,7 +193,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(530, 379);
-            Controls.Add(DateOfBirthTextBox);
+            Controls.Add(DateOfBirthDateTimePicker);
             Controls.Add(AddPhotoButton);
             Controls.Add(ButtonsPanel);
             Controls.Add(VkTextBox);
@@ -230,8 +230,8 @@
         private TextBox FullNameTextBox;
         private TextBox EmailTextBox;
         private TextBox PhoneNumberTextBox;
-        private TextBox DateOfBirthTextBox;
         private TextBox VkTextBox;
+        private DateTimePicker DateOfBirthDateTimePicker;
         private Label VkLabel;
         private Label DateOfBirthLabel;
         private Label PhoneNumberLabel;
