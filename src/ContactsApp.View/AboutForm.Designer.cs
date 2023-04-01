@@ -85,7 +85,7 @@
             LicenseTextBox.Size = new Size(497, 157);
             LicenseTextBox.TabIndex = 36;
             LicenseTextBox.Text = resources.GetString("LicenseTextBox.Text");
-            LicenseTextBox.KeyPress += LicenseTextBox_KeyPress;
+            LicenseTextBox.KeyDown += LicenseTextBox_KeyDown;
             // 
             // GithubLlinkLabel
             // 

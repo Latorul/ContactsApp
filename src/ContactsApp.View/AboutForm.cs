@@ -38,8 +38,8 @@ public partial class AboutForm : Form
         Close();
     }
 
-    private void LicenseTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    private void LicenseTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.Handled = true;
+        e.SuppressKeyPress = true;
     }
 }

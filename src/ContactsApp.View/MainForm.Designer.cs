@@ -123,9 +123,9 @@
             BirthdayPeopleLabel.ForeColor = Color.FromArgb(0, 144, 255);
             BirthdayPeopleLabel.Location = new Point(78, 40);
             BirthdayPeopleLabel.Name = "BirthdayPeopleLabel";
-            BirthdayPeopleLabel.Size = new Size(241, 15);
+            BirthdayPeopleLabel.Size = new Size(176, 15);
             BirthdayPeopleLabel.TabIndex = 3;
-            BirthdayPeopleLabel.Text = "Новикова, Кондратьева, Кошелева и др.";
+            BirthdayPeopleLabel.Text = "Новикова, Кондратьева и др.";
             // 
             // BirthdayNotifyLabel
             // 
@@ -167,7 +167,7 @@
             VkTextBox.Size = new Size(200, 23);
             VkTextBox.TabIndex = 7;
             VkTextBox.Text = "https://vk.com/";
-            VkTextBox.KeyPress += VkTextBox_KeyPress;
+            VkTextBox.KeyDown += VkTextBox_KeyDown;
             // 
             // VkLabel
             // 
@@ -196,7 +196,7 @@
             DateOfBirthTextBox.Size = new Size(200, 23);
             DateOfBirthTextBox.TabIndex = 6;
             DateOfBirthTextBox.Text = "01.04.2023";
-            DateOfBirthTextBox.KeyPress += DateOfBirthTextBox_KeyPress;
+            DateOfBirthTextBox.KeyDown += DateOfBirthTextBox_KeyDown;
             // 
             // PhoneNumberTextBox
             // 
@@ -205,7 +205,7 @@
             PhoneNumberTextBox.Size = new Size(200, 23);
             PhoneNumberTextBox.TabIndex = 5;
             PhoneNumberTextBox.Text = "+7 (900) 000-00-00";
-            PhoneNumberTextBox.KeyPress += PhoneNumberTextBox_KeyPress;
+            PhoneNumberTextBox.KeyDown += PhoneNumberTextBox_KeyDown;
             // 
             // PhoneNumberLabel
             // 
@@ -225,7 +225,7 @@
             EmailTextBox.Size = new Size(432, 23);
             EmailTextBox.TabIndex = 4;
             EmailTextBox.Text = "novikova.anna@e.mail";
-            EmailTextBox.KeyPress += EmailTextBox_KeyPress;
+            EmailTextBox.KeyDown += EmailTextBox_KeyDown;
             // 
             // EmailLabel
             // 
@@ -245,7 +245,7 @@
             FullNameTextBox.Size = new Size(432, 23);
             FullNameTextBox.TabIndex = 3;
             FullNameTextBox.Text = "Новикова Анна";
-            FullNameTextBox.KeyPress += FullNameTextBox_KeyPress;
+            FullNameTextBox.KeyDown += FullNameTextBox_KeyDown;
             // 
             // FullNameLabel
             // 
@@ -375,6 +375,7 @@
             Controls.Add(TableLayoutPanel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
+            MinimumSize = new Size(584, 396);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
