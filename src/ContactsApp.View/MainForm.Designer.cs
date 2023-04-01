@@ -123,9 +123,9 @@
             BirthdayPeopleLabel.ForeColor = Color.FromArgb(0, 144, 255);
             BirthdayPeopleLabel.Location = new Point(78, 40);
             BirthdayPeopleLabel.Name = "BirthdayPeopleLabel";
-            BirthdayPeopleLabel.Size = new Size(241, 15);
+            BirthdayPeopleLabel.Size = new Size(176, 15);
             BirthdayPeopleLabel.TabIndex = 3;
-            BirthdayPeopleLabel.Text = "Новикова, Кондратьева, Кошелева и др.";
+            BirthdayPeopleLabel.Text = "Новикова, Кондратьева и др.";
             // 
             // BirthdayNotifyLabel
             // 
@@ -375,6 +375,7 @@
             Controls.Add(TableLayoutPanel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
+            MinimumSize = new Size(584, 396);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
