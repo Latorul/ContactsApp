@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
             OkButton = new Button();
             IconsReferenceLinkLabel = new LinkLabel();
             IconsReferenceLabel = new Label();
@@ -83,6 +84,7 @@
             LicenseTextBox.ScrollBars = ScrollBars.Vertical;
             LicenseTextBox.Size = new Size(497, 157);
             LicenseTextBox.TabIndex = 36;
+            LicenseTextBox.Text = resources.GetString("LicenseTextBox.Text");
             // 
             // GithubLlinkLabel
             // 
@@ -192,7 +194,6 @@
             Name = "AboutForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
-            Shown += AboutForm_Shown;
             ButtonsPanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

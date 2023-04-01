@@ -9,11 +9,6 @@ public partial class AboutForm : Form
         InitializeComponent();
     }
 
-    private void AboutForm_Shown(object sender, EventArgs e)
-    {
-        LicenseTextBox.Text = Properties.Resources.LICENSE;
-    }
-
     private void OkButton_Click(object sender, EventArgs e)
     {
         Close();
