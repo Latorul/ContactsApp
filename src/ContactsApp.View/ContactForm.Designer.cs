@@ -176,7 +176,6 @@
             AddPhotoButton.SizeMode = PictureBoxSizeMode.CenterImage;
             AddPhotoButton.TabIndex = 25;
             AddPhotoButton.TabStop = false;
-            AddPhotoButton.Click += AddPhotoButton_Click;
             AddPhotoButton.MouseEnter += AddPhotoButton_MouseEnter;
             AddPhotoButton.MouseLeave += AddPhotoButton_MouseLeave;
             // 

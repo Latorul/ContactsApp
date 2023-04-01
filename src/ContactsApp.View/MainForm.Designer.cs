@@ -305,7 +305,6 @@
             RemoveContactButton.SizeMode = PictureBoxSizeMode.CenterImage;
             RemoveContactButton.TabIndex = 2;
             RemoveContactButton.TabStop = false;
-            RemoveContactButton.Click += RemoveContactButton_Click;
             RemoveContactButton.MouseEnter += RemoveContactButton_MouseEnter;
             RemoveContactButton.MouseLeave += RemoveContactButton_MouseLeave;
             // 

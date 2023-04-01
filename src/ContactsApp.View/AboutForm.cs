@@ -9,13 +9,6 @@ public partial class AboutForm : Form
         InitializeComponent();
     }
 
-    private void OkButton_Click(object sender, EventArgs e)
-    {
-        Close();
-    }
-
-    #region LinkLabel_Click
-
     private void IconsReferenceLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         IconsReferenceLinkLabel.LinkVisited = true;
@@ -40,5 +33,8 @@ public partial class AboutForm : Form
             });
     }
 
-    #endregion
+    private void OkButton_Click(object sender, EventArgs e)
+    {
+        Close();
+    }
 }
