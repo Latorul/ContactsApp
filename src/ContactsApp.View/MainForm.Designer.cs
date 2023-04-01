@@ -340,7 +340,7 @@
             // 
             // SearchTextBox
             // 
-            SearchTextBox.Location = new Point(42, 3);
+            SearchTextBox.Location = new Point(45, 3);
             SearchTextBox.Name = "SearchTextBox";
             SearchTextBox.Size = new Size(199, 23);
             SearchTextBox.TabIndex = 4;
