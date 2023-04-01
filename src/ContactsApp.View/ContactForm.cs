@@ -31,7 +31,7 @@ public partial class ContactForm : Form
     private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
     {
         AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
-        AddPhotoButton.BackColor = ColorTranslator.FromHtml("#FAF5F5");
+        AddPhotoButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
     }
 
     private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
