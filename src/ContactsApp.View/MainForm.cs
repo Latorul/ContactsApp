@@ -33,29 +33,29 @@ public partial class MainForm : Form
         NotifyPanel.Visible = false;
     }
 
-    private void FullNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    private void FullNameTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.Handled = true;
+        e.SuppressKeyPress = true;
     }
 
-    private void EmailTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    private void EmailTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.Handled = true;
+        e.SuppressKeyPress = true;
     }
 
-    private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    private void PhoneNumberTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.Handled = true;
+        e.SuppressKeyPress = true;
     }
 
-    private void DateOfBirthTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    private void DateOfBirthTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.Handled = true;
+        e.SuppressKeyPress = true;
     }
 
-    private void VkTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    private void VkTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.Handled = true;
+        e.SuppressKeyPress = true;
     }
 
     private void AddContactButton_MouseEnter(object sender, EventArgs e)
