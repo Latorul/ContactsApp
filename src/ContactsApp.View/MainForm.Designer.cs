@@ -121,7 +121,7 @@
             BirthdayPeopleLabel.AutoSize = true;
             BirthdayPeopleLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             BirthdayPeopleLabel.ForeColor = Color.FromArgb(0, 144, 255);
-            BirthdayPeopleLabel.Location = new Point(78, 35);
+            BirthdayPeopleLabel.Location = new Point(78, 40);
             BirthdayPeopleLabel.Name = "BirthdayPeopleLabel";
             BirthdayPeopleLabel.Size = new Size(241, 15);
             BirthdayPeopleLabel.TabIndex = 3;
@@ -132,7 +132,7 @@
             BirthdayNotifyLabel.AutoSize = true;
             BirthdayNotifyLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             BirthdayNotifyLabel.ForeColor = Color.FromArgb(0, 144, 255);
-            BirthdayNotifyLabel.Location = new Point(78, 15);
+            BirthdayNotifyLabel.Location = new Point(78, 20);
             BirthdayNotifyLabel.Name = "BirthdayNotifyLabel";
             BirthdayNotifyLabel.Size = new Size(140, 15);
             BirthdayNotifyLabel.TabIndex = 2;
@@ -140,6 +140,7 @@
             // 
             // CloseNotifyPictureBox
             // 
+            CloseNotifyPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CloseNotifyPictureBox.Image = Properties.Resources.close_32x32;
             CloseNotifyPictureBox.Location = new Point(509, 3);
             CloseNotifyPictureBox.Name = "CloseNotifyPictureBox";
