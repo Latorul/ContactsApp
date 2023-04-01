@@ -145,9 +145,6 @@
   <data name="info_48x48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_48x48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LICENSE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LICENSE;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
-  </data>
   <data name="photo_placeholder_100x100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\photo_placeholder_100x100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

@@ -121,7 +121,7 @@
             BirthdayPeopleLabel.AutoSize = true;
             BirthdayPeopleLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             BirthdayPeopleLabel.ForeColor = Color.FromArgb(0, 144, 255);
-            BirthdayPeopleLabel.Location = new Point(78, 35);
+            BirthdayPeopleLabel.Location = new Point(78, 40);
             BirthdayPeopleLabel.Name = "BirthdayPeopleLabel";
             BirthdayPeopleLabel.Size = new Size(241, 15);
             BirthdayPeopleLabel.TabIndex = 3;
@@ -132,7 +132,7 @@
             BirthdayNotifyLabel.AutoSize = true;
             BirthdayNotifyLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             BirthdayNotifyLabel.ForeColor = Color.FromArgb(0, 144, 255);
-            BirthdayNotifyLabel.Location = new Point(78, 15);
+            BirthdayNotifyLabel.Location = new Point(78, 20);
             BirthdayNotifyLabel.Name = "BirthdayNotifyLabel";
             BirthdayNotifyLabel.Size = new Size(140, 15);
             BirthdayNotifyLabel.TabIndex = 2;
@@ -140,6 +140,7 @@
             // 
             // CloseNotifyPictureBox
             // 
+            CloseNotifyPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CloseNotifyPictureBox.Image = Properties.Resources.close_32x32;
             CloseNotifyPictureBox.Location = new Point(509, 3);
             CloseNotifyPictureBox.Name = "CloseNotifyPictureBox";
@@ -164,7 +165,7 @@
             VkTextBox.Location = new Point(109, 240);
             VkTextBox.Name = "VkTextBox";
             VkTextBox.Size = new Size(200, 23);
-            VkTextBox.TabIndex = 11;
+            VkTextBox.TabIndex = 7;
             VkTextBox.Text = "https://vk.com/";
             VkTextBox.KeyPress += VkTextBox_KeyPress;
             // 
@@ -193,7 +194,7 @@
             DateOfBirthTextBox.Location = new Point(109, 186);
             DateOfBirthTextBox.Name = "DateOfBirthTextBox";
             DateOfBirthTextBox.Size = new Size(200, 23);
-            DateOfBirthTextBox.TabIndex = 7;
+            DateOfBirthTextBox.TabIndex = 6;
             DateOfBirthTextBox.Text = "01.04.2023";
             DateOfBirthTextBox.KeyPress += DateOfBirthTextBox_KeyPress;
             // 
@@ -202,7 +203,7 @@
             PhoneNumberTextBox.Location = new Point(109, 132);
             PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             PhoneNumberTextBox.Size = new Size(200, 23);
-            PhoneNumberTextBox.TabIndex = 7;
+            PhoneNumberTextBox.TabIndex = 5;
             PhoneNumberTextBox.Text = "+7 (900) 000-00-00";
             PhoneNumberTextBox.KeyPress += PhoneNumberTextBox_KeyPress;
             // 
@@ -222,7 +223,7 @@
             EmailTextBox.Location = new Point(109, 78);
             EmailTextBox.Name = "EmailTextBox";
             EmailTextBox.Size = new Size(432, 23);
-            EmailTextBox.TabIndex = 5;
+            EmailTextBox.TabIndex = 4;
             EmailTextBox.Text = "novikova.anna@e.mail";
             EmailTextBox.KeyPress += EmailTextBox_KeyPress;
             // 
@@ -304,7 +305,6 @@
             RemoveContactButton.SizeMode = PictureBoxSizeMode.CenterImage;
             RemoveContactButton.TabIndex = 2;
             RemoveContactButton.TabStop = false;
-            RemoveContactButton.Click += RemoveContactButton_Click;
             RemoveContactButton.MouseEnter += RemoveContactButton_MouseEnter;
             RemoveContactButton.MouseLeave += RemoveContactButton_MouseLeave;
             // 
@@ -340,10 +340,10 @@
             // 
             // SearchTextBox
             // 
-            SearchTextBox.Location = new Point(42, 3);
+            SearchTextBox.Location = new Point(45, 3);
             SearchTextBox.Name = "SearchTextBox";
             SearchTextBox.Size = new Size(199, 23);
-            SearchTextBox.TabIndex = 4;
+            SearchTextBox.TabIndex = 1;
             // 
             // FindLabel
             // 

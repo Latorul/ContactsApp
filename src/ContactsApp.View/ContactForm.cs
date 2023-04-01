@@ -7,11 +7,13 @@ public partial class ContactForm : Form
         InitializeComponent();
     }
 
-    #region ContactButtons_Click
-
-    private void AddPhotoButton_Click(object sender, EventArgs e)
+    private void ContactForm_KeyDown(object sender, KeyEventArgs e)
     {
-        //todo
+        if (e.KeyCode == Keys.F1)
+        {
+            var form = new AboutForm();
+            form.ShowDialog();
+        }
     }
 
     private void OkButton_Click(object sender, EventArgs e)
@@ -24,10 +26,6 @@ public partial class ContactForm : Form
         Close();
     }
 
-    #endregion
-
-    #region AddPhotoButton_MouseEvents
-
     private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
     {
         AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
@@ -38,16 +36,5 @@ public partial class ContactForm : Form
     {
         AddPhotoButton.Image = Properties.Resources.add_photo_32x32_grey;
         AddPhotoButton.BackColor = Color.White;
-    }
-
-    #endregion
-
-    private void ContactForm_KeyDown(object sender, KeyEventArgs e)
-    {
-        if (e.KeyCode == Keys.F1)
-        {
-            var form = new AboutForm();
-            form.ShowDialog();
-        }
     }
 }

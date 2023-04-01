@@ -53,7 +53,7 @@
             VkTextBox.Location = new Point(118, 249);
             VkTextBox.Name = "VkTextBox";
             VkTextBox.Size = new Size(200, 23);
-            VkTextBox.TabIndex = 22;
+            VkTextBox.TabIndex = 5;
             // 
             // VkLabel
             // 
@@ -80,7 +80,7 @@
             PhoneNumberTextBox.Location = new Point(118, 141);
             PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             PhoneNumberTextBox.Size = new Size(200, 23);
-            PhoneNumberTextBox.TabIndex = 18;
+            PhoneNumberTextBox.TabIndex = 3;
             // 
             // PhoneNumberLabel
             // 
@@ -98,7 +98,7 @@
             EmailTextBox.Location = new Point(118, 87);
             EmailTextBox.Name = "EmailTextBox";
             EmailTextBox.Size = new Size(400, 23);
-            EmailTextBox.TabIndex = 16;
+            EmailTextBox.TabIndex = 2;
             // 
             // EmailLabel
             // 
@@ -116,7 +116,7 @@
             FullNameTextBox.Location = new Point(118, 33);
             FullNameTextBox.Name = "FullNameTextBox";
             FullNameTextBox.Size = new Size(400, 23);
-            FullNameTextBox.TabIndex = 14;
+            FullNameTextBox.TabIndex = 1;
             // 
             // FullNameLabel
             // 
@@ -152,7 +152,7 @@
             CancelButton.Location = new Point(443, 12);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(75, 23);
-            CancelButton.TabIndex = 1;
+            CancelButton.TabIndex = 8;
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = true;
             CancelButton.Click += CancelButton_Click;
@@ -162,7 +162,7 @@
             OkButton.Location = new Point(362, 12);
             OkButton.Name = "OkButton";
             OkButton.Size = new Size(75, 23);
-            OkButton.TabIndex = 0;
+            OkButton.TabIndex = 7;
             OkButton.Text = "OK";
             OkButton.UseVisualStyleBackColor = true;
             OkButton.Click += OkButton_Click;
@@ -174,9 +174,8 @@
             AddPhotoButton.Name = "AddPhotoButton";
             AddPhotoButton.Size = new Size(100, 50);
             AddPhotoButton.SizeMode = PictureBoxSizeMode.CenterImage;
-            AddPhotoButton.TabIndex = 25;
+            AddPhotoButton.TabIndex = 6;
             AddPhotoButton.TabStop = false;
-            AddPhotoButton.Click += AddPhotoButton_Click;
             AddPhotoButton.MouseEnter += AddPhotoButton_MouseEnter;
             AddPhotoButton.MouseLeave += AddPhotoButton_MouseLeave;
             // 
@@ -185,7 +184,7 @@
             DateOfBirthDateTimePicker.Location = new Point(118, 195);
             DateOfBirthDateTimePicker.Name = "DateOfBirthDateTimePicker";
             DateOfBirthDateTimePicker.Size = new Size(200, 23);
-            DateOfBirthDateTimePicker.TabIndex = 26;
+            DateOfBirthDateTimePicker.TabIndex = 4;
             // 
             // ContactForm
             // 

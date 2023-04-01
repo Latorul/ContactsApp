@@ -7,7 +7,31 @@ public partial class MainForm : Form
         InitializeComponent();
     }
 
-    #region ContactTextBox_KeyPress
+    private void MainForm_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.F1)
+        {
+            var form = new AboutForm();
+            form.ShowDialog();
+        }
+    }
+
+    private void AddContactButton_Click(object sender, EventArgs e)
+    {
+        var form = new ContactForm();
+        form.ShowDialog();
+    }
+
+    private void EditContactButton_Click(object sender, EventArgs e)
+    {
+        var form = new ContactForm();
+        form.ShowDialog();
+    }
+
+    private void CloseNotifyPictureBox_Click(object sender, EventArgs e)
+    {
+        NotifyPanel.Visible = false;
+    }
 
     private void FullNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
@@ -33,36 +57,6 @@ public partial class MainForm : Form
     {
         e.Handled = true;
     }
-
-    #endregion
-
-    #region ContactButtons_Click
-
-    private void AddContactButton_Click(object sender, EventArgs e)
-    {
-        var form = new ContactForm();
-        form.ShowDialog();
-    }
-
-    private void EditContactButton_Click(object sender, EventArgs e)
-    {
-        var form = new ContactForm();
-        form.ShowDialog();
-    }
-
-    private void RemoveContactButton_Click(object sender, EventArgs e)
-    {
-        //todo
-    }
-
-    private void CloseNotifyPictureBox_Click(object sender, EventArgs e)
-    {
-        NotifyPanel.Visible = false;
-    }
-
-    #endregion
-
-    #region ContactButtons_MouseEvents
 
     private void AddContactButton_MouseEnter(object sender, EventArgs e)
     {
@@ -98,16 +92,5 @@ public partial class MainForm : Form
     {
         RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_grey;
         RemoveContactButton.BackColor = Color.White;
-    }
-
-    #endregion
-
-    private void MainForm_KeyDown(object sender, KeyEventArgs e)
-    {
-        if (e.KeyCode == Keys.F1)
-        {
-            var form = new AboutForm();
-            form.ShowDialog();
-        }
     }
 }

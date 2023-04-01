@@ -9,18 +9,6 @@ public partial class AboutForm : Form
         InitializeComponent();
     }
 
-    private void AboutForm_Shown(object sender, EventArgs e)
-    {
-        LicenseTextBox.Text = Properties.Resources.LICENSE;
-    }
-
-    private void OkButton_Click(object sender, EventArgs e)
-    {
-        Close();
-    }
-
-    #region LinkLabel_Click
-
     private void IconsReferenceLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         IconsReferenceLinkLabel.LinkVisited = true;
@@ -45,5 +33,13 @@ public partial class AboutForm : Form
             });
     }
 
-    #endregion
+    private void OkButton_Click(object sender, EventArgs e)
+    {
+        Close();
+    }
+
+    private void LicenseTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        e.Handled = true;
+    }
 }
