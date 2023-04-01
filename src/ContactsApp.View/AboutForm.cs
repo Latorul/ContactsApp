@@ -40,6 +40,9 @@ public partial class AboutForm : Form
 
     private void LicenseTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.SuppressKeyPress = true;
+        if (!(e.Control && e.KeyCode == Keys.C))
+        {
+            e.SuppressKeyPress = true;
+        }
     }
 }

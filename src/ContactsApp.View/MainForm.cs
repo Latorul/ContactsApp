@@ -35,27 +35,42 @@ public partial class MainForm : Form
 
     private void FullNameTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.SuppressKeyPress = true;
+        if (!(e.Control && e.KeyCode == Keys.C))
+        {
+            e.SuppressKeyPress = true;
+        }
     }
 
     private void EmailTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.SuppressKeyPress = true;
+        if (!(e.Control && e.KeyCode == Keys.C))
+        {
+            e.SuppressKeyPress = true;
+        }
     }
 
     private void PhoneNumberTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.SuppressKeyPress = true;
+        if (!(e.Control && e.KeyCode == Keys.C))
+        {
+            e.SuppressKeyPress = true;
+        }
     }
 
     private void DateOfBirthTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.SuppressKeyPress = true;
+        if (!(e.Control && e.KeyCode == Keys.C))
+        {
+            e.SuppressKeyPress = true;
+        }
     }
 
     private void VkTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        e.SuppressKeyPress = true;
+        if (!(e.Control && e.KeyCode == Keys.C))
+        {
+            e.SuppressKeyPress = true;
+        }
     }
 
     private void AddContactButton_MouseEnter(object sender, EventArgs e)
