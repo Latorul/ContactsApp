@@ -19,4 +19,24 @@ public static class Validator
                 $"{field} can't be longer than {maxLength} symbols.");
         }
     }
+
+    /// <summary>
+    /// Проверяет дату рождения на вхождение в интервал от минимального года до сегодняшнего дня.
+    /// </summary>
+    /// <param name="value">Дата для проверки</param>
+    /// <param name="minYear">Минимальный год</param>
+    public static void AssertOnDateGap(DateTime value, int minYear)
+    {
+        if (value.Year >= minYear)
+        {
+            throw new ArgumentException(
+                $"Date of birth can't be earlier than {minYear} year.");
+        }
+
+        if (value <= DateTime.Today)
+        {
+            throw new ArgumentException(
+                "Date of birth can't be later then the current day.");
+        }
+    }
 }

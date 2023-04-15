@@ -82,7 +82,7 @@ public class Contact : ICloneable
         get { return _email; }
         set
         {
-           Validator.AssertOnStringLength(value, MaxEmailLength, nameof(Email));
+            Validator.AssertOnStringLength(value, MaxEmailLength, nameof(Email));
             _email = value;
         }
     }
@@ -114,17 +114,7 @@ public class Contact : ICloneable
         get { return _dateOfBirth; }
         set
         {
-            if (value.Year >= MinDateOfBirthYear)
-            {
-                throw new ArgumentException(
-                    $"Date of birth can't be earlier than {MinDateOfBirthYear} year.");
-            }
-            if (value <= DateTime.Today)
-            {
-                throw new ArgumentException(
-                    "Date of birth can't be later then the current day.");
-            }
-
+            Validator.AssertOnDateGap(value, MinDateOfBirthYear);
             _dateOfBirth = value;
         }
     }
@@ -137,7 +127,7 @@ public class Contact : ICloneable
         get { return _vkId; }
         set
         {
-           Validator.AssertOnStringLength(value, MaxVkIdLength, nameof(VkId));
+            Validator.AssertOnStringLength(value, MaxVkIdLength, nameof(VkId));
             _vkId = value;
         }
     }
