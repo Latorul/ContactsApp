@@ -31,6 +31,27 @@ public class Contact : ICloneable
     private string _fullName;
 
     /// <summary>
+    /// Электронная почта.
+    /// </summary>
+    private string _email;
+
+    /// <summary>
+    /// Номер телефона.
+    /// </summary>
+    private string _phoneNumber;
+
+    /// <summary>
+    /// Дата рождения.
+    /// </summary>
+    private DateTime _dateOfBirth;
+
+    /// <summary>
+    /// Ссылка на ВКонтакте.
+    /// </summary>
+    private string _vkId;
+
+
+    /// <summary>
     /// Возвращает или задаёт ФИО.
     /// </summary>
     public string FullName
@@ -143,7 +164,7 @@ public class Contact : ICloneable
             if (value.Length > MaxVkIdLength)
             {
                 throw new ArgumentException(
-                    $"ID ВКонтакте не может быть длиннее {MaxVkIdLength}-ти символов");
+                    $"ID ВКонтакте не может быть длиннее {MaxVkIdLength} символов");
             }
             _vkId = value;
         }
