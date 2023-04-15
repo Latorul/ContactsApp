@@ -26,6 +26,11 @@ public class Contact : ICloneable
     private const int MaxVkIdLength = 50;
 
     /// <summary>
+    /// Саммый ранний год даты рождения.
+    /// </summary>
+    private const int MinDateOfBirthYear = 1900;
+
+    /// <summary>
     /// Фио.
     /// </summary>
     private string _fullName;
@@ -59,14 +64,11 @@ public class Contact : ICloneable
         get { return _fullName; }
         set
         {
-            if (value.Length > MaxFullNameLength) //todo  v service class
-            {
-                throw new ArgumentException(
-                    $"ФИО не может быть длиннее {MaxFullNameLength} символов");
-            }
+            Validator.AssertOnStringLength(value, MaxFullNameLength, nameof(FullName));
 
             TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 
+            //todo разобраться с ирландскими МакКтото / McKtotos
             //value.ToLower() предотвращает написание ФИО полностью заглавными буквами
             _fullName = textInfo.ToTitleCase(value.ToLower());
         }
@@ -80,11 +82,7 @@ public class Contact : ICloneable
         get { return _email; }
         set
         {
-            if (value.Length > MaxEmailLength)
-            {
-                throw new ArgumentException(
-                    $"E-mail не может быть длиннее {MaxEmailLength} символов");
-            }
+           Validator.AssertOnStringLength(value, MaxEmailLength, nameof(Email));
             _email = value;
         }
     }
@@ -97,14 +95,11 @@ public class Contact : ICloneable
         get { return _phoneNumber; }
         set
         {
-            foreach (char c in value)
+            if (value.Any(c => !ValidPhoneNumberChars.Contains(c)))
             {
-                if (!ValidPhoneNumberChars.Contains(c))
-                {
-                    throw new ArgumentException(
-                        "Номер телефона может содержать только цифры и знаки ‘+’, ‘(’ ‘)’ ‘-’ ‘ ’");//номер телефона должен быть в таком формате ххххххххх
-                    //toto все поля потом все свойства
-                }
+                //todo поменять сообщение на "номер телефона должен быть в таком формате ххххххххх"
+                throw new ArgumentException(
+                    "Номер телефона может содержать только цифры и знаки ‘+’, ‘(’ ‘)’ ‘-’ ‘ ’");
             }
 
             _phoneNumber = value;
@@ -119,15 +114,15 @@ public class Contact : ICloneable
         get { return _dateOfBirth; }
         set
         {
-            if (value.CompareTo(new DateTime(1900, 1, 1)) < 0)
+            if (value.Year >= MinDateOfBirthYear)
             {
                 throw new ArgumentException(
-                    "Дата рождения не может быть раньше 1900 года"); //todo englesh
+                    $"Date of birth can't be earlier than {MinDateOfBirthYear} year.");
             }
-            if (value.CompareTo(DateTime.Now) > 0)
+            if (value <= DateTime.Today)
             {
                 throw new ArgumentException(
-                    "Дата рождения не может быть позже текущей даты");
+                    "Date of birth can't be later then the current day.");
             }
 
             _dateOfBirth = value;
@@ -142,11 +137,7 @@ public class Contact : ICloneable
         get { return _vkId; }
         set
         {
-            if (value.Length > MaxVkIdLength)
-            {
-                throw new ArgumentException(
-                    $"ID ВКонтакте не может быть длиннее {MaxVkIdLength} символов");
-            }
+           Validator.AssertOnStringLength(value, MaxVkIdLength, nameof(VkId));
             _vkId = value;
         }
     }
@@ -168,10 +159,10 @@ public class Contact : ICloneable
     /// <param name="dateOfBirth">Дата рождения</param>
     /// <param name="vkId">Ссылка на ВКонтакте</param>
     public Contact(
-        string fullname, 
-        string email, 
-        string phoneNumber, 
-        DateTime dateOfBirth, 
+        string fullname,
+        string email,
+        string phoneNumber,
+        DateTime dateOfBirth,
         string vkId)
     {
         FullName = fullname;
