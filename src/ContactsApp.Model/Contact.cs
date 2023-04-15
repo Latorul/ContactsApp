@@ -1,4 +1,4 @@
-namespace ContactsApp.Model;
+﻿namespace ContactsApp.Model;
 
 /// <summary>
 /// Контакт.
@@ -59,7 +59,7 @@ public class Contact : ICloneable
         get { return _fullName; }
         set
         {
-            if (value.Length > MaxFullNameLength)
+            if (value.Length > MaxFullNameLength) //todo  v service class
             {
                 throw new ArgumentException(
                     $"ФИО не может быть длиннее {MaxFullNameLength} символов");
@@ -71,11 +71,6 @@ public class Contact : ICloneable
             _fullName = textInfo.ToTitleCase(value.ToLower());
         }
     }
-
-    /// <summary>
-    /// Электронная почта.
-    /// </summary>
-    private string _email;
 
     /// <summary>
     /// Возвращает или задаёт электронную почту.
@@ -95,11 +90,6 @@ public class Contact : ICloneable
     }
 
     /// <summary>
-    /// Номер телефона.
-    /// </summary>
-    private string _phoneNumber;
-
-    /// <summary>
     /// Возвращает или задаёт номер телефона.
     /// </summary>
     public string PhoneNumber
@@ -112,18 +102,14 @@ public class Contact : ICloneable
                 if (!ValidPhoneNumberChars.Contains(c))
                 {
                     throw new ArgumentException(
-                        "Номер телефона может содержать только цифры и знаки ‘+’, ‘(’ ‘)’ ‘-’ ‘ ’");
+                        "Номер телефона может содержать только цифры и знаки ‘+’, ‘(’ ‘)’ ‘-’ ‘ ’");//номер телефона должен быть в таком формате ххххххххх
+                    //toto все поля потом все свойства
                 }
             }
 
             _phoneNumber = value;
         }
     }
-
-    /// <summary>
-    /// Дата рождения.
-    /// </summary>
-    private DateTime _dateOfBirth;
 
     /// <summary>
     /// Возвращает или задаёт дату рождения.
@@ -136,7 +122,7 @@ public class Contact : ICloneable
             if (value.CompareTo(new DateTime(1900, 1, 1)) < 0)
             {
                 throw new ArgumentException(
-                    "Дата рождения не может быть раньше 1900 года");
+                    "Дата рождения не может быть раньше 1900 года"); //todo englesh
             }
             if (value.CompareTo(DateTime.Now) > 0)
             {
@@ -147,11 +133,6 @@ public class Contact : ICloneable
             _dateOfBirth = value;
         }
     }
-
-    /// <summary>
-    /// Ссылка на ВКонтакте.
-    /// </summary>
-    private string _vkId;
 
     /// <summary>
     /// Возвращает или задаёт ссылку на ВКонтакте.
