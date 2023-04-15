@@ -114,15 +114,15 @@ public class Contact : ICloneable
         get { return _dateOfBirth; }
         set
         {
-            if (value.CompareTo(DateTime.Now) > 0)
-            {
-                throw new ArgumentException(
-                    "Дата рождения не может быть позже текущей даты");
-            }
             if (value.CompareTo(new DateTime(1900, 1, 1)) < 0)
             {
                 throw new ArgumentException(
                     "Дата рождения не может быть раньше 1900 года");
+            }
+            if (value.CompareTo(DateTime.Now) > 0)
+            {
+                throw new ArgumentException(
+                    "Дата рождения не может быть позже текущей даты");
             }
 
             _dateOfBirth = value;
