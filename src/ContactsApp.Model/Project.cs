@@ -13,9 +13,8 @@ public class Project
     /// <summary>
     /// Конструктор класса <see cref="Project"/>.
     /// </summary>
-    public Project()
+    public Project() : this(new List<Contact>())
     {
-        Contacts = new List<Contact>();
     }
 
     /// <summary>
