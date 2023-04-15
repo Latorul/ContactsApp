@@ -8,22 +8,22 @@ public class Contact : ICloneable
     /// <summary>
     /// Допустимые символы для номера телефона.
     /// </summary>
-    private static readonly string ValidPhoneNumberChars = "1234567890 +-()";
+    private const string ValidPhoneNumberChars = "1234567890 +-()";
 
     /// <summary>
     /// Макимальная длина для ФИО.
     /// </summary>
-    private static readonly int MaxFullNameLength = 100;
+    private const int MaxFullNameLength = 100;
 
     /// <summary>
     /// Макимальная длина для электроной почты.
     /// </summary>
-    private static readonly int MaxEmailLength = 100;
+    private const int MaxEmailLength = 100;
 
     /// <summary>
     /// Макимальная длина для ссылки на ВКонтакте.
     /// </summary>
-    private static readonly int MaxVkIdLength = 50;
+    private const int MaxVkIdLength = 50;
 
     /// <summary>
     /// Фио.
