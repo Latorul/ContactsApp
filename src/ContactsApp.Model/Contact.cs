@@ -149,17 +149,17 @@ public class Contact : ICloneable
     /// <param name="dateOfBirth">Дата рождения</param>
     /// <param name="vkId">Ссылка на ВКонтакте</param>
     public Contact(
-        string fullname,
+        string fullName,
         string email,
         string phoneNumber,
         DateTime dateOfBirth,
         string vkId)
     {
-        FullName = fullname;
+        FullName = fullName;
         Email = email;
         PhoneNumber = phoneNumber;
         DateOfBirth = dateOfBirth;
-        _vkId = vkId;
+        VkId = vkId;
     }
 
 
