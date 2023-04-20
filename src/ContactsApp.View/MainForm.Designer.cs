@@ -305,6 +305,7 @@
             RemoveContactButton.SizeMode = PictureBoxSizeMode.CenterImage;
             RemoveContactButton.TabIndex = 2;
             RemoveContactButton.TabStop = false;
+            RemoveContactButton.Click += RemoveContactButton_Click;
             RemoveContactButton.MouseEnter += RemoveContactButton_MouseEnter;
             RemoveContactButton.MouseLeave += RemoveContactButton_MouseLeave;
             // 
@@ -365,6 +366,7 @@
             ContactsListBox.Name = "ContactsListBox";
             ContactsListBox.Size = new Size(244, 375);
             ContactsListBox.TabIndex = 2;
+            ContactsListBox.SelectedIndexChanged += ContactsListBox_SelectedIndexChanged;
             // 
             // MainForm
             // 
@@ -379,6 +381,8 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
+            FormClosing += MainForm_FormClosing;
+            Shown += MainForm_Shown;
             KeyDown += MainForm_KeyDown;
             TableLayoutPanel.ResumeLayout(false);
             ContactPanel.ResumeLayout(false);

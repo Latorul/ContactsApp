@@ -149,6 +149,7 @@
             // 
             // CancelButton
             // 
+            CancelButton.DialogResult = DialogResult.Cancel;
             CancelButton.Location = new Point(443, 12);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(75, 23);
@@ -159,6 +160,7 @@
             // 
             // OkButton
             // 
+            OkButton.DialogResult = DialogResult.OK;
             OkButton.Location = new Point(362, 12);
             OkButton.Name = "OkButton";
             OkButton.Size = new Size(75, 23);
