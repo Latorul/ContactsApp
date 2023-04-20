@@ -28,7 +28,7 @@ public class Project
 
 
     /// <summary>
-    /// Возвращает отсортированый список контактов.
+    /// Возвращает отсортированный список контактов.
     /// </summary>
     /// <param name="contacts">Список контактов для сортировки</param>
     public List<Contact> SortByFullName(List<Contact> contacts)

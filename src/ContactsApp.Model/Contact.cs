@@ -11,22 +11,22 @@ public class Contact : ICloneable
     private const string ValidPhoneNumberChars = "1234567890 +-()";
 
     /// <summary>
-    /// Макимальная длина для ФИО.
+    /// Максимальная длина для ФИО.
     /// </summary>
     private const int MaxFullNameLength = 100;
 
     /// <summary>
-    /// Макимальная длина для электроной почты.
+    /// Максимальная длина для электронной почты.
     /// </summary>
     private const int MaxEmailLength = 100;
 
     /// <summary>
-    /// Макимальная длина для ссылки на ВКонтакте.
+    /// Максимальная длина для ссылки на ВКонтакте.
     /// </summary>
     private const int MaxVkIdLength = 50;
 
     /// <summary>
-    /// Саммый ранний год даты рождения.
+    /// Самый ранний год даты рождения.
     /// </summary>
     private const int MinDateOfBirthYear = 1900;
 
@@ -68,7 +68,7 @@ public class Contact : ICloneable
 
             TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 
-            //todo разобраться с ирландскими МакКтото / McKtotos
+            //todo разобраться с ирландскими МакКтото / McKtoto
             //value.ToLower() предотвращает написание ФИО полностью заглавными буквами
             _fullName = textInfo.ToTitleCase(value.ToLower());
         }
@@ -97,7 +97,7 @@ public class Contact : ICloneable
         {
             if (value.Any(c => !ValidPhoneNumberChars.Contains(c)))
             {
-                //todo поменять сообщение на "номер телефона должен быть в таком формате ххххххххх"
+                //todo поменять сообщение на "номер телефона должен быть в таком формате +7 (900) 123 45-67"
                 throw new ArgumentException(
                     "Номер телефона может содержать только цифры и знаки ‘+’, ‘(’ ‘)’ ‘-’ ‘ ’");
             }
@@ -135,8 +135,8 @@ public class Contact : ICloneable
     /// <summary>
     /// Контструкор класса <see cref="Contact"/>.
     /// </summary>
-    /// <param name="fullname">ФИО</param>
-    /// <param name="email">Электроная почта</param>
+    /// <param name="fullName">ФИО</param>
+    /// <param name="email">Электронная почта</param>
     /// <param name="phoneNumber">Номер телефона</param>
     /// <param name="dateOfBirth">Дата рождения</param>
     /// <param name="vkId">Ссылка на ВКонтакте</param>
