@@ -135,14 +135,6 @@ public class Contact : ICloneable
     /// <summary>
     /// Контструкор класса <see cref="Contact"/>.
     /// </summary>
-    public Contact()
-    {
-
-    }
-
-    /// <summary>
-    /// Контструкор класса <see cref="Contact"/>.
-    /// </summary>
     /// <param name="fullname">ФИО</param>
     /// <param name="email">Электроная почта</param>
     /// <param name="phoneNumber">Номер телефона</param>
