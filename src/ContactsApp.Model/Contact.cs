@@ -61,7 +61,7 @@ public class Contact : ICloneable
     /// </summary>
     public string FullName
     {
-        get { return _fullName; }
+        get => _fullName;
         set
         {
             Validator.AssertOnStringLength(value, MaxFullNameLength, nameof(FullName));
@@ -79,7 +79,7 @@ public class Contact : ICloneable
     /// </summary>
     public string Email
     {
-        get { return _email; }
+        get => _email;
         set
         {
             Validator.AssertOnStringLength(value, MaxEmailLength, nameof(Email));
@@ -92,7 +92,7 @@ public class Contact : ICloneable
     /// </summary>
     public string PhoneNumber
     {
-        get { return _phoneNumber; }
+        get => _phoneNumber;
         set
         {
             if (value.Any(c => !ValidPhoneNumberChars.Contains(c)))
@@ -111,7 +111,7 @@ public class Contact : ICloneable
     /// </summary>
     public DateTime DateOfBirth
     {
-        get { return _dateOfBirth; }
+        get => _dateOfBirth;
         set
         {
             Validator.AssertOnDateGap(value, MinDateOfBirthYear);
@@ -124,7 +124,7 @@ public class Contact : ICloneable
     /// </summary>
     public string VkId
     {
-        get { return _vkId; }
+        get => _vkId;
         set
         {
             Validator.AssertOnStringLength(value, MaxVkIdLength, nameof(VkId));
