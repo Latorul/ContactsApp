@@ -133,13 +133,13 @@ public class Contact : ICloneable
     }
 
     /// <summary>
-    /// Контструкор класса <see cref="Contact"/>.
+    /// Контструктор класса <see cref="Contact"/>.
     /// </summary>
-    /// <param name="fullName">ФИО</param>
-    /// <param name="email">Электронная почта</param>
-    /// <param name="phoneNumber">Номер телефона</param>
-    /// <param name="dateOfBirth">Дата рождения</param>
-    /// <param name="vkId">Ссылка на ВКонтакте</param>
+    /// <param name="fullName">ФИО.</param>
+    /// <param name="email">Электронная почта.</param>
+    /// <param name="phoneNumber">Номер телефона.</param>
+    /// <param name="dateOfBirth">Дата рождения.</param>
+    /// <param name="vkId">Ссылка на ВКонтакте.</param>
     public Contact(
         string fullName,
         string email,

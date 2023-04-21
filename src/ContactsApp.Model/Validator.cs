@@ -8,9 +8,9 @@ public static class Validator
     /// <summary>
     /// Проверяет длину полученной строки.
     /// </summary>
-    /// <param name="value">Строка для проверки</param>
-    /// <param name="maxLength">Максимальная допустимая длина строки</param>
-    /// <param name="field">Название поля</param>
+    /// <param name="value">Строка для проверки.</param>
+    /// <param name="maxLength">Максимальная допустимая длина строки.</param>
+    /// <param name="field">Название поля.</param>
     public static void AssertOnStringLength(string value, int maxLength, string field)
     {
         if (value.Length > maxLength)
@@ -23,8 +23,8 @@ public static class Validator
     /// <summary>
     /// Проверяет дату рождения на вхождение в интервал от минимального года до сегодняшнего дня.
     /// </summary>
-    /// <param name="value">Дата для проверки</param>
-    /// <param name="minYear">Минимальный год</param>
+    /// <param name="value">Дата для проверки.</param>
+    /// <param name="minYear">Минимальный год.</param>
     public static void AssertOnDateGap(DateTime value, int minYear)
     {
         if (value.Year < minYear)
