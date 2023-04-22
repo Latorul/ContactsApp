@@ -137,7 +137,6 @@ public class Contact : ICloneable
     /// </summary>
     public Contact() : this("", "", "", DateTime.Today, "")
     {
-
     }
 
     /// <summary>

@@ -43,8 +43,8 @@ public class Project
     public List<Contact> FindBirthDayContacts(List<Contact> contacts)
     {
         return contacts.FindAll(c =>
-                                c.DateOfBirth.Month == DateTime.Today.Month &&
-                                c.DateOfBirth.Day == DateTime.Today.Day);
+            c.DateOfBirth.Month == DateTime.Today.Month &&
+            c.DateOfBirth.Day == DateTime.Today.Day);
     }
 
     /// <summary>

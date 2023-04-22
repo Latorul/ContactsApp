@@ -146,11 +146,6 @@ public partial class ContactForm : Form
     }
 
 
-
-
-
-
-
     private void ContactForm_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.F1)

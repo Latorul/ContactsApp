@@ -56,8 +56,8 @@ public partial class MainForm : Form
             return;
 
         if (MessageBox.Show($"Do you really want to remove {_project.Contacts[index].FullName}?",
-            "Remove contact?",
-            MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                "Remove contact?",
+                MessageBoxButtons.OKCancel) == DialogResult.Cancel)
             return;
 
         _project.Contacts.RemoveAt(index);
@@ -115,8 +115,8 @@ public partial class MainForm : Form
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
         if (MessageBox.Show("Do you really want to exit?",
-            "Close?",
-            MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                "Close?",
+                MessageBoxButtons.OKCancel) == DialogResult.Cancel)
         {
             e.Cancel = true;
         }
