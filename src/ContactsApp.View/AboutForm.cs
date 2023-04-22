@@ -1,14 +1,21 @@
-﻿using System.Diagnostics;
+﻿namespace ContactsApp.View;
 
-namespace ContactsApp.View;
-
+/// <summary>
+/// Информационная форма.
+/// </summary>
 public partial class AboutForm : Form
 {
+    /// <summary>
+    /// Конструктор класса <see cref="AboutForm"/>.
+    /// </summary>
     public AboutForm()
     {
         InitializeComponent();
     }
 
+    /// <summary>
+    /// При нажатии на надпись открывает ссылку на источник иконок.
+    /// </summary>
     private void IconsReferenceLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         IconsReferenceLinkLabel.LinkVisited = true;
@@ -21,6 +28,9 @@ public partial class AboutForm : Form
             });
     }
 
+    /// <summary>
+    /// При нажатии на надпись открывает ссылку на GitHub автора.
+    /// </summary>
     private void GithubLlinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         GithubLlinkLabel.LinkVisited = true;
@@ -33,14 +43,22 @@ public partial class AboutForm : Form
             });
     }
 
+    /// <summary>
+    /// Закрывает окно.
+    /// </summary>
     private void OkButton_Click(object sender, EventArgs e)
     {
         Close();
     }
 
+    /// <summary>
+    /// Запрещает редактирования текста в поле LicenseTextBox.
+    /// Исключения: сочетание клавиш Ctrl + C и Ctrl + A.  
+    /// </summary>
     private void LicenseTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        if (!(e.Control && e.KeyCode == Keys.C))
+        if (!(e.Control && e.KeyCode == Keys.C) &&
+            !(e.Control && e.KeyCode == Keys.A))
         {
             e.SuppressKeyPress = true;
         }
