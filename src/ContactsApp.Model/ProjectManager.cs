@@ -5,10 +5,25 @@
 /// </summary>
 public class ProjectManager
 {
-    private static readonly string AppData = 
+    /// <summary>
+    /// Путь к каталогу AppData.
+    /// </summary>
+    private static readonly string AppData =
         Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+    /// <summary>
+    /// Путь к каталогу для сохранения контакта.
+    /// </summary>
     private static readonly string FolderPath = $"{AppData}\\IvanovAA\\ContactsApp";
+    
+    /// <summary>
+    /// Полный путь к файлу.
+    /// </summary>
     private static readonly string FilePath = $"{FolderPath}\\{FileName}";
+    
+    /// <summary>
+    /// Название файла.
+    /// </summary>
     private const string FileName = "ContactsApp.notes";
 
 
