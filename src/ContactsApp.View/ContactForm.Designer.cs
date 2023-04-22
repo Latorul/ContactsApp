@@ -82,6 +82,7 @@
             PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             PhoneNumberTextBox.Size = new Size(200, 23);
             PhoneNumberTextBox.TabIndex = 3;
+            PhoneNumberTextBox.TextChanged += PhoneNumberTextBox_TextChanged;
             // 
             // PhoneNumberLabel
             // 
@@ -100,6 +101,7 @@
             EmailTextBox.Name = "EmailTextBox";
             EmailTextBox.Size = new Size(400, 23);
             EmailTextBox.TabIndex = 2;
+            EmailTextBox.TextChanged += EmailTextBox_TextChanged;
             // 
             // EmailLabel
             // 
@@ -118,6 +120,7 @@
             FullNameTextBox.Name = "FullNameTextBox";
             FullNameTextBox.Size = new Size(400, 23);
             FullNameTextBox.TabIndex = 1;
+            FullNameTextBox.TextChanged += FullNameTextBox_TextChanged;
             // 
             // FullNameLabel
             // 
@@ -188,6 +191,7 @@
             DateOfBirthDateTimePicker.Name = "DateOfBirthDateTimePicker";
             DateOfBirthDateTimePicker.Size = new Size(200, 23);
             DateOfBirthDateTimePicker.TabIndex = 4;
+            DateOfBirthDateTimePicker.ValueChanged += DateOfBirthDateTimePicker_ValueChanged;
             // 
             // ContactForm
             // 
