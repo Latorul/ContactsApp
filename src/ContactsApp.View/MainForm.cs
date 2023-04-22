@@ -60,6 +60,7 @@ public partial class MainForm : Form
                 MessageBoxButtons.OKCancel) == DialogResult.Cancel)
             return;
 
+        ClearSelectedContact();
         _project.Contacts.RemoveAt(index);
     }
 
@@ -81,7 +82,6 @@ public partial class MainForm : Form
     /// </summary>
     private void ClearSelectedContact()
     {
-        //todo очищать контакт при удалении всех
         FullNameTextBox.Text = string.Empty;
         EmailTextBox.Text = string.Empty;
         PhoneNumberTextBox.Text = string.Empty;
