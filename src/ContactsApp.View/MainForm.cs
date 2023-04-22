@@ -12,7 +12,7 @@ public partial class MainForm : Form
 
 
     /// <summary>
-    /// Конструктор класса.
+    /// Конструктор класса <see cref="MainForm"/>.
     /// </summary>
     public MainForm()
     {

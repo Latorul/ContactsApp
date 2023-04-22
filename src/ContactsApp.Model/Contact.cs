@@ -133,7 +133,7 @@ public class Contact : ICloneable
     }
 
     /// <summary>
-    /// Конструктор класса <see cref="Contact"/>
+    /// Конструктор класса <see cref="Contact"/>.
     /// </summary>
     public Contact() : this("", "", "", DateTime.Today, "")
     {
