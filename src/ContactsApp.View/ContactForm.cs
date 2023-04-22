@@ -1,16 +1,44 @@
 ﻿namespace ContactsApp.View;
 
+/// <summary>
+/// Форма добавления и редактирования контакта <see cref="Contact"/>.
+/// </summary>
 public partial class ContactForm : Form
 {
+    /// <summary>
+    /// Сообщение об ошибке в ФИО.
+    /// </summary>
     private string _fullnameError = string.Empty;
+
+    /// <summary>
+    /// Сообщение об ошибке в электронной почте.
+    /// </summary>
     private string _emailError = string.Empty;
+
+    /// <summary>
+    /// Сообщение об ошибке в номере телефона.
+    /// </summary>
     private string _phoneNumberError = string.Empty;
+
+    /// <summary>
+    /// Сообщение об ошибке в дате рождения.
+    /// </summary>
     private string _dateOfBirthError = string.Empty;
+
+    /// <summary>
+    /// Сообщение об ошибке в ссылке на ВКонтакте.
+    /// </summary>
     private string _vkIdError = string.Empty;
 
-
+    /// <summary>
+    /// Добавляемый или редактируемый контакт.
+    /// </summary>
     private Contact _contact = new Contact();
 
+
+    /// <summary>
+    /// Конструктор класса <see cref="ContactForm"/>.
+    /// </summary>
     public ContactForm()
     {
         InitializeComponent();
@@ -24,6 +52,9 @@ public partial class ContactForm : Form
         UpdateForm();
     }
 
+    /// <summary>
+    /// Обновляет поля для заполнения контакта.
+    /// </summary>
     private void UpdateForm()
     {
         FullNameTextBox.Text = _contact.FullName;
@@ -33,7 +64,10 @@ public partial class ContactForm : Form
         VkIdTextBox.Text = _contact.VkId;
     }
 
-
+    /// <summary>
+    /// Проверяет присутствуют ли ошибки в заполнении полей контакта.
+    /// </summary>
+    /// <returns></returns>
     private bool CheckFormOnErrors()
     {
         string erroeMessage = string.Empty;
@@ -53,6 +87,11 @@ public partial class ContactForm : Form
         return true;
     }
 
+    /// <summary>
+    /// Добавляет строку для отображения её в сообщении об ошибке.
+    /// </summary>
+    /// <param name="errorMessage">Строка с сообщением об ошибке.</param>
+    /// <returns></returns>
     private string AddToErrorMessage(string errorMessage)
     {
         if (errorMessage != string.Empty)
@@ -63,14 +102,17 @@ public partial class ContactForm : Form
         return string.Empty;
     }
 
+    /// <summary>
+    /// Присваивает введённое значение в поле FullName. 
+    /// </summary>
     private void FullNameTextBox_TextChanged(object sender, EventArgs e)
     {
         try
         {
-            FullNameTextBox.BackColor = Color.White;
             _contact.FullName = FullNameTextBox.Text;
 
             _fullnameError = string.Empty;
+            FullNameTextBox.BackColor = Color.White;
         }
         catch (ArgumentException ex)
         {
@@ -80,14 +122,17 @@ public partial class ContactForm : Form
         }
     }
 
+    /// <summary>
+    /// Присваивает введённое значение в поле Email. 
+    /// </summary>
     private void EmailTextBox_TextChanged(object sender, EventArgs e)
     {
         try
         {
-            EmailTextBox.BackColor = Color.White;
             _contact.Email = EmailTextBox.Text;
 
             _emailError = string.Empty;
+            EmailTextBox.BackColor = Color.White;
         }
         catch (ArgumentException ex)
         {
@@ -97,14 +142,17 @@ public partial class ContactForm : Form
         }
     }
 
+    /// <summary>
+    /// Присваивает введённое значение в поле PhoneNumber. 
+    /// </summary>
     private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
     {
         try
         {
-            PhoneNumberTextBox.BackColor = Color.White;
             _contact.PhoneNumber = PhoneNumberTextBox.Text;
 
             _phoneNumberError = string.Empty;
+            PhoneNumberTextBox.BackColor = Color.White;
         }
         catch (ArgumentException ex)
         {
@@ -114,6 +162,9 @@ public partial class ContactForm : Form
         }
     }
 
+    /// <summary>
+    /// Присваивает введённое значение в поле DateOfBirth. 
+    /// </summary>
     private void DateOfBirthDateTimePicker_ValueChanged(object sender, EventArgs e)
     {
         try
@@ -128,14 +179,17 @@ public partial class ContactForm : Form
         }
     }
 
+    /// <summary>
+    /// Присваивает введённое значение в поле VkId. 
+    /// </summary>
     private void VkIdTextBox_TextChanged(object sender, EventArgs e)
     {
         try
         {
-            VkIdTextBox.BackColor = Color.White;
             _contact.VkId = VkIdTextBox.Text;
 
             _vkIdError = string.Empty;
+            VkIdTextBox.BackColor = Color.White;
         }
         catch (ArgumentException ex)
         {
@@ -145,7 +199,9 @@ public partial class ContactForm : Form
         }
     }
 
-
+    /// <summary>
+    /// Открывает окно About при нажатии клавиши F1.
+    /// </summary>
     private void ContactForm_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.F1)
@@ -155,23 +211,35 @@ public partial class ContactForm : Form
         }
     }
 
+    /// <summary>
+    /// Закрывает окно с сохранением изменений.
+    /// </summary>
     private void OkButton_Click(object sender, EventArgs e)
     {
         if (CheckFormOnErrors())
             Close();
     }
 
+    /// <summary>
+    /// Закрывает окно без сохранения изменений.
+    /// </summary>
     private void CancelButton_Click(object sender, EventArgs e)
     {
         Close();
     }
 
+    /// <summary>
+    /// При наведении курсора перекрашивает кнопку добавления фотографии в синий цвет.
+    /// </summary>
     private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
     {
         AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
         AddPhotoButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
     }
 
+    /// <summary>
+    /// При выведении курсора перекрашивает кнопку добавления фотографии в белый цвет.
+    /// </summary>
     private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
     {
         AddPhotoButton.Image = Properties.Resources.add_photo_32x32_grey;
