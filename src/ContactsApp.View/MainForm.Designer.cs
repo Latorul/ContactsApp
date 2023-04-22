@@ -36,7 +36,7 @@
             BirthdayNotifyLabel = new Label();
             CloseNotifyPictureBox = new PictureBox();
             NotifyPictureBox = new PictureBox();
-            VkTextBox = new TextBox();
+            VkIdTextBox = new TextBox();
             VkLabel = new Label();
             DateOfBirthLabel = new Label();
             DateOfBirthTextBox = new TextBox();
@@ -86,7 +86,7 @@
             // ContactPanel
             // 
             ContactPanel.Controls.Add(NotifyPanel);
-            ContactPanel.Controls.Add(VkTextBox);
+            ContactPanel.Controls.Add(VkIdTextBox);
             ContactPanel.Controls.Add(VkLabel);
             ContactPanel.Controls.Add(DateOfBirthLabel);
             ContactPanel.Controls.Add(DateOfBirthTextBox);
@@ -160,14 +160,14 @@
             NotifyPictureBox.TabIndex = 0;
             NotifyPictureBox.TabStop = false;
             // 
-            // VkTextBox
+            // VkIdTextBox
             // 
-            VkTextBox.Location = new Point(109, 240);
-            VkTextBox.Name = "VkTextBox";
-            VkTextBox.Size = new Size(200, 23);
-            VkTextBox.TabIndex = 7;
-            VkTextBox.Text = "https://vk.com/";
-            VkTextBox.KeyDown += VkTextBox_KeyDown;
+            VkIdTextBox.Location = new Point(109, 240);
+            VkIdTextBox.Name = "VkIdTextBox";
+            VkIdTextBox.Size = new Size(200, 23);
+            VkIdTextBox.TabIndex = 7;
+            VkIdTextBox.Text = "https://vk.com/";
+            VkIdTextBox.KeyDown += VkIdTextBox_KeyDown;
             // 
             // VkLabel
             // 
@@ -416,7 +416,7 @@
         private PictureBox NotifyPictureBox;
         private PictureBox ProfilePictureBox;
         private TextBox SearchTextBox;
-        private TextBox VkTextBox;
+        private TextBox VkIdTextBox;
         private TextBox PhoneNumberTextBox;
         private TextBox EmailTextBox;
         private TextBox DateOfBirthTextBox;

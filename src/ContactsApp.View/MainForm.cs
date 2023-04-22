@@ -10,7 +10,7 @@ public partial class MainForm : Form
     /// </summary>
     private readonly Project _project = new Project();
 
-    
+
     /// <summary>
     /// Конструктор класса.
     /// </summary>
@@ -73,7 +73,7 @@ public partial class MainForm : Form
         EmailTextBox.Text = _project.Contacts[index].Email;
         PhoneNumberTextBox.Text = _project.Contacts[index].PhoneNumber;
         DateOfBirthTextBox.Text = _project.Contacts[index].DateOfBirth.ToString();
-        VkTextBox.Text = _project.Contacts[index].VkId;
+        VkIdTextBox.Text = _project.Contacts[index].VkId;
     }
 
     /// <summary>
@@ -86,7 +86,7 @@ public partial class MainForm : Form
         EmailTextBox.Text = string.Empty;
         PhoneNumberTextBox.Text = string.Empty;
         DateOfBirthTextBox.Text = string.Empty;
-        VkTextBox.Text = string.Empty;
+        VkIdTextBox.Text = string.Empty;
     }
 
     /// <summary>
@@ -106,6 +106,7 @@ public partial class MainForm : Form
     private void MainForm_Shown(object sender, EventArgs e)
     {
         UpdateListBox();
+        ClearSelectedContact();
     }
 
     /// <summary>
@@ -122,7 +123,7 @@ public partial class MainForm : Form
     }
 
     //Обработка нажатий на кнопки
-    
+
     /// <summary>
     /// Обрабатывает нажатие кнопки добавления контакта. 
     /// </summary>
@@ -143,7 +144,7 @@ public partial class MainForm : Form
     {
         var form = new ContactForm();
         form.ShowDialog();
-    }   
+    }
 
     /// <summary>
     /// Обрабатывает нажатие кнопки удаления контакта. 
@@ -227,12 +228,12 @@ public partial class MainForm : Form
             e.SuppressKeyPress = true;
         }
     }
-    
+
     /// <summary>
-    /// Запрещает редактирования текста в поле VkTextBox.
+    /// Запрещает редактирования текста в поле VkIdTextBox.
     /// Исключения: сочетание клавиш Ctrl + C и Ctrl + A.  
     /// </summary>
-    private void VkTextBox_KeyDown(object sender, KeyEventArgs e)
+    private void VkIdTextBox_KeyDown(object sender, KeyEventArgs e)
     {
         if (!(e.Control && e.KeyCode == Keys.C) &&
             !(e.Control && e.KeyCode == Keys.A))
@@ -260,7 +261,7 @@ public partial class MainForm : Form
         EditContactButton.Image = Properties.Resources.edit_contact_32x32;
         EditContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
     }
-    
+
     /// <summary>
     /// При наведении курсора перекрашивает кнопку удаления контакта в красный цвет.
     /// </summary>
@@ -271,7 +272,7 @@ public partial class MainForm : Form
     }
 
     //Смена цвета при выведении курсора с кнопки
-    
+
     /// <summary>
     /// При выведении курсора перекрашивает кнопку добавления контакта в белый цвет.
     /// </summary>
@@ -280,7 +281,7 @@ public partial class MainForm : Form
         AddContactButton.Image = Properties.Resources.add_contact_32x32_grey;
         AddContactButton.BackColor = Color.White;
     }
-    
+
     /// <summary>
     /// При выведении курсора перекрашивает кнопку редактирования контакта в белый цвет.
     /// </summary>

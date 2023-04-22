@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            VkTextBox = new TextBox();
+            VkIdTextBox = new TextBox();
             VkLabel = new Label();
             DateOfBirthLabel = new Label();
             PhoneNumberTextBox = new TextBox();
@@ -48,12 +48,13 @@
             ((System.ComponentModel.ISupportInitialize)AddPhotoButton).BeginInit();
             SuspendLayout();
             // 
-            // VkTextBox
+            // VkIdTextBox
             // 
-            VkTextBox.Location = new Point(118, 249);
-            VkTextBox.Name = "VkTextBox";
-            VkTextBox.Size = new Size(200, 23);
-            VkTextBox.TabIndex = 5;
+            VkIdTextBox.Location = new Point(118, 249);
+            VkIdTextBox.Name = "VkIdTextBox";
+            VkIdTextBox.Size = new Size(200, 23);
+            VkIdTextBox.TabIndex = 5;
+            VkIdTextBox.TextChanged += VkIdTextBox_TextChanged;
             // 
             // VkLabel
             // 
@@ -197,7 +198,7 @@
             Controls.Add(DateOfBirthDateTimePicker);
             Controls.Add(AddPhotoButton);
             Controls.Add(ButtonsPanel);
-            Controls.Add(VkTextBox);
+            Controls.Add(VkIdTextBox);
             Controls.Add(VkLabel);
             Controls.Add(DateOfBirthLabel);
             Controls.Add(PhoneNumberTextBox);
@@ -231,7 +232,7 @@
         private TextBox FullNameTextBox;
         private TextBox EmailTextBox;
         private TextBox PhoneNumberTextBox;
-        private TextBox VkTextBox;
+        private TextBox VkIdTextBox;
         private DateTimePicker DateOfBirthDateTimePicker;
         private Label VkLabel;
         private Label DateOfBirthLabel;
