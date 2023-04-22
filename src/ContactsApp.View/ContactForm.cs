@@ -67,7 +67,10 @@ public partial class ContactForm : Form
     /// <summary>
     /// Проверяет присутствуют ли ошибки в заполнении полей контакта.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>
+    ///     <b>true</b>: если нет ошибок при вводе данных. <para/>
+    ///     <b>false</b>: если есть ошибки при вводе данных.
+    /// </returns>
     private bool CheckFormOnErrors()
     {
         string erroeMessage = string.Empty;
@@ -91,7 +94,10 @@ public partial class ContactForm : Form
     /// Добавляет строку для отображения её в сообщении об ошибке.
     /// </summary>
     /// <param name="errorMessage">Строка с сообщением об ошибке.</param>
-    /// <returns></returns>
+    /// <returns>
+    ///     Пустую строку, если сообщения об ошибке нет. <para/>
+    ///     Строку с сообщением и переходом на новую строку.
+    /// </returns>
     private string AddToErrorMessage(string errorMessage)
     {
         if (errorMessage != string.Empty)
