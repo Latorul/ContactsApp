@@ -43,7 +43,7 @@
             OkButton = new Button();
             AddPhotoButton = new PictureBox();
             DateOfBirthDateTimePicker = new DateTimePicker();
-            CountriesComboBox = new ComboBox();
+            comboBox1 = new CountrySelector();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).BeginInit();
             ButtonsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AddPhotoButton).BeginInit();
@@ -194,13 +194,15 @@
             DateOfBirthDateTimePicker.TabIndex = 4;
             DateOfBirthDateTimePicker.ValueChanged += DateOfBirthDateTimePicker_ValueChanged;
             // 
-            // CountriesComboBox
+            // comboBox1
             // 
-            CountriesComboBox.FormattingEnabled = true;
-            CountriesComboBox.Location = new Point(324, 141);
-            CountriesComboBox.Name = "CountriesComboBox";
-            CountriesComboBox.Size = new Size(194, 23);
-            CountriesComboBox.TabIndex = 25;
+            comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(372, 143);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(47, 24);
+            comboBox1.TabIndex = 25;
             // 
             // ContactForm
             // 
@@ -208,7 +210,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(530, 379);
-            Controls.Add(CountriesComboBox);
+            Controls.Add(comboBox1);
             Controls.Add(DateOfBirthDateTimePicker);
             Controls.Add(AddPhotoButton);
             Controls.Add(ButtonsPanel);
@@ -254,6 +256,6 @@
         private Label PhoneNumberLabel;
         private Label EmailLabel;
         private Label FullNameLabel;
-        private ComboBox CountriesComboBox;
+        private CountrySelector comboBox1;
     }
 }
