@@ -63,6 +63,16 @@ namespace ContactsApp.View.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AD {
+            get {
+                object obj = ResourceManager.GetObject("AD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_contact_32x32 {
             get {
                 object obj = ResourceManager.GetObject("add_contact_32x32", resourceCulture);
@@ -96,6 +106,26 @@ namespace ContactsApp.View.Properties {
         internal static System.Drawing.Bitmap add_photo_32x32_grey {
             get {
                 object obj = ResourceManager.GetObject("add_photo_32x32_grey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AE {
+            get {
+                object obj = ResourceManager.GetObject("AE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AF {
+            get {
+                object obj = ResourceManager.GetObject("AF", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

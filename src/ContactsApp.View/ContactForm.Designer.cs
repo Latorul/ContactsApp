@@ -43,6 +43,7 @@
             OkButton = new Button();
             AddPhotoButton = new PictureBox();
             DateOfBirthDateTimePicker = new DateTimePicker();
+            CountriesComboBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).BeginInit();
             ButtonsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AddPhotoButton).BeginInit();
@@ -193,12 +194,21 @@
             DateOfBirthDateTimePicker.TabIndex = 4;
             DateOfBirthDateTimePicker.ValueChanged += DateOfBirthDateTimePicker_ValueChanged;
             // 
+            // CountriesComboBox
+            // 
+            CountriesComboBox.FormattingEnabled = true;
+            CountriesComboBox.Location = new Point(324, 141);
+            CountriesComboBox.Name = "CountriesComboBox";
+            CountriesComboBox.Size = new Size(194, 23);
+            CountriesComboBox.TabIndex = 25;
+            // 
             // ContactForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(530, 379);
+            Controls.Add(CountriesComboBox);
             Controls.Add(DateOfBirthDateTimePicker);
             Controls.Add(AddPhotoButton);
             Controls.Add(ButtonsPanel);
@@ -218,6 +228,7 @@
             Name = "ContactForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
+            Shown += ContactForm_Shown;
             KeyDown += ContactForm_KeyDown;
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).EndInit();
             ButtonsPanel.ResumeLayout(false);
@@ -243,5 +254,6 @@
         private Label PhoneNumberLabel;
         private Label EmailLabel;
         private Label FullNameLabel;
+        private ComboBox CountriesComboBox;
     }
 }
