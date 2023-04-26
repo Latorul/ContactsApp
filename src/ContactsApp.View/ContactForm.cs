@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace ContactsApp.View;
@@ -56,6 +57,20 @@ public partial class ContactForm : Form
         _contact.VkId = "VkId";
 
         UpdateForm();
+
+
+
+        var json = System.Text.Encoding.Default.GetString(Properties.Resources.country);
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+        var dictionary = JsonSerializer.Deserialize<Dictionary<string, string>>(json, options);
+
+        foreach (var item in dictionary)
+        {
+            comboBox1.Items.Add(new DropDownItem(item.Key, item.Value));
+        }
     }
 
     /// <summary>
@@ -262,9 +277,5 @@ public partial class ContactForm : Form
     {
         comboBox1.Width = 46;
         comboBox1.DropDownWidth = 242;
-
-        comboBox1.Items.Add(new DropDownItem("AD", "Andorra"));
-        comboBox1.Items.Add(new DropDownItem("AE", "United Arab Emirates"));
-        comboBox1.Items.Add(new DropDownItem("AF", "Afghanistan"));
     }
 }
