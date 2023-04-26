@@ -35,6 +35,26 @@ public partial class ContactForm : Form
     /// </summary>
     private Contact _contact = new Contact();
 
+    public Contact Contact
+    {
+        get
+        {
+            return _contact;
+        }
+        set
+        {
+            _contact = value;
+            if (_contact != null)
+            {
+                FullNameTextBox.Text = _contact.FullName;
+                EmailTextBox.Text = _contact.Email;
+                PhoneNumberTextBox.Text = _contact.PhoneNumber;
+                DateOfBirthDateTimePicker.Value = _contact.DateOfBirth;
+                VkIdTextBox.Text = _contact.VkId;
+            }
+        }
+    }
+
 
     /// <summary>
     /// Конструктор класса <see cref="ContactForm"/>.
