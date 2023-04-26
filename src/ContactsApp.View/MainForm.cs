@@ -17,20 +17,96 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+        GenerateContacts();
     }
 
     /// <summary>
-    /// Добавляет новый контакт.
+    /// Добавляет контакты для проверки работоспособности программы.
+    /// </summary>
+    private void GenerateContacts()
+    {
+        _project.Contacts.Add(
+            new Contact()
+            {
+                FullName = "1",
+                Email = "1",
+                PhoneNumber = "1",
+                DateOfBirth = DateTime.Today,
+                VkId = "1"
+            });
+        _project.Contacts.Add(
+            new Contact()
+            {
+                FullName = "2",
+                Email = "2",
+                PhoneNumber = "2",
+                DateOfBirth = DateTime.Today,
+                VkId = "2"
+            });
+        _project.Contacts.Add(
+            new Contact()
+            {
+                FullName = "3",
+                Email = "3",
+                PhoneNumber = "3",
+                DateOfBirth = DateTime.Today,
+                VkId = "3"
+            });
+        _project.Contacts.Add(
+            new Contact()
+            {
+                FullName = "4",
+                Email = "4",
+                PhoneNumber = "4",
+                DateOfBirth = DateTime.Today,
+                VkId = "4"
+            });
+        _project.Contacts.Add(
+            new Contact()
+            {
+                FullName = "5",
+                Email = "5",
+                PhoneNumber = "5",
+                DateOfBirth = DateTime.Today,
+                VkId = "5"
+            });
+    }
+
+    /// <summary>
+    /// Добавляет новый контакт с введёнными пользователем данными.
     /// </summary>
     private void AddContact()
     {
-        _project.Contacts.Add(new Contact(
-            "fullName",
-            "email",
-            "1234567890",
-            DateTime.Today,
-            "vkId"
-        ));
+        var form = new ContactForm();
+        form.Contact = new Contact();
+        if (form.ShowDialog() == DialogResult.OK)
+        {
+            var updatedContact = form.Contact;
+            _project.Contacts.Add(updatedContact);
+        }
+    }
+
+    /// <summary>
+    /// Изменяет данные выбранного контакта на введённые пользователем.
+    /// </summary>
+    /// <param name="index">Индекс выбранного контакта в ContactsListBox.</param>
+    private void EditContact(int index)
+    {
+        var selectedContact = _project.Contacts[index];
+
+        var form = new ContactForm();
+        form.Contact = selectedContact;
+        if (form.ShowDialog() == DialogResult.OK)
+        {
+            var updatedContact = form.Contact;
+            ContactsListBox.Items.RemoveAt(index);
+            _project.Contacts.RemoveAt(index);
+            _project.Contacts.Insert(index, updatedContact);
+        }
+        else
+        {
+            form.Contact = selectedContact;
+        }
     }
 
     /// <summary>
@@ -129,12 +205,8 @@ public partial class MainForm : Form
     /// </summary>
     private void AddContactButton_Click(object sender, EventArgs e)
     {
-        var form = new ContactForm();
-        if (form.ShowDialog() == DialogResult.OK)
-        {
-            AddContact();
-            UpdateListBox();
-        }
+        AddContact();
+        UpdateListBox();
     }
 
     /// <summary>
@@ -142,8 +214,11 @@ public partial class MainForm : Form
     /// </summary>
     private void EditContactButton_Click(object sender, EventArgs e)
     {
-        var form = new ContactForm();
-        form.ShowDialog();
+        if (ContactsListBox.SelectedIndex == -1)
+            return;
+
+        EditContact(ContactsListBox.SelectedIndex);
+        UpdateListBox();
     }
 
     /// <summary>

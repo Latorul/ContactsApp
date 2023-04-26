@@ -43,7 +43,7 @@ public partial class ContactForm : Form
         }
         set
         {
-            _contact = value;
+            _contact = (Contact)value.Clone();
             if (_contact != null)
             {
                 FullNameTextBox.Text = _contact.FullName;
