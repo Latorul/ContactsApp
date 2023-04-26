@@ -8,7 +8,7 @@ public partial class MainForm : Form
     /// <summary>
     /// Хранит список всех контактов. 
     /// </summary>
-    private readonly Project _project = new Project();
+    private readonly Project _project;
 
 
     /// <summary>
@@ -17,6 +17,8 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+        
+        _project = ProjectManager.LoadProject();
         GenerateContacts();
     }
 
@@ -190,6 +192,8 @@ public partial class MainForm : Form
     /// </summary>
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
+        ProjectManager.SaveProject(_project);
+        
         if (MessageBox.Show("Do you really want to exit?",
                 "Close?",
                 MessageBoxButtons.OKCancel) == DialogResult.Cancel)
@@ -207,6 +211,7 @@ public partial class MainForm : Form
     {
         AddContact();
         UpdateListBox();
+        ProjectManager.SaveProject(_project);
     }
 
     /// <summary>
@@ -219,6 +224,7 @@ public partial class MainForm : Form
 
         EditContact(ContactsListBox.SelectedIndex);
         UpdateListBox();
+        ProjectManager.SaveProject(_project);
     }
 
     /// <summary>
@@ -228,6 +234,7 @@ public partial class MainForm : Form
     {
         RemoveContact(ContactsListBox.SelectedIndex);
         UpdateListBox();
+        ProjectManager.SaveProject(_project);
     }
 
     /// <summary>
