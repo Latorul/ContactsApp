@@ -3,7 +3,7 @@
 /// <summary>
 /// Класс для работы с файлами.
 /// </summary>
-public class ProjectManager
+public static class ProjectManager
 {
     /// <summary>
     /// Путь к каталогу AppData.
@@ -30,7 +30,7 @@ public class ProjectManager
     /// <summary>
     /// Сохраняет все контакты из <see cref="Project"/> в файл.
     /// </summary>
-    public void SaveProject(Project project)
+    public static void SaveProject(Project project)
     {
         try
         {
@@ -50,7 +50,7 @@ public class ProjectManager
     /// <summary>
     /// Загружает из файла список контактов в <see cref="Project"/>.
     /// </summary>
-    public Project LoadProject()
+    public static Project LoadProject()
     {
         try
         {
