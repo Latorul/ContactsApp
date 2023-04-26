@@ -232,7 +232,7 @@ public partial class ContactForm : Form
     {
         if (e.KeyCode == Keys.F1)
         {
-            var form = new AboutForm();
+            AboutForm form = new AboutForm();
             form.ShowDialog();
         }
     }

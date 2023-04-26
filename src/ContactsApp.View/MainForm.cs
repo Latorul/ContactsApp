@@ -77,11 +77,11 @@ public partial class MainForm : Form
     /// </summary>
     private void AddContact()
     {
-        var form = new ContactForm();
+        ContactForm form = new ContactForm();
         form.Contact = new Contact();
         if (form.ShowDialog() == DialogResult.OK)
         {
-            var updatedContact = form.Contact;
+            Contact updatedContact = form.Contact;
             _project.Contacts.Add(updatedContact);
         }
     }
@@ -92,13 +92,13 @@ public partial class MainForm : Form
     /// <param name="index">Индекс выбранного контакта в ContactsListBox.</param>
     private void EditContact(int index)
     {
-        var selectedContact = _project.Contacts[index];
+        Contact selectedContact = _project.Contacts[index];
 
-        var form = new ContactForm();
+        ContactForm form = new ContactForm();
         form.Contact = selectedContact;
         if (form.ShowDialog() == DialogResult.OK)
         {
-            var updatedContact = form.Contact;
+            Contact updatedContact = form.Contact;
             ContactsListBox.Items.RemoveAt(index);
             _project.Contacts.RemoveAt(index);
             _project.Contacts.Insert(index, updatedContact);
@@ -247,7 +247,7 @@ public partial class MainForm : Form
     {
         if (e.KeyCode == Keys.F1)
         {
-            var form = new AboutForm();
+            AboutForm form = new AboutForm();
             form.ShowDialog();
         }
     }
