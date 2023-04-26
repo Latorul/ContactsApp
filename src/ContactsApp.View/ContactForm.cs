@@ -79,17 +79,17 @@ public partial class ContactForm : Form
     /// </returns>
     private bool CheckFormOnErrors()
     {
-        string erroeMessage = string.Empty;
+        string errorMessage = string.Empty;
 
-        erroeMessage += AddToErrorMessage(_fullnameError);
-        erroeMessage += AddToErrorMessage(_emailError);
-        erroeMessage += AddToErrorMessage(_phoneNumberError);
-        erroeMessage += AddToErrorMessage(_dateOfBirthError);
-        erroeMessage += AddToErrorMessage(_vkIdError);
+        errorMessage += AddToErrorMessage(_fullnameError);
+        errorMessage += AddToErrorMessage(_emailError);
+        errorMessage += AddToErrorMessage(_phoneNumberError);
+        errorMessage += AddToErrorMessage(_dateOfBirthError);
+        errorMessage += AddToErrorMessage(_vkIdError);
 
-        if (erroeMessage != string.Empty)
+        if (errorMessage != string.Empty)
         {
-            MessageBox.Show(erroeMessage);
+            MessageBox.Show(errorMessage);
             return false;
         }
 
