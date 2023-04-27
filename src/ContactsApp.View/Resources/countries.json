@@ -1,0 +1,1502 @@
+[
+  {
+    "Country": "Afghanistan",
+    "CountryLocal": "\u202B\u0627\u0641\u063A\u0627\u0646\u0633\u062A\u0627\u0646\u202C\u200E",
+    "Code": "AF",
+    "PhoneCode": "\u002B93"
+  },
+  {
+    "Country": "\u00C5land Islands",
+    "CountryLocal": "",
+    "Code": "AX",
+    "PhoneCode": "\u002B358"
+  },
+  {
+    "Country": "Albania",
+    "CountryLocal": "Shqip\u00EBri",
+    "Code": "AL",
+    "PhoneCode": "\u002B355"
+  },
+  {
+    "Country": "Algeria",
+    "CountryLocal": "\u202B\u0627\u0644\u062C\u0632\u0627\u0626\u0631\u202C\u200E",
+    "Code": "DZ",
+    "PhoneCode": "\u002B213"
+  },
+  {
+    "Country": "American Samoa",
+    "CountryLocal": "",
+    "Code": "AS",
+    "PhoneCode": "\u002B1684"
+  },
+  {
+    "Country": "Andorra",
+    "CountryLocal": "",
+    "Code": "AD",
+    "PhoneCode": "\u002B376"
+  },
+  {
+    "Country": "Angola",
+    "CountryLocal": "",
+    "Code": "AO",
+    "PhoneCode": "\u002B244"
+  },
+  {
+    "Country": "Anguilla",
+    "CountryLocal": "",
+    "Code": "AI",
+    "PhoneCode": "\u002B1264"
+  },
+  {
+    "Country": "Antarctica",
+    "CountryLocal": "",
+    "Code": "AQ",
+    "PhoneCode": "\u002B672"
+  },
+  {
+    "Country": "Antigua and Barbuda",
+    "CountryLocal": "",
+    "Code": "AG",
+    "PhoneCode": "\u002B1268"
+  },
+  {
+    "Country": "Argentina",
+    "CountryLocal": "",
+    "Code": "AR",
+    "PhoneCode": "\u002B54"
+  },
+  {
+    "Country": "Armenia",
+    "CountryLocal": "\u0540\u0561\u0575\u0561\u057D\u057F\u0561\u0576",
+    "Code": "AM",
+    "PhoneCode": "\u002B374"
+  },
+  {
+    "Country": "Aruba",
+    "CountryLocal": "",
+    "Code": "AW",
+    "PhoneCode": "\u002B297"
+  },
+  {
+    "Country": "Australia",
+    "CountryLocal": "",
+    "Code": "AU",
+    "PhoneCode": "\u002B61"
+  },
+  {
+    "Country": "Austria",
+    "CountryLocal": "\u00D6sterreich",
+    "Code": "AT",
+    "PhoneCode": "\u002B43"
+  },
+  {
+    "Country": "Azerbaijan",
+    "CountryLocal": "Az\u0259rbaycan",
+    "Code": "AZ",
+    "PhoneCode": "\u002B994"
+  },
+  {
+    "Country": "Bahamas",
+    "CountryLocal": "",
+    "Code": "BS",
+    "PhoneCode": "\u002B1242"
+  },
+  {
+    "Country": "Bahrain",
+    "CountryLocal": "\u202B\u0627\u0644\u0628\u062D\u0631\u064A\u0646\u202C\u200E",
+    "Code": "BH",
+    "PhoneCode": "\u002B973"
+  },
+  {
+    "Country": "Bangladesh",
+    "CountryLocal": "\u09AC\u09BE\u0982\u09B2\u09BE\u09A6\u09C7\u09B6",
+    "Code": "BD",
+    "PhoneCode": "\u002B880"
+  },
+  {
+    "Country": "Barbados",
+    "CountryLocal": "",
+    "Code": "BB",
+    "PhoneCode": "\u002B1246"
+  },
+  {
+    "Country": "Belarus",
+    "CountryLocal": "\u0411\u0435\u043B\u0430\u0440\u0443\u0441\u044C",
+    "Code": "BY",
+    "PhoneCode": "\u002B375"
+  },
+  {
+    "Country": "Belgium",
+    "CountryLocal": "Belgi\u00EB",
+    "Code": "BE",
+    "PhoneCode": "\u002B32"
+  },
+  {
+    "Country": "Belize",
+    "CountryLocal": "",
+    "Code": "BZ",
+    "PhoneCode": "\u002B501"
+  },
+  {
+    "Country": "Benin",
+    "CountryLocal": "B\u00E9nin",
+    "Code": "BJ",
+    "PhoneCode": "\u002B229"
+  },
+  {
+    "Country": "Bermuda",
+    "CountryLocal": "",
+    "Code": "BM",
+    "PhoneCode": "\u002B1441"
+  },
+  {
+    "Country": "Bhutan",
+    "CountryLocal": "\u0F60\u0F56\u0FB2\u0F74\u0F42",
+    "Code": "BT",
+    "PhoneCode": "\u002B975"
+  },
+  {
+    "Country": "Bolivia",
+    "CountryLocal": "",
+    "Code": "BO",
+    "PhoneCode": "\u002B591"
+  },
+  {
+    "Country": "Bonaire, Sint Eustatius and Saba",
+    "CountryLocal": "",
+    "Code": "BQ",
+    "PhoneCode": "\u002B599"
+  },
+  {
+    "Country": "Bosnia and Herzegovina",
+    "CountryLocal": "\u0411\u043E\u0441\u043D\u0430 \u0438 \u0425\u0435\u0440\u0446\u0435\u0433\u043E\u0432\u0438\u043D\u0430",
+    "Code": "BA",
+    "PhoneCode": "\u002B387"
+  },
+  {
+    "Country": "Botswana",
+    "CountryLocal": "",
+    "Code": "BW",
+    "PhoneCode": "\u002B267"
+  },
+  {
+    "Country": "Bouvet Island",
+    "CountryLocal": "",
+    "Code": "BV",
+    "PhoneCode": "\u002B47"
+  },
+  {
+    "Country": "Brazil",
+    "CountryLocal": "Brasil",
+    "Code": "BR",
+    "PhoneCode": "\u002B55"
+  },
+  {
+    "Country": "British Indian Ocean Territory",
+    "CountryLocal": "",
+    "Code": "IO",
+    "PhoneCode": "\u002B246"
+  },
+  {
+    "Country": "British Virgin Islands",
+    "CountryLocal": "",
+    "Code": "VG",
+    "PhoneCode": "\u002B1284"
+  },
+  {
+    "Country": "Brunei",
+    "CountryLocal": "",
+    "Code": "BN",
+    "PhoneCode": "\u002B673"
+  },
+  {
+    "Country": "Bulgaria",
+    "CountryLocal": "\u0411\u044A\u043B\u0433\u0430\u0440\u0438\u044F",
+    "Code": "BG",
+    "PhoneCode": "\u002B359"
+  },
+  {
+    "Country": "Burkina Faso",
+    "CountryLocal": "",
+    "Code": "BF",
+    "PhoneCode": "\u002B226"
+  },
+  {
+    "Country": "Burundi",
+    "CountryLocal": "Uburundi",
+    "Code": "BI",
+    "PhoneCode": "\u002B257"
+  },
+  {
+    "Country": "Cambodia",
+    "CountryLocal": "\u1780\u1798\u17D2\u1796\u17BB\u1787\u17B6",
+    "Code": "KH",
+    "PhoneCode": "\u002B855"
+  },
+  {
+    "Country": "Cameroon",
+    "CountryLocal": "Cameroun",
+    "Code": "CM",
+    "PhoneCode": "\u002B237"
+  },
+  {
+    "Country": "Canada",
+    "CountryLocal": "",
+    "Code": "CA",
+    "PhoneCode": "\u002B1"
+  },
+  {
+    "Country": "Cape Verde",
+    "CountryLocal": "Kabu Verdi",
+    "Code": "CV",
+    "PhoneCode": "\u002B238"
+  },
+  {
+    "Country": "Cayman Islands",
+    "CountryLocal": "",
+    "Code": "KY",
+    "PhoneCode": "\u002B1345"
+  },
+  {
+    "Country": "Central African Republic",
+    "CountryLocal": "R\u00E9publique centrafricaine",
+    "Code": "CF",
+    "PhoneCode": "\u002B236"
+  },
+  {
+    "Country": "Chad",
+    "CountryLocal": "Tchad",
+    "Code": "TD",
+    "PhoneCode": "\u002B235"
+  },
+  {
+    "Country": "Chile",
+    "CountryLocal": "",
+    "Code": "CL",
+    "PhoneCode": "\u002B56"
+  },
+  {
+    "Country": "China",
+    "CountryLocal": "\u4E2D\u56FD",
+    "Code": "CN",
+    "PhoneCode": "\u002B86"
+  },
+  {
+    "Country": "Christmas Island",
+    "CountryLocal": "",
+    "Code": "CX",
+    "PhoneCode": "\u002B61"
+  },
+  {
+    "Country": "Cocos (Keeling) Islands",
+    "CountryLocal": "",
+    "Code": "CC",
+    "PhoneCode": "\u002B61"
+  },
+  {
+    "Country": "Colombia",
+    "CountryLocal": "",
+    "Code": "CO",
+    "PhoneCode": "\u002B57"
+  },
+  {
+    "Country": "Comoros",
+    "CountryLocal": "\u202B\u062C\u0632\u0631 \u0627\u0644\u0642\u0645\u0631\u202C\u200E",
+    "Code": "KM",
+    "PhoneCode": "\u002B269"
+  },
+  {
+    "Country": "Congo (DRC)",
+    "CountryLocal": "Jamhuri ya Kisoemokrasia ya Kongo",
+    "Code": "CD",
+    "PhoneCode": "\u002B243"
+  },
+  {
+    "Country": "Congo (Republic)",
+    "CountryLocal": "Congo-Brazzaville",
+    "Code": "CG",
+    "PhoneCode": "\u002B242"
+  },
+  {
+    "Country": "Cook Islands",
+    "CountryLocal": "",
+    "Code": "CK",
+    "PhoneCode": "\u002B682"
+  },
+  {
+    "Country": "Costa Rica",
+    "CountryLocal": "",
+    "Code": "CR",
+    "PhoneCode": "\u002B506"
+  },
+  {
+    "Country": "C\u00F4te d\u2019Ivoire",
+    "CountryLocal": "",
+    "Code": "CI",
+    "PhoneCode": "\u002B225"
+  },
+  {
+    "Country": "Croatia",
+    "CountryLocal": "Hrvatska",
+    "Code": "HR",
+    "PhoneCode": "\u002B385"
+  },
+  {
+    "Country": "Cuba",
+    "CountryLocal": "",
+    "Code": "CU",
+    "PhoneCode": "\u002B53"
+  },
+  {
+    "Country": "Cura\u00E7ao",
+    "CountryLocal": "",
+    "Code": "CW",
+    "PhoneCode": "\u002B599"
+  },
+  {
+    "Country": "Cyprus",
+    "CountryLocal": "\u039A\u03CD\u03C0\u03C1\u03BF\u03C2",
+    "Code": "CY",
+    "PhoneCode": "\u002B357"
+  },
+  {
+    "Country": "Czech Republic",
+    "CountryLocal": "\u010Cesk\u00E1 republika",
+    "Code": "CZ",
+    "PhoneCode": "\u002B420"
+  },
+  {
+    "Country": "Denmark",
+    "CountryLocal": "Danmark",
+    "Code": "DK",
+    "PhoneCode": "\u002B45"
+  },
+  {
+    "Country": "Djibouti",
+    "CountryLocal": "",
+    "Code": "DJ",
+    "PhoneCode": "\u002B253"
+  },
+  {
+    "Country": "Dominica",
+    "CountryLocal": "",
+    "Code": "DM",
+    "PhoneCode": "\u002B1767"
+  },
+  {
+    "Country": "Dominican Republic",
+    "CountryLocal": "Rep\u00FAblica Dominicana",
+    "Code": "DO",
+    "PhoneCode": "\u002B1"
+  },
+  {
+    "Country": "Ecuador",
+    "CountryLocal": "",
+    "Code": "EC",
+    "PhoneCode": "\u002B593"
+  },
+  {
+    "Country": "Egypt",
+    "CountryLocal": "\u202B\u0645\u0635\u0631\u202C\u200E",
+    "Code": "EG",
+    "PhoneCode": "\u002B20"
+  },
+  {
+    "Country": "El Salvador",
+    "CountryLocal": "",
+    "Code": "SV",
+    "PhoneCode": "\u002B503"
+  },
+  {
+    "Country": "Equatorial Guinea",
+    "CountryLocal": "Guinea Ecuatorial",
+    "Code": "GQ",
+    "PhoneCode": "\u002B240"
+  },
+  {
+    "Country": "Eritrea",
+    "CountryLocal": "",
+    "Code": "ER",
+    "PhoneCode": "\u002B291"
+  },
+  {
+    "Country": "Estonia",
+    "CountryLocal": "Eesti",
+    "Code": "EE",
+    "PhoneCode": "\u002B372"
+  },
+  {
+    "Country": "Ethiopia",
+    "CountryLocal": "",
+    "Code": "ET",
+    "PhoneCode": "\u002B251"
+  },
+  {
+    "Country": "Falkland Islands",
+    "CountryLocal": "Islas Malvinas",
+    "Code": "FK",
+    "PhoneCode": "\u002B500"
+  },
+  {
+    "Country": "Faroe Islands",
+    "CountryLocal": "F\u00F8royar",
+    "Code": "FO",
+    "PhoneCode": "\u002B298"
+  },
+  {
+    "Country": "Fiji",
+    "CountryLocal": "",
+    "Code": "FJ",
+    "PhoneCode": "\u002B679"
+  },
+  {
+    "Country": "Finland",
+    "CountryLocal": "Suomi",
+    "Code": "FI",
+    "PhoneCode": "\u002B358"
+  },
+  {
+    "Country": "France",
+    "CountryLocal": "",
+    "Code": "FR",
+    "PhoneCode": "\u002B33"
+  },
+  {
+    "Country": "French Guiana",
+    "CountryLocal": "Guyane fran\u00E7aise",
+    "Code": "GF",
+    "PhoneCode": "\u002B594"
+  },
+  {
+    "Country": "French Southern Territories",
+    "CountryLocal": "Terres australes fran\u00E7aises",
+    "Code": "TF",
+    "PhoneCode": "\u002B262"
+  },
+  {
+    "Country": "French Polynesia",
+    "CountryLocal": "Polyn\u00E9sie fran\u00E7aise",
+    "Code": "PF",
+    "PhoneCode": "\u002B689"
+  },
+  {
+    "Country": "Gabon",
+    "CountryLocal": "",
+    "Code": "GA",
+    "PhoneCode": "\u002B241"
+  },
+  {
+    "Country": "Gambia",
+    "CountryLocal": "",
+    "Code": "GM",
+    "PhoneCode": "\u002B220"
+  },
+  {
+    "Country": "Georgia",
+    "CountryLocal": "\u10E1\u10D0\u10E5\u10D0\u10E0\u10D7\u10D5\u10D4\u10DA\u10DD",
+    "Code": "GE",
+    "PhoneCode": "\u002B995"
+  },
+  {
+    "Country": "Germany",
+    "CountryLocal": "Deutschland",
+    "Code": "DE",
+    "PhoneCode": "\u002B49"
+  },
+  {
+    "Country": "Ghana",
+    "CountryLocal": "Gaana",
+    "Code": "GH",
+    "PhoneCode": "\u002B233"
+  },
+  {
+    "Country": "Gibraltar",
+    "CountryLocal": "",
+    "Code": "GI",
+    "PhoneCode": "\u002B350"
+  },
+  {
+    "Country": "Greece",
+    "CountryLocal": "\u0395\u03BB\u03BB\u03AC\u03B4\u03B1",
+    "Code": "GR",
+    "PhoneCode": "\u002B30"
+  },
+  {
+    "Country": "Greenland",
+    "CountryLocal": "Kalaallit Nunaat",
+    "Code": "GL",
+    "PhoneCode": "\u002B299"
+  },
+  {
+    "Country": "Grenada",
+    "CountryLocal": "",
+    "Code": "GD",
+    "PhoneCode": "\u002B1473"
+  },
+  {
+    "Country": "Guadeloupe",
+    "CountryLocal": "",
+    "Code": "GP",
+    "PhoneCode": "\u002B590"
+  },
+  {
+    "Country": "Guam",
+    "CountryLocal": "",
+    "Code": "GU",
+    "PhoneCode": "\u002B1671"
+  },
+  {
+    "Country": "Guatemala",
+    "CountryLocal": "",
+    "Code": "GT",
+    "PhoneCode": "\u002B502"
+  },
+  {
+    "Country": "Guernsey",
+    "CountryLocal": "",
+    "Code": "GG",
+    "PhoneCode": "\u002B44"
+  },
+  {
+    "Country": "Guinea",
+    "CountryLocal": "Guin\u00E9e",
+    "Code": "GN",
+    "PhoneCode": "\u002B224"
+  },
+  {
+    "Country": "Guinea-Bissau",
+    "CountryLocal": "Guin\u00E9 Bissau",
+    "Code": "GW",
+    "PhoneCode": "\u002B245"
+  },
+  {
+    "Country": "Guyana",
+    "CountryLocal": "",
+    "Code": "GY",
+    "PhoneCode": "\u002B592"
+  },
+  {
+    "Country": "Haiti",
+    "CountryLocal": "",
+    "Code": "HT",
+    "PhoneCode": "\u002B509"
+  },
+  {
+    "Country": "Heard Island and McDonald Islands",
+    "CountryLocal": "",
+    "Code": "HM",
+    "PhoneCode": "\u002B672"
+  },
+  {
+    "Country": "Honduras",
+    "CountryLocal": "",
+    "Code": "HN",
+    "PhoneCode": "\u002B504"
+  },
+  {
+    "Country": "Hong Kong",
+    "CountryLocal": "\u9999\u6E2F",
+    "Code": "HK",
+    "PhoneCode": "\u002B852"
+  },
+  {
+    "Country": "Hungary",
+    "CountryLocal": "Magyarorsz\u00E1g",
+    "Code": "HU",
+    "PhoneCode": "\u002B36"
+  },
+  {
+    "Country": "Iceland",
+    "CountryLocal": "\u00CDsland",
+    "Code": "IS",
+    "PhoneCode": "\u002B354"
+  },
+  {
+    "Country": "India",
+    "CountryLocal": "\u092D\u093E\u0930\u0924",
+    "Code": "IN",
+    "PhoneCode": "\u002B91"
+  },
+  {
+    "Country": "Indonesia",
+    "CountryLocal": "",
+    "Code": "ID",
+    "PhoneCode": "\u002B62"
+  },
+  {
+    "Country": "Iran",
+    "CountryLocal": "\u202B\u0627\u06CC\u0631\u0627\u0646\u202C\u200E",
+    "Code": "IR",
+    "PhoneCode": "\u002B98"
+  },
+  {
+    "Country": "Iraq",
+    "CountryLocal": "\u202B\u0627\u0644\u0639\u0631\u0627\u0642\u202C\u200E",
+    "Code": "IQ",
+    "PhoneCode": "\u002B964"
+  },
+  {
+    "Country": "Ireland",
+    "CountryLocal": "",
+    "Code": "IE",
+    "PhoneCode": "\u002B353"
+  },
+  {
+    "Country": "Isle of Man",
+    "CountryLocal": "",
+    "Code": "IM",
+    "PhoneCode": "\u002B44"
+  },
+  {
+    "Country": "Israel",
+    "CountryLocal": "\u202B\u05D9\u05E9\u05E8\u05D0\u05DC\u202C\u200E",
+    "Code": "IL",
+    "PhoneCode": "\u002B972"
+  },
+  {
+    "Country": "Italy",
+    "CountryLocal": "Italia",
+    "Code": "IT",
+    "PhoneCode": "\u002B39"
+  },
+  {
+    "Country": "Jamaica",
+    "CountryLocal": "",
+    "Code": "JM",
+    "PhoneCode": "\u002B1"
+  },
+  {
+    "Country": "Japan",
+    "CountryLocal": "\u65E5\u672C",
+    "Code": "JP",
+    "PhoneCode": "\u002B81"
+  },
+  {
+    "Country": "Jersey",
+    "CountryLocal": "",
+    "Code": "JE",
+    "PhoneCode": "\u002B44"
+  },
+  {
+    "Country": "Jordan",
+    "CountryLocal": "\u202B\u0627\u0644\u0623\u0631\u062F\u0646\u202C\u200E",
+    "Code": "JO",
+    "PhoneCode": "\u002B962"
+  },
+  {
+    "Country": "Kazakhstan",
+    "CountryLocal": "\u041A\u0430\u0437\u0430\u0445\u0441\u0442\u0430\u043D",
+    "Code": "KZ",
+    "PhoneCode": "\u002B7"
+  },
+  {
+    "Country": "Kenya",
+    "CountryLocal": "",
+    "Code": "KE",
+    "PhoneCode": "\u002B254"
+  },
+  {
+    "Country": "Kiribati",
+    "CountryLocal": "",
+    "Code": "KI",
+    "PhoneCode": "\u002B686"
+  },
+  {
+    "Country": "Kosovo",
+    "CountryLocal": "",
+    "Code": "XK",
+    "PhoneCode": "\u002B383"
+  },
+  {
+    "Country": "Kuwait",
+    "CountryLocal": "\u202B\u0627\u0644\u0643\u0648\u064A\u062A\u202C\u200E",
+    "Code": "KW",
+    "PhoneCode": "\u002B965"
+  },
+  {
+    "Country": "Kyrgyzstan",
+    "CountryLocal": "\u041A\u044B\u0440\u0433\u044B\u0437\u0441\u0442\u0430\u043D",
+    "Code": "KG",
+    "PhoneCode": "\u002B996"
+  },
+  {
+    "Country": "Laos",
+    "CountryLocal": "\u0EA5\u0EB2\u0EA7",
+    "Code": "LA",
+    "PhoneCode": "\u002B856"
+  },
+  {
+    "Country": "Latvia",
+    "CountryLocal": "Latvija",
+    "Code": "LV",
+    "PhoneCode": "\u002B371"
+  },
+  {
+    "Country": "Lebanon",
+    "CountryLocal": "\u202B\u0644\u0628\u0646\u0627\u0646\u202C\u200E",
+    "Code": "LB",
+    "PhoneCode": "\u002B961"
+  },
+  {
+    "Country": "Lesotho",
+    "CountryLocal": "",
+    "Code": "LS",
+    "PhoneCode": "\u002B266"
+  },
+  {
+    "Country": "Liberia",
+    "CountryLocal": "",
+    "Code": "LR",
+    "PhoneCode": "\u002B231"
+  },
+  {
+    "Country": "Libya",
+    "CountryLocal": "\u202B\u0644\u064A\u0628\u064A\u0627\u202C\u200E",
+    "Code": "LY",
+    "PhoneCode": "\u002B218"
+  },
+  {
+    "Country": "Liechtenstein",
+    "CountryLocal": "",
+    "Code": "LI",
+    "PhoneCode": "\u002B423"
+  },
+  {
+    "Country": "Lithuania",
+    "CountryLocal": "Lietuva",
+    "Code": "LT",
+    "PhoneCode": "\u002B370"
+  },
+  {
+    "Country": "Luxembourg",
+    "CountryLocal": "",
+    "Code": "LU",
+    "PhoneCode": "\u002B352"
+  },
+  {
+    "Country": "Macau",
+    "CountryLocal": "\u6FB3\u9580",
+    "Code": "MO",
+    "PhoneCode": "\u002B853"
+  },
+  {
+    "Country": "North Macedonia (FYROM)",
+    "CountryLocal": "\u041C\u0430\u043A\u0435\u0434\u043E\u043D\u0438\u0458\u0430",
+    "Code": "MK",
+    "PhoneCode": "\u002B389"
+  },
+  {
+    "Country": "Madagascar",
+    "CountryLocal": "Madagasikara",
+    "Code": "MG",
+    "PhoneCode": "\u002B261"
+  },
+  {
+    "Country": "Malawi",
+    "CountryLocal": "",
+    "Code": "MW",
+    "PhoneCode": "\u002B265"
+  },
+  {
+    "Country": "Malaysia",
+    "CountryLocal": "",
+    "Code": "MY",
+    "PhoneCode": "\u002B60"
+  },
+  {
+    "Country": "Maldives",
+    "CountryLocal": "",
+    "Code": "MV",
+    "PhoneCode": "\u002B960"
+  },
+  {
+    "Country": "Mali",
+    "CountryLocal": "",
+    "Code": "ML",
+    "PhoneCode": "\u002B223"
+  },
+  {
+    "Country": "Malta",
+    "CountryLocal": "",
+    "Code": "MT",
+    "PhoneCode": "\u002B356"
+  },
+  {
+    "Country": "Marshall Islands",
+    "CountryLocal": "",
+    "Code": "MH",
+    "PhoneCode": "\u002B692"
+  },
+  {
+    "Country": "Martinique",
+    "CountryLocal": "",
+    "Code": "MQ",
+    "PhoneCode": "\u002B596"
+  },
+  {
+    "Country": "Mauritania",
+    "CountryLocal": "\u202B\u0645\u0648\u0631\u064A\u062A\u0627\u0646\u064A\u0627\u202C\u200E",
+    "Code": "MR",
+    "PhoneCode": "\u002B222"
+  },
+  {
+    "Country": "Mauritius",
+    "CountryLocal": "Moris",
+    "Code": "MU",
+    "PhoneCode": "\u002B230"
+  },
+  {
+    "Country": "Mayotte",
+    "CountryLocal": "",
+    "Code": "YT",
+    "PhoneCode": "\u002B262"
+  },
+  {
+    "Country": "Mexico",
+    "CountryLocal": "M\u00E9xico",
+    "Code": "MX",
+    "PhoneCode": "\u002B52"
+  },
+  {
+    "Country": "Micronesia",
+    "CountryLocal": "",
+    "Code": "FM",
+    "PhoneCode": "\u002B691"
+  },
+  {
+    "Country": "Moldova",
+    "CountryLocal": "Republica Moldova",
+    "Code": "MD",
+    "PhoneCode": "\u002B373"
+  },
+  {
+    "Country": "Monaco",
+    "CountryLocal": "",
+    "Code": "MC",
+    "PhoneCode": "\u002B377"
+  },
+  {
+    "Country": "Mongolia",
+    "CountryLocal": "\u041C\u043E\u043D\u0433\u043E\u043B",
+    "Code": "MN",
+    "PhoneCode": "\u002B976"
+  },
+  {
+    "Country": "Montenegro",
+    "CountryLocal": "Crna Gora",
+    "Code": "ME",
+    "PhoneCode": "\u002B382"
+  },
+  {
+    "Country": "Montserrat",
+    "CountryLocal": "",
+    "Code": "MS",
+    "PhoneCode": "\u002B1664"
+  },
+  {
+    "Country": "Morocco",
+    "CountryLocal": "\u202B\u0627\u0644\u0645\u063A\u0631\u0628\u202C\u200E",
+    "Code": "MA",
+    "PhoneCode": "\u002B212"
+  },
+  {
+    "Country": "Mozambique",
+    "CountryLocal": "Mo\u00E7ambique",
+    "Code": "MZ",
+    "PhoneCode": "\u002B258"
+  },
+  {
+    "Country": "Myanmar (Burma)",
+    "CountryLocal": "\u1019\u103C\u1014\u103A\u1019\u102C",
+    "Code": "MM",
+    "PhoneCode": "\u002B95"
+  },
+  {
+    "Country": "Namibia",
+    "CountryLocal": "Namibi\u00EB",
+    "Code": "NA",
+    "PhoneCode": "\u002B264"
+  },
+  {
+    "Country": "Nauru",
+    "CountryLocal": "",
+    "Code": "NR",
+    "PhoneCode": "\u002B674"
+  },
+  {
+    "Country": "Nepal",
+    "CountryLocal": "\u0928\u0947\u092A\u093E\u0932",
+    "Code": "NP",
+    "PhoneCode": "\u002B977"
+  },
+  {
+    "Country": "Netherlands",
+    "CountryLocal": "Nederland",
+    "Code": "NL",
+    "PhoneCode": "\u002B31"
+  },
+  {
+    "Country": "New Caledonia",
+    "CountryLocal": "Nouvelle-Cal\u00E9donie",
+    "Code": "NC",
+    "PhoneCode": "\u002B687"
+  },
+  {
+    "Country": "New Zealand",
+    "CountryLocal": "",
+    "Code": "NZ",
+    "PhoneCode": "\u002B64"
+  },
+  {
+    "Country": "Nicaragua",
+    "CountryLocal": "",
+    "Code": "NI",
+    "PhoneCode": "\u002B505"
+  },
+  {
+    "Country": "Niger",
+    "CountryLocal": "Nijar",
+    "Code": "NE",
+    "PhoneCode": "\u002B227"
+  },
+  {
+    "Country": "Nigeria",
+    "CountryLocal": "",
+    "Code": "NG",
+    "PhoneCode": "\u002B234"
+  },
+  {
+    "Country": "Niue",
+    "CountryLocal": "",
+    "Code": "NU",
+    "PhoneCode": "\u002B683"
+  },
+  {
+    "Country": "Norfolk Island",
+    "CountryLocal": "",
+    "Code": "NF",
+    "PhoneCode": "\u002B672"
+  },
+  {
+    "Country": "North Korea",
+    "CountryLocal": "\uC870\uC120 \uBBFC\uC8FC\uC8FC\uC758 \uC778\uBBFC \uACF5\uD654\uAD6D",
+    "Code": "KP",
+    "PhoneCode": "\u002B850"
+  },
+  {
+    "Country": "Northern Mariana Islands",
+    "CountryLocal": "",
+    "Code": "MP",
+    "PhoneCode": "\u002B1670"
+  },
+  {
+    "Country": "Norway",
+    "CountryLocal": "Norge",
+    "Code": "NO",
+    "PhoneCode": "\u002B47"
+  },
+  {
+    "Country": "Oman",
+    "CountryLocal": "\u202B\u0639\u064F\u0645\u0627\u0646\u202C\u200E",
+    "Code": "OM",
+    "PhoneCode": "\u002B968"
+  },
+  {
+    "Country": "Pakistan",
+    "CountryLocal": "\u202B\u067E\u0627\u06A9\u0633\u062A\u0627\u0646\u202C\u200E",
+    "Code": "PK",
+    "PhoneCode": "\u002B92"
+  },
+  {
+    "Country": "Palau",
+    "CountryLocal": "",
+    "Code": "PW",
+    "PhoneCode": "\u002B680"
+  },
+  {
+    "Country": "Palestine",
+    "CountryLocal": "\u202B\u0641\u0644\u0633\u0637\u064A\u0646\u202C\u200E",
+    "Code": "PS",
+    "PhoneCode": "\u002B970"
+  },
+  {
+    "Country": "Panama",
+    "CountryLocal": "Panam\u00E1",
+    "Code": "PA",
+    "PhoneCode": "\u002B507"
+  },
+  {
+    "Country": "Papua New Guinea",
+    "CountryLocal": "",
+    "Code": "PG",
+    "PhoneCode": "\u002B675"
+  },
+  {
+    "Country": "Paraguay",
+    "CountryLocal": "",
+    "Code": "PY",
+    "PhoneCode": "\u002B595"
+  },
+  {
+    "Country": "Peru",
+    "CountryLocal": "Per\u00FA",
+    "Code": "PE",
+    "PhoneCode": "\u002B51"
+  },
+  {
+    "Country": "Philippines",
+    "CountryLocal": "",
+    "Code": "PH",
+    "PhoneCode": "\u002B63"
+  },
+  {
+    "Country": "Pitcairn Islands",
+    "CountryLocal": "",
+    "Code": "PN",
+    "PhoneCode": "\u002B64"
+  },
+  {
+    "Country": "Poland",
+    "CountryLocal": "Polska",
+    "Code": "PL",
+    "PhoneCode": "\u002B48"
+  },
+  {
+    "Country": "Portugal",
+    "CountryLocal": "",
+    "Code": "PT",
+    "PhoneCode": "\u002B351"
+  },
+  {
+    "Country": "Puerto Rico",
+    "CountryLocal": "",
+    "Code": "PR",
+    "PhoneCode": "\u002B1"
+  },
+  {
+    "Country": "Qatar",
+    "CountryLocal": "\u202B\u0642\u0637\u0631\u202C\u200E",
+    "Code": "QA",
+    "PhoneCode": "\u002B974"
+  },
+  {
+    "Country": "R\u00E9union",
+    "CountryLocal": "La R\u00E9union",
+    "Code": "RE",
+    "PhoneCode": "\u002B262"
+  },
+  {
+    "Country": "Romania",
+    "CountryLocal": "Rom\u00E2nia",
+    "Code": "RO",
+    "PhoneCode": "\u002B40"
+  },
+  {
+    "Country": "Russia",
+    "CountryLocal": "\u0420\u043E\u0441\u0441\u0438\u044F",
+    "Code": "RU",
+    "PhoneCode": "\u002B7"
+  },
+  {
+    "Country": "Rwanda",
+    "CountryLocal": "",
+    "Code": "RW",
+    "PhoneCode": "\u002B250"
+  },
+  {
+    "Country": "Saint Barth\u00E9lemy",
+    "CountryLocal": "",
+    "Code": "BL",
+    "PhoneCode": "\u002B590"
+  },
+  {
+    "Country": "Saint Helena",
+    "CountryLocal": "",
+    "Code": "SH",
+    "PhoneCode": "\u002B290"
+  },
+  {
+    "Country": "Saint Kitts and Nevis",
+    "CountryLocal": "",
+    "Code": "KN",
+    "PhoneCode": "\u002B1869"
+  },
+  {
+    "Country": "Saint Lucia",
+    "CountryLocal": "",
+    "Code": "LC",
+    "PhoneCode": "\u002B1758"
+  },
+  {
+    "Country": "Saint Martin",
+    "CountryLocal": "Saint-Martin (partie fran\u00E7aise)",
+    "Code": "MF",
+    "PhoneCode": "\u002B590"
+  },
+  {
+    "Country": "Saint Pierre and Miquelon",
+    "CountryLocal": "Saint-Pierre-et-Miquelon",
+    "Code": "PM",
+    "PhoneCode": "\u002B508"
+  },
+  {
+    "Country": "Saint Vincent and the Grenadines",
+    "CountryLocal": "",
+    "Code": "VC",
+    "PhoneCode": "\u002B1784"
+  },
+  {
+    "Country": "Samoa",
+    "CountryLocal": "",
+    "Code": "WS",
+    "PhoneCode": "\u002B685"
+  },
+  {
+    "Country": "San Marino",
+    "CountryLocal": "",
+    "Code": "SM",
+    "PhoneCode": "\u002B378"
+  },
+  {
+    "Country": "S\u00E3o Tom\u00E9 and Pr\u00EDncipe",
+    "CountryLocal": "S\u00E3o Tom\u00E9 e Pr\u00EDncipe",
+    "Code": "ST",
+    "PhoneCode": "\u002B239"
+  },
+  {
+    "Country": "Saudi Arabia",
+    "CountryLocal": "\u202B\u0627\u0644\u0645\u0645\u0644\u0643\u0629 \u0627\u0644\u0639\u0631\u0628\u064A\u0629 \u0627\u0644\u0633\u0639\u0648\u062F\u064A\u0629\u202C\u200E",
+    "Code": "SA",
+    "PhoneCode": "\u002B966"
+  },
+  {
+    "Country": "Senegal",
+    "CountryLocal": "S\u00E9n\u00E9gal",
+    "Code": "SN",
+    "PhoneCode": "\u002B221"
+  },
+  {
+    "Country": "Serbia",
+    "CountryLocal": "\u0421\u0440\u0431\u0438\u0458\u0430",
+    "Code": "RS",
+    "PhoneCode": "\u002B381"
+  },
+  {
+    "Country": "Seychelles",
+    "CountryLocal": "",
+    "Code": "SC",
+    "PhoneCode": "\u002B248"
+  },
+  {
+    "Country": "Sierra Leone",
+    "CountryLocal": "",
+    "Code": "SL",
+    "PhoneCode": "\u002B232"
+  },
+  {
+    "Country": "Singapore",
+    "CountryLocal": "",
+    "Code": "SG",
+    "PhoneCode": "\u002B65"
+  },
+  {
+    "Country": "Sint Maarten",
+    "CountryLocal": "",
+    "Code": "SX",
+    "PhoneCode": "\u002B1721"
+  },
+  {
+    "Country": "Slovakia",
+    "CountryLocal": "Slovensko",
+    "Code": "SK",
+    "PhoneCode": "\u002B421"
+  },
+  {
+    "Country": "Slovenia",
+    "CountryLocal": "Slovenija",
+    "Code": "SI",
+    "PhoneCode": "\u002B386"
+  },
+  {
+    "Country": "Solomon Islands",
+    "CountryLocal": "",
+    "Code": "SB",
+    "PhoneCode": "\u002B677"
+  },
+  {
+    "Country": "Somalia",
+    "CountryLocal": "Soomaaliya",
+    "Code": "SO",
+    "PhoneCode": "\u002B252"
+  },
+  {
+    "Country": "South Africa",
+    "CountryLocal": "",
+    "Code": "ZA",
+    "PhoneCode": "\u002B27"
+  },
+  {
+    "Country": "South Georgia \u0026 South Sandwich Islands",
+    "CountryLocal": "",
+    "Code": "GS",
+    "PhoneCode": "\u002B500"
+  },
+  {
+    "Country": "South Korea",
+    "CountryLocal": "\uB300\uD55C\uBBFC\uAD6D",
+    "Code": "KR",
+    "PhoneCode": "\u002B82"
+  },
+  {
+    "Country": "South Sudan",
+    "CountryLocal": "\u202B\u062C\u0646\u0648\u0628 \u0627\u0644\u0633\u0648\u062F\u0627\u0646\u202C\u200E",
+    "Code": "SS",
+    "PhoneCode": "\u002B211"
+  },
+  {
+    "Country": "Spain",
+    "CountryLocal": "Espa\u00F1a",
+    "Code": "ES",
+    "PhoneCode": "\u002B34"
+  },
+  {
+    "Country": "Sri Lanka",
+    "CountryLocal": "\u0DC1\u0DCA\u200D\u0DBB\u0DD3 \u0DBD\u0D82\u0D9A\u0DCF\u0DC0",
+    "Code": "LK",
+    "PhoneCode": "\u002B94"
+  },
+  {
+    "Country": "Sudan",
+    "CountryLocal": "\u202B\u0627\u0644\u0633\u0648\u062F\u0627\u0646\u202C\u200E",
+    "Code": "SD",
+    "PhoneCode": "\u002B249"
+  },
+  {
+    "Country": "Suriname",
+    "CountryLocal": "",
+    "Code": "SR",
+    "PhoneCode": "\u002B597"
+  },
+  {
+    "Country": "Svalbard and Jan Mayen",
+    "CountryLocal": "",
+    "Code": "SJ",
+    "PhoneCode": "\u002B47"
+  },
+  {
+    "Country": "Swaziland",
+    "CountryLocal": "",
+    "Code": "SZ",
+    "PhoneCode": "\u002B268"
+  },
+  {
+    "Country": "Sweden",
+    "CountryLocal": "Sverige",
+    "Code": "SE",
+    "PhoneCode": "\u002B46"
+  },
+  {
+    "Country": "Switzerland",
+    "CountryLocal": "Schweiz",
+    "Code": "CH",
+    "PhoneCode": "\u002B41"
+  },
+  {
+    "Country": "Syria",
+    "CountryLocal": "\u202B\u0633\u0648\u0631\u064A\u0627\u202C\u200E",
+    "Code": "SY",
+    "PhoneCode": "\u002B963"
+  },
+  {
+    "Country": "Taiwan",
+    "CountryLocal": "\u53F0\u7063",
+    "Code": "TW",
+    "PhoneCode": "\u002B886"
+  },
+  {
+    "Country": "Tajikistan",
+    "CountryLocal": "",
+    "Code": "TJ",
+    "PhoneCode": "\u002B992"
+  },
+  {
+    "Country": "Tanzania",
+    "CountryLocal": "",
+    "Code": "TZ",
+    "PhoneCode": "\u002B255"
+  },
+  {
+    "Country": "Thailand",
+    "CountryLocal": "\u0E44\u0E17\u0E22",
+    "Code": "TH",
+    "PhoneCode": "\u002B66"
+  },
+  {
+    "Country": "Timor-Leste",
+    "CountryLocal": "",
+    "Code": "TL",
+    "PhoneCode": "\u002B670"
+  },
+  {
+    "Country": "Togo",
+    "CountryLocal": "",
+    "Code": "TG",
+    "PhoneCode": "\u002B228"
+  },
+  {
+    "Country": "Tokelau",
+    "CountryLocal": "",
+    "Code": "TK",
+    "PhoneCode": "\u002B690"
+  },
+  {
+    "Country": "Tonga",
+    "CountryLocal": "",
+    "Code": "TO",
+    "PhoneCode": "\u002B676"
+  },
+  {
+    "Country": "Trinisoad and Tobago",
+    "CountryLocal": "",
+    "Code": "TT",
+    "PhoneCode": "\u002B1868"
+  },
+  {
+    "Country": "Tunisia",
+    "CountryLocal": "\u202B\u062A\u0648\u0646\u0633\u202C\u200E",
+    "Code": "TN",
+    "PhoneCode": "\u002B216"
+  },
+  {
+    "Country": "Turkey",
+    "CountryLocal": "T\u00FCrkiye",
+    "Code": "TR",
+    "PhoneCode": "\u002B90"
+  },
+  {
+    "Country": "Turkmenistan",
+    "CountryLocal": "",
+    "Code": "TM",
+    "PhoneCode": "\u002B993"
+  },
+  {
+    "Country": "Turks and Caicos Islands",
+    "CountryLocal": "",
+    "Code": "TC",
+    "PhoneCode": "\u002B1649"
+  },
+  {
+    "Country": "Tuvalu",
+    "CountryLocal": "",
+    "Code": "TV",
+    "PhoneCode": "\u002B688"
+  },
+  {
+    "Country": "U.S. Virgin Islands",
+    "CountryLocal": "",
+    "Code": "VI",
+    "PhoneCode": "\u002B1340"
+  },
+  {
+    "Country": "Uganda",
+    "CountryLocal": "",
+    "Code": "UG",
+    "PhoneCode": "\u002B256"
+  },
+  {
+    "Country": "Ukraine",
+    "CountryLocal": "\u0423\u043A\u0440\u0430\u0457\u043D\u0430",
+    "Code": "UA",
+    "PhoneCode": "\u002B380"
+  },
+  {
+    "Country": "United Arab Emirates",
+    "CountryLocal": "\u202B\u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062A \u0627\u0644\u0639\u0631\u0628\u064A\u0629 \u0627\u0644\u0645\u062A\u062D\u062F\u0629\u202C\u200E",
+    "Code": "AE",
+    "PhoneCode": "\u002B971"
+  },
+  {
+    "Country": "United Kingdom",
+    "CountryLocal": "",
+    "Code": "GB",
+    "PhoneCode": "\u002B44"
+  },
+  {
+    "Country": "United States",
+    "CountryLocal": "",
+    "Code": "US",
+    "PhoneCode": "\u002B1"
+  },
+  {
+    "Country": "United States Minor Outlying Islands",
+    "CountryLocal": "",
+    "Code": "UM",
+    "PhoneCode": "\u002B1"
+  },
+  {
+    "Country": "Uruguay",
+    "CountryLocal": "",
+    "Code": "UY",
+    "PhoneCode": "\u002B598"
+  },
+  {
+    "Country": "Uzbekistan",
+    "CountryLocal": "O\u02BBzbekiston",
+    "Code": "UZ",
+    "PhoneCode": "\u002B998"
+  },
+  {
+    "Country": "Vanuatu",
+    "CountryLocal": "",
+    "Code": "VU",
+    "PhoneCode": "\u002B678"
+  },
+  {
+    "Country": "Vatican City",
+    "CountryLocal": "Citt\u00E0 del Vaticano",
+    "Code": "VA",
+    "PhoneCode": "\u002B39"
+  },
+  {
+    "Country": "Venezuela",
+    "CountryLocal": "",
+    "Code": "VE",
+    "PhoneCode": "\u002B58"
+  },
+  {
+    "Country": "Vietnam",
+    "CountryLocal": "Vi\u1EC7t Nam",
+    "Code": "VN",
+    "PhoneCode": "\u002B84"
+  },
+  {
+    "Country": "Wallis and Futuna",
+    "CountryLocal": "Wallis-et-Futuna",
+    "Code": "WF",
+    "PhoneCode": "\u002B681"
+  },
+  {
+    "Country": "Western Sahara",
+    "CountryLocal": "\u202B\u0627\u0644\u0635\u062D\u0631\u0627\u0621 \u0627\u0644\u063A\u0631\u0628\u064A\u0629\u202C\u200E",
+    "Code": "EH",
+    "PhoneCode": "\u002B212"
+  },
+  {
+    "Country": "Yemen",
+    "CountryLocal": "\u202B\u0627\u0644\u064A\u0645\u0646\u202C\u200E",
+    "Code": "YE",
+    "PhoneCode": "\u002B967"
+  },
+  {
+    "Country": "Zambia",
+    "CountryLocal": "",
+    "Code": "ZM",
+    "PhoneCode": "\u002B260"
+  },
+  {
+    "Country": "Zimbabwe",
+    "CountryLocal": "",
+    "Code": "ZW",
+    "PhoneCode": "\u002B263"
+  }
+]

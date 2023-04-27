@@ -4,7 +4,9 @@ public sealed class DropDownItem
 {
     private readonly Size _flagSize = new Size(21, 15);
 
-    public string Value { get; set; }
+    public string Code { get; set; }
+
+    public string Country { get; set; }
 
     public Image Image { get; set; }
 
@@ -13,13 +15,14 @@ public sealed class DropDownItem
     {
     }
 
-    public DropDownItem(string flag, string country)
+    public DropDownItem(string code, string country)
     {
-        Value = country;
+        Code = code;
+        Country = country;
         Image = new Bitmap(
-            (Image)Properties.Resources.ResourceManager.GetObject(flag)!,
+            (Image)Properties.Resources.ResourceManager.GetObject(Code)!,
             _flagSize);
     }
 
-    public override string ToString() => Value;
+    public override string ToString() => Code;
 }

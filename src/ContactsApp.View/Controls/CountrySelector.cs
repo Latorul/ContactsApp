@@ -19,7 +19,7 @@ public sealed class CountrySelector : ComboBox
             DropDownItem item = (DropDownItem)Items[e.Index];
 
             e.Graphics.DrawImage(item.Image, e.Bounds.Left + 1, e.Bounds.Top + 1);
-            e.Graphics.DrawString(item.Value, e.Font, new SolidBrush(e.ForeColor), 
+            e.Graphics.DrawString(item.Country, e.Font, new SolidBrush(e.ForeColor), 
                 e.Bounds.Left + item.Image.Width + 2, e.Bounds.Top);
         }
 
