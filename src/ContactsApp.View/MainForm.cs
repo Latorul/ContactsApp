@@ -1,6 +1,4 @@
-﻿using ContactsApp.Model;
-
-namespace ContactsApp.View;
+﻿namespace ContactsApp.View;
 
 /// <summary>
 /// Главное окно приложения.
@@ -12,6 +10,9 @@ public partial class MainForm : Form
     /// </summary>
     private readonly Project _project;
 
+    /// <summary>
+    /// Отображаемый список контактов.
+    /// </summary>
     private List<Contact> _currentContacts;
 
 
@@ -25,6 +26,31 @@ public partial class MainForm : Form
         _project = ProjectManager.LoadProject();
         //GenerateContacts();
         _currentContacts = _project.Contacts;
+    }
+
+    /// <summary>
+    /// Обновляет информацию при открытии программы.
+    /// </summary>
+    private void MainForm_Shown(object sender, EventArgs e)
+    {
+        UpdateListBox();
+        ClearSelectedContact();
+        UpdateBirthdayPeopleNotify();
+    }
+
+    /// <summary>
+    /// При закрытии окна спрашивает подтверждение закрытия программы.
+    /// </summary>
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        ProjectManager.SaveProject(_project);
+
+        if (MessageBox.Show("Do you really want to exit?",
+                "Close?",
+                MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+        {
+            e.Cancel = true;
+        }
     }
 
     /// <summary>
@@ -134,6 +160,8 @@ public partial class MainForm : Form
         _currentContacts.RemoveAt(index);
     }
 
+    //Обновляет отображаемую информацию
+
     /// <summary>
     /// Обновляет список контактов в ContactsListBox.
     /// </summary>
@@ -146,6 +174,18 @@ public partial class MainForm : Form
         {
             ContactsListBox.Items.Add(contact.FullName);
         }
+    }
+
+    /// <summary>
+    /// Очищает информацию о выбранном контакте в правой панели.
+    /// </summary>
+    private void ClearSelectedContact()
+    {
+        FullNameTextBox.Text = string.Empty;
+        EmailTextBox.Text = string.Empty;
+        PhoneNumberTextBox.Text = string.Empty;
+        DateOfBirthTextBox.Text = string.Empty;
+        VkIdTextBox.Text = string.Empty;
     }
 
     /// <summary>
@@ -162,18 +202,6 @@ public partial class MainForm : Form
     }
 
     /// <summary>
-    /// Очищает информацию о выбранном контакте в правой панели.
-    /// </summary>
-    private void ClearSelectedContact()
-    {
-        FullNameTextBox.Text = string.Empty;
-        EmailTextBox.Text = string.Empty;
-        PhoneNumberTextBox.Text = string.Empty;
-        DateOfBirthTextBox.Text = string.Empty;
-        VkIdTextBox.Text = string.Empty;
-    }
-
-    /// <summary>
     /// Обрабатывает изменение выбора контакта в списке ContactsListBox.
     /// </summary>
     private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,15 +213,17 @@ public partial class MainForm : Form
     }
 
     /// <summary>
-    /// Обновляет информацию при открытии программы.
+    /// Задаёт подстроку для фильтрации контактов.
     /// </summary>
-    private void MainForm_Shown(object sender, EventArgs e)
+    private void SearchTextBox_TextChanged(object sender, EventArgs e)
     {
+        _currentContacts = _project.FindBySubstring(_project.Contacts, SearchTextBox.Text);
         UpdateListBox();
-        ClearSelectedContact();
-        UpdateBirthdayPeopleNotify();
     }
 
+    /// <summary>
+    /// Обновляет информацию в оповещении о днях рождениях.
+    /// </summary>
     private void UpdateBirthdayPeopleNotify()
     {
         List<Contact> birthdayPeople = _project.SortByFullName(_project.FindBirthDayContacts(_project.Contacts));
@@ -206,7 +236,7 @@ public partial class MainForm : Form
 
         BirthdayPeopleLabel.Text = string.Empty;
 
-        for (int i = 0; i < birthdayPeople.Count; i++)
+        foreach (Contact contact in birthdayPeople)
         {
             if (BirthdayPeopleLabel.Text.Length >= 50)
             {
@@ -215,31 +245,8 @@ public partial class MainForm : Form
                 return;
             }
 
-            BirthdayPeopleLabel.Text += birthdayPeople[i].FullName + ", ";
-
+            BirthdayPeopleLabel.Text += contact.FullName + ", ";
         }
-
-    }
-
-    /// <summary>
-    /// При закрытии окна спрашивает подтверждение закрытия программы.
-    /// </summary>
-    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-    {
-        ProjectManager.SaveProject(_project);
-
-        if (MessageBox.Show("Do you really want to exit?",
-                "Close?",
-                MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-        {
-            e.Cancel = true;
-        }
-    }
-
-    private void SearchTextBox_TextChanged(object sender, EventArgs e)
-    {
-        _currentContacts = _project.FindBySubstring(_project.Contacts, SearchTextBox.Text);
-        UpdateListBox();
     }
 
     //Обработка нажатий на кнопки
