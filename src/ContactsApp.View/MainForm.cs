@@ -154,9 +154,6 @@ public partial class MainForm : Form
     /// <param name="index">Индекс выбранного контакта в списке ContactsListBox.</param>
     private void RemoveContact(int index)
     {
-        if (index == -1)
-            return;
-
         if (MessageBox.Show(
                 $"Do you really want to remove {_currentContacts[index].FullName}?",
                 "Remove contact?",
@@ -170,7 +167,7 @@ public partial class MainForm : Form
         ClearSelectedContact();
     }
 
-    //Обновляет отображаемую информацию
+    //Обновление отображаемой информации
 
     /// <summary>
     /// Обновляет список контактов в ContactsListBox.
@@ -305,6 +302,9 @@ public partial class MainForm : Form
     /// </summary>
     private void RemoveContactButton_Click(object sender, EventArgs e)
     {
+        if (ContactsListBox.SelectedIndex == -1)
+            return;
+
         RemoveContact(ContactsListBox.SelectedIndex);
         UpdateListBox();
         ProjectManager.SaveProject(_project);
