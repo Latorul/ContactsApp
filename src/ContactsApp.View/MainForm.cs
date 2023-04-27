@@ -6,6 +6,11 @@
 public partial class MainForm : Form
 {
     /// <summary>
+    /// Максимальная длина строки с перечислением людей, у которых сегодня день рождения. 
+    /// </summary>
+    private const int MaxBirthdayPeopleMessageLength = 50;
+
+    /// <summary>
     /// Хранит список всех контактов. 
     /// </summary>
     private readonly Project _project;
@@ -46,8 +51,7 @@ public partial class MainForm : Form
     {
         ProjectManager.SaveProject(_project);
 
-        if (MessageBox.Show("Do you really want to exit?",
-                "Close?",
+        if (MessageBox.Show("Do you really want to exit?", "Close?",
                 MessageBoxButtons.OKCancel) == DialogResult.Cancel)
         {
             e.Cancel = true;
@@ -113,6 +117,7 @@ public partial class MainForm : Form
     {
         ContactForm form = new ContactForm();
         form.Contact = new Contact();
+
         if (form.ShowDialog() == DialogResult.OK)
         {
             Contact updatedContact = form.Contact;
@@ -126,13 +131,14 @@ public partial class MainForm : Form
     /// <param name="index">Индекс выбранного контакта в ContactsListBox.</param>
     private void EditContact(int index)
     {
-        Contact selectedContact = _project.Contacts[index];
-
         ContactForm form = new ContactForm();
+        Contact selectedContact = _project.Contacts[index];
         form.Contact = selectedContact;
+
         if (form.ShowDialog() == DialogResult.OK)
         {
             Contact updatedContact = form.Contact;
+
             _project.Contacts.Remove(_currentContacts[index]);
             _project.Contacts.Add(updatedContact);
         }
@@ -151,14 +157,17 @@ public partial class MainForm : Form
         if (index == -1)
             return;
 
-        if (MessageBox.Show($"Do you really want to remove {_currentContacts[index].FullName}?",
+        if (MessageBox.Show(
+                $"Do you really want to remove {_currentContacts[index].FullName}?",
                 "Remove contact?",
                 MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+        {
             return;
+        }
 
-        ClearSelectedContact();
         _project.Contacts.Remove(_currentContacts[index]);
         _currentContacts.RemoveAt(index);
+        ClearSelectedContact();
     }
 
     //Обновляет отображаемую информацию
@@ -169,8 +178,8 @@ public partial class MainForm : Form
     private void UpdateListBox()
     {
         ContactsListBox.Items.Clear();
-        _currentContacts = _project.SortByFullName(_currentContacts);
 
+        _currentContacts = _project.SortByFullName(_currentContacts);
         foreach (Contact contact in _currentContacts)
         {
             ContactsListBox.Items.Add(contact.FullName);
@@ -198,7 +207,7 @@ public partial class MainForm : Form
         FullNameTextBox.Text = _currentContacts[index].FullName;
         EmailTextBox.Text = _currentContacts[index].Email;
         PhoneNumberTextBox.Text = _currentContacts[index].PhoneNumber;
-        DateOfBirthTextBox.Text = _currentContacts[index].DateOfBirth.ToString();
+        DateOfBirthTextBox.Text = _currentContacts[index].DateOfBirth.ToLongDateString();
         VkIdTextBox.Text = _currentContacts[index].VkId;
     }
 
@@ -227,7 +236,9 @@ public partial class MainForm : Form
     /// </summary>
     private void UpdateBirthdayPeopleNotify()
     {
-        List<Contact> birthdayPeople = _project.SortByFullName(_project.FindBirthDayContacts(_project.Contacts));
+        List<Contact> birthdayPeople =
+            _project.SortByFullName(
+                _project.FindBirthDayContacts(_project.Contacts));
 
         if (birthdayPeople.Count == 0)
         {
@@ -235,19 +246,33 @@ public partial class MainForm : Form
             return;
         }
 
-        BirthdayPeopleLabel.Text = string.Empty;
+        BirthdayPeopleLabel.Text = CreateBirthdayNotifyMessage(birthdayPeople);
+    }
 
-        foreach (Contact contact in birthdayPeople)
+    /// <summary>
+    /// Заполняет строку с напоминанием о днях рождениях контактов.
+    /// </summary>
+    /// <param name="birthdayPeople">Список контактов, у которых сегодня день рождения.</param>
+    /// <returns>Строка со списком контактов, у которых сегодня день рождения.</returns>
+    private string CreateBirthdayNotifyMessage(List<Contact> birthdayPeople)
+    {
+        string message = string.Empty;
+        int i;
+        for (i = 0; i < birthdayPeople.Count; i++)
         {
-            if (BirthdayPeopleLabel.Text.Length >= 50)
+            if (message.Length >= MaxBirthdayPeopleMessageLength)
             {
-                BirthdayPeopleLabel.Text = BirthdayPeopleLabel.Text.Remove(BirthdayPeopleLabel.Text.Length - 2, 1);
-                BirthdayPeopleLabel.Text += "и др.";
-                return;
+                break;
             }
 
-            BirthdayPeopleLabel.Text += contact.FullName + ", ";
+            message += birthdayPeople[i].FullName + ", ";
         }
+
+        message = message.Remove(message.Length - 2);
+        if (i < birthdayPeople.Count)
+            message += " и др.";
+        
+        return message;
     }
 
     //Обработка нажатий на кнопки
