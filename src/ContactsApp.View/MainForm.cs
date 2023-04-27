@@ -132,14 +132,14 @@ public partial class MainForm : Form
     private void EditContact(int index)
     {
         ContactForm form = new ContactForm();
-        Contact selectedContact = _project.Contacts[index];
+        Contact selectedContact = _currentContacts[index];
         form.Contact = selectedContact;
 
         if (form.ShowDialog() == DialogResult.OK)
         {
             Contact updatedContact = form.Contact;
 
-            _project.Contacts.Remove(_currentContacts[index]);
+            _project.Contacts.Remove(selectedContact);
             _project.Contacts.Add(updatedContact);
         }
         else
@@ -176,7 +176,9 @@ public partial class MainForm : Form
     {
         ContactsListBox.Items.Clear();
 
-        _currentContacts = _project.SortByFullName(_currentContacts);
+        _currentContacts = 
+            _project.SortByFullName(
+            _project.FindBySubstring(_project.Contacts, SearchTextBox.Text));
         foreach (Contact contact in _currentContacts)
         {
             ContactsListBox.Items.Add(contact.FullName);
@@ -224,7 +226,6 @@ public partial class MainForm : Form
     /// </summary>
     private void SearchTextBox_TextChanged(object sender, EventArgs e)
     {
-        _currentContacts = _project.FindBySubstring(_project.Contacts, SearchTextBox.Text);
         UpdateListBox();
     }
 
