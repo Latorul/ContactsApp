@@ -6,7 +6,7 @@
 public class Project
 {
     /// <summary>
-    /// Список всех контактов.
+    /// Возвращает список всех контактов.
     /// </summary>
     public List<Contact> Contacts { get; init; }
 
