@@ -345,6 +345,7 @@
             SearchTextBox.Name = "SearchTextBox";
             SearchTextBox.Size = new Size(199, 23);
             SearchTextBox.TabIndex = 1;
+            SearchTextBox.TextChanged += SearchTextBox_TextChanged;
             // 
             // FindLabel
             // 

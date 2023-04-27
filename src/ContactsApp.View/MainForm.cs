@@ -10,6 +10,8 @@ public partial class MainForm : Form
     /// </summary>
     private readonly Project _project;
 
+    private List<Contact> _currentContacts;
+
 
     /// <summary>
     /// Конструктор класса <see cref="MainForm"/>.
@@ -19,7 +21,8 @@ public partial class MainForm : Form
         InitializeComponent();
         
         _project = ProjectManager.LoadProject();
-        GenerateContacts();
+        //GenerateContacts();
+        _currentContacts = _project.Contacts;
     }
 
     /// <summary>
@@ -30,7 +33,7 @@ public partial class MainForm : Form
         _project.Contacts.Add(
             new Contact()
             {
-                FullName = "1",
+                FullName = "Филатов Мирон",
                 Email = "1",
                 PhoneNumber = "1",
                 DateOfBirth = DateTime.Today,
@@ -39,7 +42,7 @@ public partial class MainForm : Form
         _project.Contacts.Add(
             new Contact()
             {
-                FullName = "2",
+                FullName = "Ткачев Артём",
                 Email = "2",
                 PhoneNumber = "2",
                 DateOfBirth = DateTime.Today,
@@ -48,7 +51,7 @@ public partial class MainForm : Form
         _project.Contacts.Add(
             new Contact()
             {
-                FullName = "3",
+                FullName = "Козин Марк",
                 Email = "3",
                 PhoneNumber = "3",
                 DateOfBirth = DateTime.Today,
@@ -57,7 +60,7 @@ public partial class MainForm : Form
         _project.Contacts.Add(
             new Contact()
             {
-                FullName = "4",
+                FullName = "Журавлев Владимир",
                 Email = "4",
                 PhoneNumber = "4",
                 DateOfBirth = DateTime.Today,
@@ -66,7 +69,7 @@ public partial class MainForm : Form
         _project.Contacts.Add(
             new Contact()
             {
-                FullName = "5",
+                FullName = "Белоусов Андрей",
                 Email = "5",
                 PhoneNumber = "5",
                 DateOfBirth = DateTime.Today,
@@ -112,19 +115,6 @@ public partial class MainForm : Form
     }
 
     /// <summary>
-    /// Обновляет список контактов в ContactsListBox.
-    /// </summary>
-    private void UpdateListBox()
-    {
-        ContactsListBox.Items.Clear();
-
-        foreach (Contact contact in _project.Contacts)
-        {
-            ContactsListBox.Items.Add(contact.FullName);
-        }
-    }
-
-    /// <summary>
     /// Удаляет выбранный контакт.
     /// </summary>
     /// <param name="index">Индекс выбранного контакта в списке ContactsListBox.</param>
@@ -139,7 +129,20 @@ public partial class MainForm : Form
             return;
 
         ClearSelectedContact();
-        _project.Contacts.RemoveAt(index);
+        _currentContacts.RemoveAt(index);
+    }
+
+    /// <summary>
+    /// Обновляет список контактов в ContactsListBox.
+    /// </summary>
+    private void UpdateListBox()
+    {
+        ContactsListBox.Items.Clear();
+
+        foreach (Contact contact in _currentContacts)
+        {
+            ContactsListBox.Items.Add(contact.FullName);
+        }
     }
 
     /// <summary>
@@ -200,6 +203,12 @@ public partial class MainForm : Form
         {
             e.Cancel = true;
         }
+    }
+
+    private void SearchTextBox_TextChanged(object sender, EventArgs e)
+    {
+        _currentContacts = _project.FindBySubstring(_project.Contacts, SearchTextBox.Text);
+        UpdateListBox();
     }
 
     //Обработка нажатий на кнопки
