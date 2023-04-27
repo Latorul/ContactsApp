@@ -24,7 +24,8 @@ public partial class MainForm : Form
         InitializeComponent();
 
         _project = ProjectManager.LoadProject();
-        //GenerateContacts();
+        if (_project.Contacts.Count == 0)
+            GenerateContacts();
         _currentContacts = _project.Contacts;
     }
 
@@ -62,46 +63,46 @@ public partial class MainForm : Form
             new Contact()
             {
                 FullName = "Филатов Мирон",
-                Email = "1",
+                Email = "filatov@mail.ru",
                 PhoneNumber = "1",
                 DateOfBirth = DateTime.Today,
-                VkId = "1"
+                VkId = "https://vk.com/filatov"
             });
         _project.Contacts.Add(
             new Contact()
             {
                 FullName = "Ткачев Артём",
-                Email = "2",
+                Email = "tkachev@mail.ru",
                 PhoneNumber = "2",
                 DateOfBirth = DateTime.Today,
-                VkId = "2"
+                VkId = "https://vk.com/tkachev"
             });
         _project.Contacts.Add(
             new Contact()
             {
                 FullName = "Козин Марк",
-                Email = "3",
+                Email = "kozin@mail.ru",
                 PhoneNumber = "3",
                 DateOfBirth = DateTime.Today,
-                VkId = "3"
+                VkId = "https://vk.com/kozin"
             });
         _project.Contacts.Add(
             new Contact()
             {
                 FullName = "Журавлев Владимир",
-                Email = "4",
+                Email = "zhuravlev@mail.ru",
                 PhoneNumber = "4",
                 DateOfBirth = DateTime.Today,
-                VkId = "4"
+                VkId = "https://vk.com/zhuravlev"
             });
         _project.Contacts.Add(
             new Contact()
             {
                 FullName = "Белоусов Андрей",
-                Email = "5",
+                Email = "belousov@mail.ru",
                 PhoneNumber = "5",
                 DateOfBirth = DateTime.Today,
-                VkId = "5"
+                VkId = "https://vk.com/belousov"
             });
     }
 
