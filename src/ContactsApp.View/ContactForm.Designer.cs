@@ -204,7 +204,7 @@
             CountrySelectorComboBox.Name = "CountrySelectorComboBox";
             CountrySelectorComboBox.Size = new Size(47, 23);
             CountrySelectorComboBox.TabIndex = 25;
-            CountrySelectorComboBox.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            CountrySelectorComboBox.SelectedIndexChanged += CountrySelectorComboBox_SelectedIndexChanged;
             // 
             // ContactForm
             // 

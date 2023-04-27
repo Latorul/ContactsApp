@@ -297,8 +297,14 @@ public partial class ContactForm : Form
         CountrySelectorComboBox.DropDownWidth = 242;
     }
 
-    private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+    private void CountrySelectorComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        Debug.WriteLine(CountrySelectorComboBox.SelectedItem.ToString());
+        var json = System.Text.Encoding.Default.GetString(Properties.Resources.countries);
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+        var dictionary = JsonSerializer.Deserialize<List<MyStruct>>(json, options);
+        PhoneNumberTextBox.Text = dictionary.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString()).FirstOrDefault().PhoneCode;
     }
 }
