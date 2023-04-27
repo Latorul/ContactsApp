@@ -104,9 +104,8 @@ public partial class MainForm : Form
         if (form.ShowDialog() == DialogResult.OK)
         {
             Contact updatedContact = form.Contact;
-            ContactsListBox.Items.RemoveAt(index);
-            _project.Contacts.RemoveAt(index);
-            _project.Contacts.Insert(index, updatedContact);
+            _project.Contacts.Remove(_currentContacts[index]);
+            _project.Contacts.Add(updatedContact);
         }
         else
         {
@@ -123,12 +122,13 @@ public partial class MainForm : Form
         if (index == -1)
             return;
 
-        if (MessageBox.Show($"Do you really want to remove {_project.Contacts[index].FullName}?",
+        if (MessageBox.Show($"Do you really want to remove {_currentContacts[index].FullName}?",
                 "Remove contact?",
                 MessageBoxButtons.OKCancel) == DialogResult.Cancel)
             return;
 
         ClearSelectedContact();
+        _project.Contacts.Remove(_currentContacts[index]);
         _currentContacts.RemoveAt(index);
     }
 
@@ -138,6 +138,7 @@ public partial class MainForm : Form
     private void UpdateListBox()
     {
         ContactsListBox.Items.Clear();
+        _currentContacts = _project.SortByFullName(_currentContacts);
 
         foreach (Contact contact in _currentContacts)
         {
@@ -151,11 +152,11 @@ public partial class MainForm : Form
     /// <param name="index">Индекс выбранного контакта в списке ContactsListBox.</param>
     private void UpdateSelectedContact(int index)
     {
-        FullNameTextBox.Text = _project.Contacts[index].FullName;
-        EmailTextBox.Text = _project.Contacts[index].Email;
-        PhoneNumberTextBox.Text = _project.Contacts[index].PhoneNumber;
-        DateOfBirthTextBox.Text = _project.Contacts[index].DateOfBirth.ToString();
-        VkIdTextBox.Text = _project.Contacts[index].VkId;
+        FullNameTextBox.Text = _currentContacts[index].FullName;
+        EmailTextBox.Text = _currentContacts[index].Email;
+        PhoneNumberTextBox.Text = _currentContacts[index].PhoneNumber;
+        DateOfBirthTextBox.Text = _currentContacts[index].DateOfBirth.ToString();
+        VkIdTextBox.Text = _currentContacts[index].VkId;
     }
 
     /// <summary>
@@ -197,12 +198,12 @@ public partial class MainForm : Form
     {
         ProjectManager.SaveProject(_project);
         
-        if (MessageBox.Show("Do you really want to exit?",
-                "Close?",
-                MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-        {
-            e.Cancel = true;
-        }
+        //if (MessageBox.Show("Do you really want to exit?",
+        //        "Close?",
+        //        MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+        //{
+        //    e.Cancel = true;
+        //}
     }
 
     private void SearchTextBox_TextChanged(object sender, EventArgs e)
