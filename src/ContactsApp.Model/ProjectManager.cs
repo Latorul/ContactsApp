@@ -15,12 +15,12 @@ public static class ProjectManager
     /// Путь к каталогу для сохранения контакта.
     /// </summary>
     private static readonly string FolderPath = $"{AppData}\\IvanovAA\\ContactsApp";
-    
+
     /// <summary>
     /// Полный путь к файлу.
     /// </summary>
     private static readonly string FilePath = $"{FolderPath}\\{FileName}";
-    
+
     /// <summary>
     /// Название файла.
     /// </summary>
@@ -34,7 +34,7 @@ public static class ProjectManager
     {
         try
         {
-            if (Directory.Exists(FolderPath))
+            if (!Directory.Exists(FolderPath))
             {
                 Directory.CreateDirectory(FolderPath);
             }
@@ -56,12 +56,12 @@ public static class ProjectManager
         {
             if (!Directory.Exists(FolderPath))
             {
-                throw new DirectoryNotFoundException(FolderPath);
+                Directory.CreateDirectory(FolderPath);
             }
 
             if (!File.Exists(FilePath))
             {
-                throw new FileNotFoundException(FilePath);
+                File.WriteAllText(FilePath, "{}");
             }
 
             using FileStream fileStream = File.OpenRead(FilePath);
@@ -71,7 +71,7 @@ public static class ProjectManager
             project ??= new Project();
             return project;
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             throw new Exception(ex.Message);
         }
