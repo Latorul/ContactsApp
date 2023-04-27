@@ -1,4 +1,6 @@
-﻿namespace ContactsApp.View;
+﻿using ContactsApp.Model;
+
+namespace ContactsApp.View;
 
 /// <summary>
 /// Главное окно приложения.
@@ -19,7 +21,7 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
-        
+
         _project = ProjectManager.LoadProject();
         //GenerateContacts();
         _currentContacts = _project.Contacts;
@@ -189,6 +191,34 @@ public partial class MainForm : Form
     {
         UpdateListBox();
         ClearSelectedContact();
+        UpdateBirthdayPeopleNotify();
+    }
+
+    private void UpdateBirthdayPeopleNotify()
+    {
+        List<Contact> birthdayPeople = _project.SortByFullName(_project.FindBirthDayContacts(_project.Contacts));
+
+        if (birthdayPeople.Count == 0)
+        {
+            NotifyPanel.Visible = false;
+            return;
+        }
+
+        BirthdayPeopleLabel.Text = string.Empty;
+
+        for (int i = 0; i < birthdayPeople.Count; i++)
+        {
+            if (BirthdayPeopleLabel.Text.Length >= 50)
+            {
+                BirthdayPeopleLabel.Text = BirthdayPeopleLabel.Text.Remove(BirthdayPeopleLabel.Text.Length - 2, 1);
+                BirthdayPeopleLabel.Text += "и др.";
+                return;
+            }
+
+            BirthdayPeopleLabel.Text += birthdayPeople[i].FullName + ", ";
+
+        }
+
     }
 
     /// <summary>
@@ -197,13 +227,13 @@ public partial class MainForm : Form
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
         ProjectManager.SaveProject(_project);
-        
-        //if (MessageBox.Show("Do you really want to exit?",
-        //        "Close?",
-        //        MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-        //{
-        //    e.Cancel = true;
-        //}
+
+        if (MessageBox.Show("Do you really want to exit?",
+                "Close?",
+                MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+        {
+            e.Cancel = true;
+        }
     }
 
     private void SearchTextBox_TextChanged(object sender, EventArgs e)
