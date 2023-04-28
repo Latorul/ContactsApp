@@ -1,18 +1,11 @@
-﻿using Microsoft.VisualBasic.Logging;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text.Json;
-using System.Windows.Forms;
-
-namespace ContactsApp.View;
+﻿namespace ContactsApp.View;
 
 /// <summary>
 /// Форма добавления и редактирования контакта <see cref="Contact"/>.
 /// </summary>
 public partial class ContactForm : Form
 {
-    string temp = "";
+    private string _currentPhoneNumber = "";
 
     /// <summary>
     /// Сообщение об ошибке в ФИО.
@@ -44,21 +37,11 @@ public partial class ContactForm : Form
     /// </summary>
     private Contact _contact = new Contact();
 
-    class MyStruct
-    {
-        public string Country { get; set; } = string.Empty;
-        public string CountryLocal { get; set; } = string.Empty;
-        public string Code { get; set; } = string.Empty;
-        public string PhoneCode { get; set; } = string.Empty;
-
-        public MyStruct(string country, string countryLocal, string code, string phoneCode)
-        {
-            Country = country;
-            CountryLocal = countryLocal;
-            Code = code;
-            PhoneCode = phoneCode;
-        }
-    }
+    /// <summary>
+    /// Список с информацией о всех странах.
+    /// </summary>
+    private readonly List<CountryInfo> _countriesInfo;
+    
 
     /// <summary>
     /// Конструктор класса <see cref="ContactForm"/>.
@@ -73,20 +56,9 @@ public partial class ContactForm : Form
         _contact.DateOfBirth = new DateTime(2002, 10, 16);
         _contact.VkId = "VkId";
 
-
-
-        var json = System.Text.Encoding.Default.GetString(Properties.Resources.countries);
-        var options = new JsonSerializerOptions
+        _countriesInfo = CountryInfo.LoadInfo();
+        foreach (var item in _countriesInfo)
         {
-            PropertyNameCaseInsensitive = true
-        };
-        var dictionary = JsonSerializer.Deserialize<List<MyStruct>>(json, options);
-
-        foreach (var item in dictionary)
-        {
-            string name = item.Country;
-            if (item.CountryLocal != string.Empty)
-                name += " (" + item.CountryLocal + ")";
             CountrySelectorComboBox.Items.Add(new DropDownItem(item.Code, item.Country));
         }
         CountrySelectorComboBox.SelectedIndex = 0;
@@ -197,19 +169,11 @@ public partial class ContactForm : Form
     {
         try
         {
-
-            var json = System.Text.Encoding.Default.GetString(Properties.Resources.countries);
-            var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-            var dictionary = JsonSerializer.Deserialize<List<MyStruct>>(json, options);
-            var cond1 = dictionary.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString()).FirstOrDefault().PhoneCode;
-            var tempcond = PhoneNumberTextBox.Text.Take(dictionary.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString()).FirstOrDefault().PhoneCode.Length);
-            var cond2 = new string(tempcond.ToArray());
+            var cond1 = _countriesInfo.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString()).FirstOrDefault().PhoneCode;
+            var cond2 = new string(PhoneNumberTextBox.Text.Take(_countriesInfo.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString()).FirstOrDefault().PhoneCode.Length).ToArray());
             if (cond1 != cond2)
             {
-                PhoneNumberTextBox.Text = temp;
+                PhoneNumberTextBox.Text = _currentPhoneNumber;
             }
 
             _contact.PhoneNumber = PhoneNumberTextBox.Text;
@@ -223,6 +187,24 @@ public partial class ContactForm : Form
 
             PhoneNumberTextBox.BackColor = Color.LightPink;
         }
+    }
+
+    /// <summary>
+    /// Изменяет телефонный код страны при выборе из CountrySelectorComboBox.
+    /// </summary>
+    private void CountrySelectorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+        PhoneNumberTextBox.Text = _countriesInfo.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString())
+            .FirstOrDefault().PhoneCode;
+    }
+
+    /// <summary>
+    /// Сохраняет номер телефона до изменения.
+    /// </summary>
+    private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        _currentPhoneNumber = PhoneNumberTextBox.Text;
     }
 
     /// <summary>
@@ -307,21 +289,5 @@ public partial class ContactForm : Form
     {
         AddPhotoButton.Image = Properties.Resources.add_photo_32x32_grey;
         AddPhotoButton.BackColor = Color.White;
-    }
-
-    private void CountrySelectorComboBox_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        var json = System.Text.Encoding.Default.GetString(Properties.Resources.countries);
-        var options = new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        };
-        var dictionary = JsonSerializer.Deserialize<List<MyStruct>>(json, options);
-        PhoneNumberTextBox.Text = dictionary.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString()).FirstOrDefault().PhoneCode;
-    }
-
-    private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
-    {
-        temp = PhoneNumberTextBox.Text;
     }
 }
