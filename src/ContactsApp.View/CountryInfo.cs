@@ -8,31 +8,18 @@ public class CountryInfo
     /// <summary>
     /// Название страны.
     /// </summary>
-    public string Country { get; set; }
-    
+    public string Country { get; init; } = string.Empty;
+
     /// <summary>
     /// Буквенный код.
     /// </summary>
-    public string Code { get; set; }
-    
+    public string Code { get; init; } = string.Empty;
+
     /// <summary>
     /// Телефонный код.
     /// </summary>
-    public string PhoneCode { get; set; }
+    public string PhoneCode { get; init; } = string.Empty;
 
-
-    /// <summary>
-    /// Конструктор класса <see cref="CountryInfo"/>.
-    /// </summary>
-    /// <param name="country">Название страны.</param>
-    /// <param name="code">Буквенный код.</param>
-    /// <param name="phoneCode">Телефонный код.</param>
-    public CountryInfo(string country, string code, string phoneCode)
-    {
-        Country = country;
-        Code = code;
-        PhoneCode = phoneCode;
-    }
 
     /// <summary>
     /// Загружает информацию о странах из файла.
