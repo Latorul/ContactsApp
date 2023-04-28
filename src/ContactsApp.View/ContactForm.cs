@@ -189,6 +189,17 @@ public partial class ContactForm : Form
         }
     }
 
+    private void ConvertToPhoneNumberFormat()
+    {
+        string input = PhoneNumberTextBox.Text;
+        string replacement = "";
+
+        var regex = new Regex(@"^(\+\d{2})( \(\d{3}\))( \d{3})( \d{2}){1,2}$");
+
+        string result = regex.Replace(input, replacement);
+        Debug.WriteLine(result);
+    }
+
     /// <summary>
     /// Преобразует введённый пользователем номер телефона в отформатированный вид.
     /// </summary>
