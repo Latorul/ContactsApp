@@ -1,4 +1,6 @@
-﻿namespace ContactsApp.View;
+﻿using System.Text.RegularExpressions;
+
+namespace ContactsApp.View;
 
 /// <summary>
 /// Форма добавления и редактирования контакта <see cref="Contact"/>.
@@ -173,6 +175,7 @@ public partial class ContactForm : Form
         try
         {
             CheckOnPhoneCodeEdit();
+            ConvertToPhoneNumberFormat();
             _contact.PhoneNumber = PhoneNumberTextBox.Text;
 
             _phoneNumberError = string.Empty;
@@ -184,6 +187,20 @@ public partial class ContactForm : Form
 
             PhoneNumberTextBox.BackColor = Color.LightPink;
         }
+    }
+
+    /// <summary>
+    /// Преобразует введённый пользователем номер телефона в отформатированный вид.
+    /// </summary>
+    private void ConvertToPhoneNumberFormat()
+    {
+        string input = PhoneNumberTextBox.Text;
+        string replacement = "";
+
+        var regex = new Regex(@"^(\+\d{2})( \(\d{3}\))( \d{3})( \d{2}){1,2}$");
+
+        string result = regex.Replace(input, replacement);
+        Debug.WriteLine(result);
     }
 
     /// <summary>
