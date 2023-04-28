@@ -12,6 +12,8 @@ namespace ContactsApp.View;
 /// </summary>
 public partial class ContactForm : Form
 {
+    string temp = "";
+
     /// <summary>
     /// Сообщение об ошибке в ФИО.
     /// </summary>
@@ -71,8 +73,6 @@ public partial class ContactForm : Form
         _contact.DateOfBirth = new DateTime(2002, 10, 16);
         _contact.VkId = "VkId";
 
-        UpdateForm();
-
 
 
         var json = System.Text.Encoding.Default.GetString(Properties.Resources.countries);
@@ -89,6 +89,9 @@ public partial class ContactForm : Form
                 name += " (" + item.CountryLocal + ")";
             CountrySelectorComboBox.Items.Add(new DropDownItem(item.Code, name));
         }
+        CountrySelectorComboBox.SelectedIndex = 0;
+
+        UpdateForm();
     }
 
     /// <summary>
@@ -194,6 +197,21 @@ public partial class ContactForm : Form
     {
         try
         {
+
+            var json = System.Text.Encoding.Default.GetString(Properties.Resources.countries);
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+            var dictionary = JsonSerializer.Deserialize<List<MyStruct>>(json, options);
+            var cond1 = dictionary.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString()).FirstOrDefault().PhoneCode;
+            var tempcond = PhoneNumberTextBox.Text.Take(dictionary.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString()).FirstOrDefault().PhoneCode.Length);
+            var cond2 = new string(tempcond.ToArray());
+            if (cond1 != cond2)
+            {
+                PhoneNumberTextBox.Text = temp;
+            }
+
             _contact.PhoneNumber = PhoneNumberTextBox.Text;
 
             _phoneNumberError = string.Empty;
@@ -306,5 +324,10 @@ public partial class ContactForm : Form
         };
         var dictionary = JsonSerializer.Deserialize<List<MyStruct>>(json, options);
         PhoneNumberTextBox.Text = dictionary.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString()).FirstOrDefault().PhoneCode;
+    }
+
+    private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        temp = PhoneNumberTextBox.Text;
     }
 }

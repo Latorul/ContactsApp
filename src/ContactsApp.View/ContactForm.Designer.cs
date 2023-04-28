@@ -84,6 +84,7 @@
             PhoneNumberTextBox.Size = new Size(189, 23);
             PhoneNumberTextBox.TabIndex = 3;
             PhoneNumberTextBox.TextChanged += PhoneNumberTextBox_TextChanged;
+            PhoneNumberTextBox.KeyPress += PhoneNumberTextBox_KeyPress;
             // 
             // PhoneNumberLabel
             // 
