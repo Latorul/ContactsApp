@@ -87,7 +87,7 @@ public partial class ContactForm : Form
             string name = item.Country;
             if (item.CountryLocal != string.Empty)
                 name += " (" + item.CountryLocal + ")";
-            CountrySelectorComboBox.Items.Add(new DropDownItem(item.Code, name));
+            CountrySelectorComboBox.Items.Add(new DropDownItem(item.Code, item.Country));
         }
         CountrySelectorComboBox.SelectedIndex = 0;
 
@@ -307,12 +307,6 @@ public partial class ContactForm : Form
     {
         AddPhotoButton.Image = Properties.Resources.add_photo_32x32_grey;
         AddPhotoButton.BackColor = Color.White;
-    }
-
-    private void ContactForm_Shown(object sender, EventArgs e)
-    {
-        CountrySelectorComboBox.Width = 46;
-        CountrySelectorComboBox.DropDownWidth = 242;
     }
 
     private void CountrySelectorComboBox_SelectedIndexChanged(object sender, EventArgs e)

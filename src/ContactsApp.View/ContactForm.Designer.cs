@@ -53,7 +53,7 @@
             // 
             VkIdTextBox.Location = new Point(118, 249);
             VkIdTextBox.Name = "VkIdTextBox";
-            VkIdTextBox.Size = new Size(242, 23);
+            VkIdTextBox.Size = new Size(261, 23);
             VkIdTextBox.TabIndex = 5;
             VkIdTextBox.TextChanged += VkIdTextBox_TextChanged;
             // 
@@ -81,7 +81,7 @@
             // 
             PhoneNumberTextBox.Location = new Point(171, 141);
             PhoneNumberTextBox.Name = "PhoneNumberTextBox";
-            PhoneNumberTextBox.Size = new Size(189, 23);
+            PhoneNumberTextBox.Size = new Size(208, 23);
             PhoneNumberTextBox.TabIndex = 3;
             PhoneNumberTextBox.TextChanged += PhoneNumberTextBox_TextChanged;
             PhoneNumberTextBox.KeyPress += PhoneNumberTextBox_KeyPress;
@@ -191,7 +191,7 @@
             // 
             DateOfBirthDateTimePicker.Location = new Point(118, 195);
             DateOfBirthDateTimePicker.Name = "DateOfBirthDateTimePicker";
-            DateOfBirthDateTimePicker.Size = new Size(242, 23);
+            DateOfBirthDateTimePicker.Size = new Size(261, 23);
             DateOfBirthDateTimePicker.TabIndex = 4;
             DateOfBirthDateTimePicker.ValueChanged += DateOfBirthDateTimePicker_ValueChanged;
             // 
@@ -199,11 +199,12 @@
             // 
             CountrySelectorComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             CountrySelectorComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            CountrySelectorComboBox.DropDownWidth = 261;
             CountrySelectorComboBox.FormattingEnabled = true;
             CountrySelectorComboBox.ItemHeight = 17;
             CountrySelectorComboBox.Location = new Point(118, 141);
             CountrySelectorComboBox.Name = "CountrySelectorComboBox";
-            CountrySelectorComboBox.Size = new Size(47, 23);
+            CountrySelectorComboBox.Size = new Size(46, 23);
             CountrySelectorComboBox.TabIndex = 25;
             CountrySelectorComboBox.SelectedIndexChanged += CountrySelectorComboBox_SelectedIndexChanged;
             // 
@@ -233,7 +234,6 @@
             Name = "ContactForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
-            Shown += ContactForm_Shown;
             KeyDown += ContactForm_KeyDown;
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).EndInit();
             ButtonsPanel.ResumeLayout(false);

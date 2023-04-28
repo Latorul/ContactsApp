@@ -2,13 +2,6 @@
 
 public sealed class CountrySelector : ComboBox
 {
-    public CountrySelector()
-    {
-        DrawMode = DrawMode.OwnerDrawFixed;
-        DropDownStyle = ComboBoxStyle.DropDownList;
-        ItemHeight = 17;
-    }
-
     protected override void OnDrawItem(DrawItemEventArgs e)
     {
         e.DrawBackground();
