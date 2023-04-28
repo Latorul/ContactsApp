@@ -4,7 +4,7 @@ public sealed class DropDownItem
 {
     private readonly Size _flagSize = new Size(21, 15);
 
-    public string Code { get; set; }
+    private string Code { get; set; }
 
     public string Country { get; set; }
 
