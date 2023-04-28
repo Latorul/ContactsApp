@@ -19,8 +19,7 @@ public class CountryInfo
     /// Телефонный код.
     /// </summary>
     public string PhoneCode { get; set; }
-    
-    public string CountryLocal { get; set; }
+
 
     /// <summary>
     /// Конструктор класса <see cref="CountryInfo"/>.
@@ -28,10 +27,9 @@ public class CountryInfo
     /// <param name="country">Название страны.</param>
     /// <param name="code">Буквенный код.</param>
     /// <param name="phoneCode">Телефонный код.</param>
-    public CountryInfo(string country, string countryLocal, string code, string phoneCode)
+    public CountryInfo(string country, string code, string phoneCode)
     {
         Country = country;
-        CountryLocal = countryLocal;
         Code = code;
         PhoneCode = phoneCode;
     }
