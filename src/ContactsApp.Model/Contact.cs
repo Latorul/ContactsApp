@@ -6,11 +6,6 @@
 public class Contact : ICloneable
 {
     /// <summary>
-    /// Допустимые символы для номера телефона.
-    /// </summary>
-    private const string ValidPhoneNumberChars = "1234567890 +-()";
-
-    /// <summary>
     /// Максимальная длина для ФИО.
     /// </summary>
     private const int MaxFullNameLength = 100;
@@ -95,13 +90,7 @@ public class Contact : ICloneable
         get => _phoneNumber;
         set
         {
-            if (value.Any(c => !ValidPhoneNumberChars.Contains(c)))
-            {
-                //todo поменять сообщение на "номер телефона должен быть в таком формате +7 (900) 123 45-67"
-                throw new ArgumentException(
-                    "Номер телефона может содержать только цифры и знаки ‘+’, ‘(’ ‘)’ ‘-’ ‘ ’");
-            }
-
+            Validator.AssertOnPhoneNumberCahrs(value);
             _phoneNumber = value;
         }
     }
