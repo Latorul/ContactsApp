@@ -5,7 +5,7 @@
 /// </summary>
 public partial class ContactForm : Form
 {
-    private string _currentPhoneNumber = "";
+    private string _currentPhoneNumber = string.Empty;
 
     /// <summary>
     /// Сообщение об ошибке в ФИО.
@@ -169,8 +169,8 @@ public partial class ContactForm : Form
     {
         try
         {
-            var cond1 = _countriesInfo.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString()).FirstOrDefault().PhoneCode;
-            var cond2 = new string(PhoneNumberTextBox.Text.Take(_countriesInfo.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString()).FirstOrDefault().PhoneCode.Length).ToArray());
+            var cond1 = CountrySelectorComboBox.SelectedItem.ToString();
+            var cond2 = new string(PhoneNumberTextBox.Text.Take(CountrySelectorComboBox.SelectedItem.ToString()!.Length).ToArray());
             if (cond1 != cond2)
             {
                 PhoneNumberTextBox.Text = _currentPhoneNumber;
@@ -194,9 +194,7 @@ public partial class ContactForm : Form
     /// </summary>
     private void CountrySelectorComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-
-        PhoneNumberTextBox.Text = _countriesInfo.Where(x => x.Code == CountrySelectorComboBox.SelectedItem.ToString())
-            .FirstOrDefault().PhoneCode;
+        PhoneNumberTextBox.Text = CountrySelectorComboBox.SelectedItem.ToString();
     }
 
     /// <summary>
@@ -256,6 +254,8 @@ public partial class ContactForm : Form
         }
     }
 
+    //22222222222222222222222222
+
     /// <summary>
     /// Закрывает окно с сохранением изменений.
     /// </summary>
@@ -272,6 +272,8 @@ public partial class ContactForm : Form
     {
         Close();
     }
+
+    //1111111111111111111111
 
     /// <summary>
     /// При наведении курсора перекрашивает кнопку добавления фотографии в синий цвет.

@@ -34,8 +34,8 @@ public sealed class CountryDropDownItem
     }
 
     /// <summary>
-    /// Возвращает буквенный код страны.
+    /// Возвращает телефенный код страны.
     /// </summary>
-    /// <returns>Буквенный код.</returns>
-    public override string ToString() => CountryInfo.Code;
+    /// <returns>Телефенный код.</returns>
+    public override string ToString() => CountryInfo.PhoneCode;
 }
