@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace ContactsApp.View;
+﻿namespace ContactsApp.View;
 
 /// <summary>
 /// Форма добавления и редактирования контакта <see cref="Contact"/>.
@@ -195,7 +193,7 @@ public partial class ContactForm : Form
     private void ConvertToPhoneNumberFormat()
     {
         string input = PhoneNumberTextBox.Text;
-        string replacement = "";
+        string replacement = "$1$2$3$4";
 
         var regex = new Regex(@"^(\+\d{2})( \(\d{3}\))( \d{3})( \d{2}){1,2}$");
 
@@ -288,8 +286,6 @@ public partial class ContactForm : Form
         }
     }
 
-    //22222222222222222222222222
-
     /// <summary>
     /// Закрывает окно с сохранением изменений.
     /// </summary>
@@ -306,8 +302,6 @@ public partial class ContactForm : Form
     {
         Close();
     }
-
-    //1111111111111111111111
 
     /// <summary>
     /// При наведении курсора перекрашивает кнопку добавления фотографии в синий цвет.
