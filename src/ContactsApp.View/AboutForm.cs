@@ -14,6 +14,21 @@ public partial class AboutForm : Form
     }
 
     /// <summary>
+    /// При нажатии на надпись открывает ссылку на GitHub автора.
+    /// </summary>
+    private void GithubLlinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        GithubLlinkLabel.LinkVisited = true;
+
+        Process.Start(
+            new ProcessStartInfo
+            {
+                FileName = "https://github.com/Latorul",
+                UseShellExecute = true
+            });
+    }
+
+    /// <summary>
     /// При нажатии на надпись открывает ссылку на источник иконок.
     /// </summary>
     private void IconsReferenceLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -29,16 +44,17 @@ public partial class AboutForm : Form
     }
 
     /// <summary>
-    /// При нажатии на надпись открывает ссылку на GitHub автора.
+    /// При нажатии на надпись открывает ссылку на источник информации о странах и флагах.
     /// </summary>
-    private void GithubLlinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    private void CountriesReferenceLinkLabel_LinkClicked(
+        object sender, LinkLabelLinkClickedEventArgs e)
     {
-        GithubLlinkLabel.LinkVisited = true;
+        CountriesReferenceLinkLabel.LinkVisited = true;
 
         Process.Start(
             new ProcessStartInfo
             {
-                FileName = "https://github.com/Latorul",
+                FileName = "https://openai.com/",
                 UseShellExecute = true
             });
     }

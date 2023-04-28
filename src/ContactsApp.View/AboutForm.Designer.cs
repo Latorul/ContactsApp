@@ -42,6 +42,8 @@
             VersionLabel = new Label();
             ProgramNameLabel = new Label();
             ButtonsPanel = new Panel();
+            CountriesReferenceLabel = new Label();
+            CountriesReferenceLinkLabel = new LinkLabel();
             ButtonsPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -72,9 +74,9 @@
             IconsReferenceLabel.AutoSize = true;
             IconsReferenceLabel.Location = new Point(16, 320);
             IconsReferenceLabel.Name = "IconsReferenceLabel";
-            IconsReferenceLabel.Size = new Size(207, 15);
+            IconsReferenceLabel.Size = new Size(197, 15);
             IconsReferenceLabel.TabIndex = 37;
-            IconsReferenceLabel.Text = "All used images are downloaded from";
+            IconsReferenceLabel.Text = "All used icons are downloaded from";
             // 
             // LicenseTextBox
             // 
@@ -172,12 +174,34 @@
             ButtonsPanel.Size = new Size(525, 47);
             ButtonsPanel.TabIndex = 27;
             // 
+            // CountriesReferenceLabel
+            // 
+            CountriesReferenceLabel.AutoSize = true;
+            CountriesReferenceLabel.Location = new Point(16, 335);
+            CountriesReferenceLabel.Name = "CountriesReferenceLabel";
+            CountriesReferenceLabel.Size = new Size(250, 15);
+            CountriesReferenceLabel.TabIndex = 39;
+            CountriesReferenceLabel.Text = "Countries info and flags are downloaded from";
+            // 
+            // CountriesReferenceLinkLabel
+            // 
+            CountriesReferenceLinkLabel.AutoSize = true;
+            CountriesReferenceLinkLabel.Location = new Point(272, 335);
+            CountriesReferenceLinkLabel.Name = "CountriesReferenceLinkLabel";
+            CountriesReferenceLinkLabel.Size = new Size(70, 15);
+            CountriesReferenceLinkLabel.TabIndex = 40;
+            CountriesReferenceLinkLabel.TabStop = true;
+            CountriesReferenceLinkLabel.Text = "openai.com";
+            CountriesReferenceLinkLabel.LinkClicked += CountriesReferenceLinkLabel_LinkClicked;
+            // 
             // AboutForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(525, 408);
+            Controls.Add(CountriesReferenceLinkLabel);
+            Controls.Add(CountriesReferenceLabel);
             Controls.Add(IconsReferenceLinkLabel);
             Controls.Add(IconsReferenceLabel);
             Controls.Add(LicenseTextBox);
@@ -215,5 +239,7 @@
         private Label AuthorLabel;
         private Label VersionLabel;
         private Label ProgramNameLabel;
+        private Label CountriesReferenceLabel;
+        private LinkLabel CountriesReferenceLinkLabel;
     }
 }
