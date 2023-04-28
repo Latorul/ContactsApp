@@ -8,7 +8,7 @@ public class CountryInfo
     /// <summary>
     /// Название страны.
     /// </summary>
-    public string Country { get; init; } = string.Empty;
+    public string Name { get; init; } = string.Empty;
 
     /// <summary>
     /// Буквенный код.

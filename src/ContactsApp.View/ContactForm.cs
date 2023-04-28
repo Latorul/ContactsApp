@@ -59,7 +59,7 @@ public partial class ContactForm : Form
         _countriesInfo = CountryInfo.LoadInfo();
         foreach (var item in _countriesInfo)
         {
-            CountrySelectorComboBox.Items.Add(new DropDownItem(item.Code, item.Country));
+            CountrySelectorComboBox.Items.Add(new CountryDropDownItem(item));
         }
         CountrySelectorComboBox.SelectedIndex = 0;
 
