@@ -5,6 +5,9 @@
 /// </summary>
 public partial class ContactForm : Form
 {
+    /// <summary>
+    /// Текущий номер телефона.
+    /// </summary>
     private string _currentPhoneNumber = string.Empty;
 
     /// <summary>
@@ -41,7 +44,7 @@ public partial class ContactForm : Form
     /// Список с информацией о всех странах.
     /// </summary>
     private readonly List<CountryInfo> _countriesInfo;
-    
+
 
     /// <summary>
     /// Конструктор класса <see cref="ContactForm"/>.
@@ -169,13 +172,7 @@ public partial class ContactForm : Form
     {
         try
         {
-            var cond1 = CountrySelectorComboBox.SelectedItem.ToString();
-            var cond2 = new string(PhoneNumberTextBox.Text.Take(CountrySelectorComboBox.SelectedItem.ToString()!.Length).ToArray());
-            if (cond1 != cond2)
-            {
-                PhoneNumberTextBox.Text = _currentPhoneNumber;
-            }
-
+            CheckOnPhoneCodeEdit();
             _contact.PhoneNumber = PhoneNumberTextBox.Text;
 
             _phoneNumberError = string.Empty;
@@ -186,6 +183,26 @@ public partial class ContactForm : Form
             _phoneNumberError = ex.Message;
 
             PhoneNumberTextBox.BackColor = Color.LightPink;
+        }
+    }
+
+    /// <summary>
+    /// Проверяет номер телефона на изменение кода страны.
+    /// Если пользователь пытается его изменить, то изменения не применяются.
+    /// </summary>
+    private void CheckOnPhoneCodeEdit()
+    {
+        var item = CountrySelectorComboBox.SelectedItem;
+
+        var correctPhoneCode = item.ToString();
+        var currentPhoneCode = new string(
+            PhoneNumberTextBox.Text
+            .Take(item.ToString()!.Length)
+            .ToArray());
+
+        if (correctPhoneCode != currentPhoneCode)
+        {
+            PhoneNumberTextBox.Text = _currentPhoneNumber;
         }
     }
 
