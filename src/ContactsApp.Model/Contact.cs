@@ -38,7 +38,7 @@ public class Contact : ICloneable
     /// <summary>
     /// Номер телефона.
     /// </summary>
-    private string _phoneNumber;
+    private string _phoneNumber = "+93 (000) 000 00";
 
     /// <summary>
     /// Дата рождения.
@@ -124,7 +124,7 @@ public class Contact : ICloneable
     /// <summary>
     /// Конструктор класса <see cref="Contact"/>.
     /// </summary>
-    public Contact()// : this("", "", "", DateTime.Today, "")
+    public Contact()
     {
     }
 
