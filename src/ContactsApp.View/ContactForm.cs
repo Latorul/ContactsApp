@@ -76,11 +76,11 @@ public partial class ContactForm : Form
             CountrySelectorComboBox.Items.Add(new CountryDropDownItem(item));
         }
 
-        Contact.FullName = "FullName";
-        Contact.Email = "Email";
-        Contact.PhoneNumber = "+93 (123) 456 78 98";
-        Contact.DateOfBirth = new DateTime(2002, 10, 16);
-        Contact.VkId = "VkId";
+        //Contact.FullName = "FullName";
+        //Contact.Email = "Email";
+        //Contact.PhoneNumber = "";
+        //Contact.DateOfBirth = new DateTime(2002, 10, 16);
+        //Contact.VkId = "VkId";
 
         CountrySelectorComboBox.SelectedIndex = 0;
 
@@ -92,6 +92,7 @@ public partial class ContactForm : Form
     /// </summary>
     private void UpdateForm()
     {
+        _currentPhoneNumber = _contact.PhoneNumber;
         FullNameTextBox.Text = _contact.FullName;
         EmailTextBox.Text = _contact.Email;
         PhoneNumberTextBox.Text = _contact.PhoneNumber;
@@ -353,5 +354,7 @@ public partial class ContactForm : Form
         var currentCountry = _countriesInfo.Where(x => x.PhoneCode == code).First();
         var index = _countriesInfo.IndexOf(currentCountry);
         CountrySelectorComboBox.SelectedItem = CountrySelectorComboBox.Items[index];
+
+        PhoneNumberTextBox.Text = Contact.PhoneNumber;
     }
 }

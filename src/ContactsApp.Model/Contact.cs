@@ -43,7 +43,7 @@ public class Contact : ICloneable
     /// <summary>
     /// Дата рождения.
     /// </summary>
-    private DateTime _dateOfBirth;
+    private DateTime _dateOfBirth = DateTime.Today;
 
     /// <summary>
     /// Ссылка на ВКонтакте.
@@ -124,7 +124,7 @@ public class Contact : ICloneable
     /// <summary>
     /// Конструктор класса <see cref="Contact"/>.
     /// </summary>
-    public Contact() : this("", "", "+93 (123) 456 78 98", DateTime.Today, "")
+    public Contact()// : this("", "", "", DateTime.Today, "")
     {
     }
 
