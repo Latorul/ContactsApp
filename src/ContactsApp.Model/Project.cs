@@ -6,9 +6,9 @@
 public class Project
 {
     /// <summary>
-    /// Список всех контактов.
+    /// Возвращает список всех контактов.
     /// </summary>
-    public List<Contact> Contacts { get; }
+    public List<Contact> Contacts { get; init; }
 
     /// <summary>
     /// Конструктор класса <see cref="Project"/>.

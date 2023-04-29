@@ -36,6 +36,12 @@ public static class Validator
 
 
     /// <summary>
+    /// Допустимые символы для номера телефона.
+    /// </summary>
+    private const string ValidPhoneNumberChars = "1234567890 +-()";
+
+
+    /// <summary>
     /// Проверяет длину полученной строки.
     /// </summary>
     /// <param name="value">Строка для проверки.</param>
@@ -67,6 +73,20 @@ public static class Validator
         {
             throw new ArgumentException(
                 "Date of birth can't be later then the current day.");
+        }
+    }
+
+    /// <summary>
+    /// Проверяет номер телефона на наличие посторонних символов.
+    /// </summary>
+    /// <param name="value">Проверяемый номер телефона.</param>
+    public static void AssertOnPhoneNumberCahrs(string value)
+    {
+        if (value.Any(c => !ValidPhoneNumberChars.Contains(c)))
+        {
+            //todo поменять сообщение на "номер телефона должен быть в таком формате +7 (900) 123 45-67"
+            throw new ArgumentException(
+                "Phone number can only contain numbers and characters ‘+’, ‘(’ ‘)’ ‘-’ ‘ ’");
         }
     }
 

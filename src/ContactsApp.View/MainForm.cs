@@ -6,9 +6,19 @@
 public partial class MainForm : Form
 {
     /// <summary>
+    /// Максимальная длина строки с перечислением людей, у которых сегодня день рождения. 
+    /// </summary>
+    private const int MaxBirthdayPeopleMessageLength = 50;
+
+    /// <summary>
     /// Хранит список всех контактов. 
     /// </summary>
-    private readonly Project _project = new Project();
+    private readonly Project _project;
+
+    /// <summary>
+    /// Отображаемый список контактов.
+    /// </summary>
+    private List<Contact> _currentContacts;
 
 
     /// <summary>
@@ -17,32 +27,124 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+
+        _project = ProjectManager.LoadProject();
+        if (_project.Contacts.Count == 0)
+            GenerateContacts();
+        _currentContacts = _project.Contacts;
     }
 
     /// <summary>
-    /// Добавляет новый контакт.
+    /// Обновляет информацию при открытии программы.
+    /// </summary>
+    private void MainForm_Shown(object sender, EventArgs e)
+    {
+        UpdateListBox();
+        ClearSelectedContact();
+        UpdateBirthdayPeopleNotify();
+    }
+
+    /// <summary>
+    /// При закрытии окна спрашивает подтверждение закрытия программы.
+    /// </summary>
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        ProjectManager.SaveProject(_project);
+
+        if (MessageBox.Show("Do you really want to exit?", "Close?",
+                MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+        {
+            e.Cancel = true;
+        }
+    }
+
+    /// <summary>
+    /// Добавляет контакты для проверки работоспособности программы.
+    /// </summary>
+    private void GenerateContacts()
+    {
+        _project.Contacts.Add(
+            new Contact()
+            {
+                FullName = "Филатов Мирон",
+                Email = "filatov@mail.ru",
+                PhoneNumber = "1",
+                DateOfBirth = DateTime.Today,
+                VkId = "https://vk.com/filatov"
+            });
+        _project.Contacts.Add(
+            new Contact()
+            {
+                FullName = "Ткачев Артём",
+                Email = "tkachev@mail.ru",
+                PhoneNumber = "2",
+                DateOfBirth = DateTime.Today,
+                VkId = "https://vk.com/tkachev"
+            });
+        _project.Contacts.Add(
+            new Contact()
+            {
+                FullName = "Козин Марк",
+                Email = "kozin@mail.ru",
+                PhoneNumber = "3",
+                DateOfBirth = DateTime.Today,
+                VkId = "https://vk.com/kozin"
+            });
+        _project.Contacts.Add(
+            new Contact()
+            {
+                FullName = "Журавлев Владимир",
+                Email = "zhuravlev@mail.ru",
+                PhoneNumber = "4",
+                DateOfBirth = DateTime.Today,
+                VkId = "https://vk.com/zhuravlev"
+            });
+        _project.Contacts.Add(
+            new Contact()
+            {
+                FullName = "Белоусов Андрей",
+                Email = "belousov@mail.ru",
+                PhoneNumber = "5",
+                DateOfBirth = DateTime.Today,
+                VkId = "https://vk.com/belousov"
+            });
+    }
+
+    /// <summary>
+    /// Добавляет новый контакт с введёнными пользователем данными.
     /// </summary>
     private void AddContact()
     {
-        _project.Contacts.Add(new Contact(
-            "fullName",
-            "email",
-            "1234567890",
-            DateTime.Today,
-            "vkId"
-        ));
+        ContactForm form = new ContactForm();
+        form.Contact = new Contact();
+
+        if (form.ShowDialog() == DialogResult.OK)
+        {
+            Contact updatedContact = form.Contact;
+            _project.Contacts.Add(updatedContact);
+        }
     }
 
     /// <summary>
-    /// Обновляет список контактов в ContactsListBox.
+    /// Изменяет данные выбранного контакта на введённые пользователем.
     /// </summary>
-    private void UpdateListBox()
+    /// <param name="index">Индекс выбранного контакта в ContactsListBox.</param>
+    private void EditContact(int index)
     {
-        ContactsListBox.Items.Clear();
+        ContactForm form = new ContactForm();
+        Contact selectedContact = _currentContacts[index];
+        form.Contact = selectedContact;
 
-        foreach (Contact contact in _project.Contacts)
+        if (form.ShowDialog() == DialogResult.OK)
         {
-            ContactsListBox.Items.Add(contact.FullName);
+            Contact updatedContact = form.Contact;
+
+            _project.Contacts.Remove(selectedContact);
+            _project.Contacts.Add(updatedContact);
+        }
+        else
+        {
+            form.Contact = selectedContact;
         }
     }
 
@@ -52,29 +154,35 @@ public partial class MainForm : Form
     /// <param name="index">Индекс выбранного контакта в списке ContactsListBox.</param>
     private void RemoveContact(int index)
     {
-        if (index == -1)
-            return;
-
-        if (MessageBox.Show($"Do you really want to remove {_project.Contacts[index].FullName}?",
+        if (MessageBox.Show(
+                $"Do you really want to remove {_currentContacts[index].FullName}?",
                 "Remove contact?",
                 MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+        {
             return;
+        }
 
+        _project.Contacts.Remove(_currentContacts[index]);
+        _currentContacts.RemoveAt(index);
         ClearSelectedContact();
-        _project.Contacts.RemoveAt(index);
     }
 
+    //Обновление отображаемой информации
+
     /// <summary>
-    /// Обновляет информацию о выбранном контакте в правой панели.
+    /// Обновляет список контактов в ContactsListBox.
     /// </summary>
-    /// <param name="index">Индекс выбранного контакта в списке ContactsListBox.</param>
-    private void UpdateSelectedContact(int index)
+    private void UpdateListBox()
     {
-        FullNameTextBox.Text = _project.Contacts[index].FullName;
-        EmailTextBox.Text = _project.Contacts[index].Email;
-        PhoneNumberTextBox.Text = _project.Contacts[index].PhoneNumber;
-        DateOfBirthTextBox.Text = _project.Contacts[index].DateOfBirth.ToString();
-        VkIdTextBox.Text = _project.Contacts[index].VkId;
+        ContactsListBox.Items.Clear();
+
+        _currentContacts = 
+            _project.SortByFullName(
+            _project.FindBySubstring(_project.Contacts, SearchTextBox.Text));
+        foreach (Contact contact in _currentContacts)
+        {
+            ContactsListBox.Items.Add(contact.FullName);
+        }
     }
 
     /// <summary>
@@ -90,6 +198,19 @@ public partial class MainForm : Form
     }
 
     /// <summary>
+    /// Обновляет информацию о выбранном контакте в правой панели.
+    /// </summary>
+    /// <param name="index">Индекс выбранного контакта в списке ContactsListBox.</param>
+    private void UpdateSelectedContact(int index)
+    {
+        FullNameTextBox.Text = _currentContacts[index].FullName;
+        EmailTextBox.Text = _currentContacts[index].Email;
+        PhoneNumberTextBox.Text = _currentContacts[index].PhoneNumber;
+        DateOfBirthTextBox.Text = _currentContacts[index].DateOfBirth.ToLongDateString();
+        VkIdTextBox.Text = _currentContacts[index].VkId;
+    }
+
+    /// <summary>
     /// Обрабатывает изменение выбора контакта в списке ContactsListBox.
     /// </summary>
     private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,25 +222,55 @@ public partial class MainForm : Form
     }
 
     /// <summary>
-    /// Обновляет информацию при открытии программы.
+    /// Задаёт подстроку для фильтрации контактов.
     /// </summary>
-    private void MainForm_Shown(object sender, EventArgs e)
+    private void SearchTextBox_TextChanged(object sender, EventArgs e)
     {
         UpdateListBox();
-        ClearSelectedContact();
     }
 
     /// <summary>
-    /// При закрытии окна спрашивает подтверждение закрытия программы.
+    /// Обновляет информацию в оповещении о днях рождениях.
     /// </summary>
-    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+    private void UpdateBirthdayPeopleNotify()
     {
-        if (MessageBox.Show("Do you really want to exit?",
-                "Close?",
-                MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+        List<Contact> birthdayPeople =
+            _project.SortByFullName(
+                _project.FindBirthDayContacts(_project.Contacts));
+
+        if (birthdayPeople.Count == 0)
         {
-            e.Cancel = true;
+            NotifyPanel.Visible = false;
+            return;
         }
+
+        BirthdayPeopleLabel.Text = CreateBirthdayNotifyMessage(birthdayPeople);
+    }
+
+    /// <summary>
+    /// Заполняет строку с напоминанием о днях рождениях контактов.
+    /// </summary>
+    /// <param name="birthdayPeople">Список контактов, у которых сегодня день рождения.</param>
+    /// <returns>Строка со списком контактов, у которых сегодня день рождения.</returns>
+    private string CreateBirthdayNotifyMessage(List<Contact> birthdayPeople)
+    {
+        string message = string.Empty;
+        int i;
+        for (i = 0; i < birthdayPeople.Count; i++)
+        {
+            if (message.Length >= MaxBirthdayPeopleMessageLength)
+            {
+                break;
+            }
+
+            message += birthdayPeople[i].FullName + ", ";
+        }
+
+        message = message.Remove(message.Length - 2);
+        if (i < birthdayPeople.Count)
+            message += " и др.";
+        
+        return message;
     }
 
     //Обработка нажатий на кнопки
@@ -129,12 +280,9 @@ public partial class MainForm : Form
     /// </summary>
     private void AddContactButton_Click(object sender, EventArgs e)
     {
-        var form = new ContactForm();
-        if (form.ShowDialog() == DialogResult.OK)
-        {
-            AddContact();
-            UpdateListBox();
-        }
+        AddContact();
+        UpdateListBox();
+        ProjectManager.SaveProject(_project);
     }
 
     /// <summary>
@@ -142,8 +290,12 @@ public partial class MainForm : Form
     /// </summary>
     private void EditContactButton_Click(object sender, EventArgs e)
     {
-        var form = new ContactForm();
-        form.ShowDialog();
+        if (ContactsListBox.SelectedIndex == -1)
+            return;
+
+        EditContact(ContactsListBox.SelectedIndex);
+        UpdateListBox();
+        ProjectManager.SaveProject(_project);
     }
 
     /// <summary>
@@ -151,8 +303,12 @@ public partial class MainForm : Form
     /// </summary>
     private void RemoveContactButton_Click(object sender, EventArgs e)
     {
+        if (ContactsListBox.SelectedIndex == -1)
+            return;
+
         RemoveContact(ContactsListBox.SelectedIndex);
         UpdateListBox();
+        ProjectManager.SaveProject(_project);
     }
 
     /// <summary>
@@ -172,7 +328,7 @@ public partial class MainForm : Form
     {
         if (e.KeyCode == Keys.F1)
         {
-            var form = new AboutForm();
+            AboutForm form = new AboutForm();
             form.ShowDialog();
         }
     }

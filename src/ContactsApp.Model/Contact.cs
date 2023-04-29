@@ -6,11 +6,6 @@
 public class Contact : ICloneable
 {
     /// <summary>
-    /// Допустимые символы для номера телефона.
-    /// </summary>
-    private const string ValidPhoneNumberChars = "1234567890 +-()";
-
-    /// <summary>
     /// Максимальная длина для ФИО.
     /// </summary>
     private const int MaxFullNameLength = 100;
@@ -102,6 +97,7 @@ public class Contact : ICloneable
                     "Номер телефона может содержать только цифры и знаки ‘+’, ‘(’ ‘)’ ‘-’ ‘ ’");
             }
             Validator.AssertOnPhoneNumberFormat(value);
+            Validator.AssertOnPhoneNumberCahrs(value);
             _phoneNumber = value;
         }
     }
@@ -135,7 +131,7 @@ public class Contact : ICloneable
     /// <summary>
     /// Конструктор класса <see cref="Contact"/>.
     /// </summary>
-    public Contact() : this("", "", "+93 (123) 456 78 98", DateTime.Today, "")
+    public Contact() : this("", "", "", DateTime.Today, "")
     {
     }
 

@@ -6,11 +6,6 @@
 public partial class ContactForm : Form
 {
     /// <summary>
-    /// Добавляемый или редактируемый контакт.
-    /// </summary>
-    private Contact _contact = new Contact();
-
-    /// <summary>
     /// Список с информацией о всех странах.
     /// </summary>
     private readonly List<CountryInfo> _countriesInfo;
@@ -44,6 +39,31 @@ public partial class ContactForm : Form
     /// Сообщение об ошибке в ссылке на ВКонтакте.
     /// </summary>
     private string _vkIdError = string.Empty;
+
+    /// <summary>
+    /// Добавляемый или редактируемый контакт.
+    /// </summary>
+    private Contact _contact = new Contact();
+
+    public Contact Contact
+    {
+        get
+        {
+            return _contact;
+        }
+        set
+        {
+            _contact = (Contact)value.Clone();
+            if (_contact != null)
+            {
+                FullNameTextBox.Text = _contact.FullName;
+                EmailTextBox.Text = _contact.Email;
+                PhoneNumberTextBox.Text = _contact.PhoneNumber;
+                DateOfBirthDateTimePicker.Value = _contact.DateOfBirth;
+                VkIdTextBox.Text = _contact.VkId;
+            }
+        }
+    }
 
 
     /// <summary>
@@ -290,7 +310,7 @@ public partial class ContactForm : Form
     {
         if (e.KeyCode == Keys.F1)
         {
-            var form = new AboutForm();
+            AboutForm form = new AboutForm();
             form.ShowDialog();
         }
     }

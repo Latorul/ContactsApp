@@ -3,7 +3,7 @@
 /// <summary>
 /// Класс для работы с файлами.
 /// </summary>
-public class ProjectManager
+public static class ProjectManager
 {
     /// <summary>
     /// Путь к каталогу AppData.
@@ -15,12 +15,12 @@ public class ProjectManager
     /// Путь к каталогу для сохранения контакта.
     /// </summary>
     private static readonly string FolderPath = $"{AppData}\\IvanovAA\\ContactsApp";
-    
+
     /// <summary>
     /// Полный путь к файлу.
     /// </summary>
     private static readonly string FilePath = $"{FolderPath}\\{FileName}";
-    
+
     /// <summary>
     /// Название файла.
     /// </summary>
@@ -30,11 +30,11 @@ public class ProjectManager
     /// <summary>
     /// Сохраняет все контакты из <see cref="Project"/> в файл.
     /// </summary>
-    public void SaveProject(Project project)
+    public static void SaveProject(Project project)
     {
         try
         {
-            if (Directory.Exists(FolderPath))
+            if (!Directory.Exists(FolderPath))
             {
                 Directory.CreateDirectory(FolderPath);
             }
@@ -50,18 +50,18 @@ public class ProjectManager
     /// <summary>
     /// Загружает из файла список контактов в <see cref="Project"/>.
     /// </summary>
-    public Project LoadProject()
+    public static Project LoadProject()
     {
         try
         {
             if (!Directory.Exists(FolderPath))
             {
-                throw new DirectoryNotFoundException(FolderPath);
+                Directory.CreateDirectory(FolderPath);
             }
 
             if (!File.Exists(FilePath))
             {
-                throw new FileNotFoundException(FilePath);
+                File.WriteAllText(FilePath, "{}");
             }
 
             using FileStream fileStream = File.OpenRead(FilePath);
@@ -71,7 +71,7 @@ public class ProjectManager
             project ??= new Project();
             return project;
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             throw new Exception(ex.Message);
         }
