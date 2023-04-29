@@ -34,7 +34,7 @@ public partial class ContactForm : Form
     /// Стандартный цвет полей для заполнения.
     /// </summary>
     private readonly Color DefaultTextBoxColor = Color.White;
-    
+
     /// <summary>
     /// Цвет ошибки полей для заполнения.
     /// </summary>
@@ -111,7 +111,7 @@ public partial class ContactForm : Form
         errorMessage += AddToErrorMessage(_dateOfBirthError);
         errorMessage += AddToErrorMessage(_vkIdError);
 
-        if (string.IsNullOrEmpty(errorMessage))
+        if (!string.IsNullOrEmpty(errorMessage))
         {
             MessageBox.Show(errorMessage);
             return false;
@@ -130,7 +130,7 @@ public partial class ContactForm : Form
     /// </returns>
     private string AddToErrorMessage(string errorMessage)
     {
-        if (string.IsNullOrEmpty(errorMessage))
+        if (!string.IsNullOrEmpty(errorMessage))
         {
             return errorMessage + "\n";
         }
@@ -253,7 +253,10 @@ public partial class ContactForm : Form
     private void OkButton_Click(object sender, EventArgs e)
     {
         if (CheckFormOnErrors())
+        {
+            DialogResult = DialogResult.OK;
             Close();
+        }
     }
 
     /// <summary>
