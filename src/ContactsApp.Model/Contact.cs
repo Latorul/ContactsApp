@@ -101,7 +101,7 @@ public class Contact : ICloneable
                 throw new ArgumentException(
                     "Номер телефона может содержать только цифры и знаки ‘+’, ‘(’ ‘)’ ‘-’ ‘ ’");
             }
-
+            Validator.AssertOnPhoneNumberFormat(value);
             _phoneNumber = value;
         }
     }
@@ -135,7 +135,7 @@ public class Contact : ICloneable
     /// <summary>
     /// Конструктор класса <see cref="Contact"/>.
     /// </summary>
-    public Contact() : this("", "", "", DateTime.Today, "")
+    public Contact() : this("", "", "+93 (123) 456 78 98", DateTime.Today, "")
     {
     }
 

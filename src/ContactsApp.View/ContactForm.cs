@@ -6,6 +6,16 @@
 public partial class ContactForm : Form
 {
     /// <summary>
+    /// Добавляемый или редактируемый контакт.
+    /// </summary>
+    private Contact _contact = new Contact();
+
+    /// <summary>
+    /// Список с информацией о всех странах.
+    /// </summary>
+    private readonly List<CountryInfo> _countriesInfo;
+
+    /// <summary>
     /// Текущий номер телефона.
     /// </summary>
     private string _currentPhoneNumber = string.Empty;
@@ -35,16 +45,6 @@ public partial class ContactForm : Form
     /// </summary>
     private string _vkIdError = string.Empty;
 
-    /// <summary>
-    /// Добавляемый или редактируемый контакт.
-    /// </summary>
-    private Contact _contact = new Contact();
-
-    /// <summary>
-    /// Список с информацией о всех странах.
-    /// </summary>
-    private readonly List<CountryInfo> _countriesInfo;
-
 
     /// <summary>
     /// Конструктор класса <see cref="ContactForm"/>.
@@ -55,7 +55,7 @@ public partial class ContactForm : Form
 
         _contact.FullName = "FullName";
         _contact.Email = "Email";
-        _contact.PhoneNumber = "12345678";
+        _contact.PhoneNumber = "+93 (123) 456 78 98";
         _contact.DateOfBirth = new DateTime(2002, 10, 16);
         _contact.VkId = "VkId";
 
@@ -64,6 +64,7 @@ public partial class ContactForm : Form
         {
             CountrySelectorComboBox.Items.Add(new CountryDropDownItem(item));
         }
+
         CountrySelectorComboBox.SelectedIndex = 0;
 
         UpdateForm();
@@ -82,37 +83,11 @@ public partial class ContactForm : Form
     }
 
     /// <summary>
-    /// Проверяет присутствуют ли ошибки в заполнении полей контакта.
-    /// </summary>
-    /// <returns>
-    ///     <b>true</b>: если нет ошибок при вводе данных. <para/>
-    ///     <b>false</b>: если есть ошибки при вводе данных.
-    /// </returns>
-    private bool CheckFormOnErrors()
-    {
-        string errorMessage = string.Empty;
-
-        errorMessage += AddToErrorMessage(_fullnameError);
-        errorMessage += AddToErrorMessage(_emailError);
-        errorMessage += AddToErrorMessage(_phoneNumberError);
-        errorMessage += AddToErrorMessage(_dateOfBirthError);
-        errorMessage += AddToErrorMessage(_vkIdError);
-
-        if (errorMessage != string.Empty)
-        {
-            MessageBox.Show(errorMessage);
-            return false;
-        }
-
-        return true;
-    }
-
-    /// <summary>
     /// Добавляет строку для отображения её в сообщении об ошибке.
     /// </summary>
     /// <param name="errorMessage">Строка с сообщением об ошибке.</param>
     /// <returns>
-    ///     Пустую строку, если сообщения об ошибке нет. <para/>
+    ///     Пустую строку, если сообщения об ошибке нет. <br/>
     ///     Строку с сообщением и переходом на новую строку.
     /// </returns>
     private string AddToErrorMessage(string errorMessage)
@@ -173,7 +148,6 @@ public partial class ContactForm : Form
         try
         {
             CheckOnPhoneCodeEdit();
-            ConvertToPhoneNumberFormat();
             _contact.PhoneNumber = PhoneNumberTextBox.Text;
 
             _phoneNumberError = string.Empty;
@@ -188,53 +162,11 @@ public partial class ContactForm : Form
     }
 
     /// <summary>
-    /// Преобразует введённый пользователем номер телефона в отформатированный вид.
-    /// </summary>
-    private void ConvertToPhoneNumberFormat()
-    {
-        string input = PhoneNumberTextBox.Text;
-        string replacement = "$1$2$3$4";
-
-        var regex = new Regex(@"^(\+\d{2})( \(\d{3}\))( \d{3})( \d{2}){1,2}$");
-
-        string result = regex.Replace(input, replacement);
-        Debug.WriteLine(result);
-    }
-
-    /// <summary>
-    /// Проверяет номер телефона на изменение кода страны.
-    /// Если пользователь пытается его изменить, то изменения не применяются.
-    /// </summary>
-    private void CheckOnPhoneCodeEdit()
-    {
-        var item = CountrySelectorComboBox.SelectedItem;
-
-        var correctPhoneCode = item.ToString();
-        var currentPhoneCode = new string(
-            PhoneNumberTextBox.Text
-            .Take(item.ToString()!.Length)
-            .ToArray());
-
-        if (correctPhoneCode != currentPhoneCode)
-        {
-            PhoneNumberTextBox.Text = _currentPhoneNumber;
-        }
-    }
-
-    /// <summary>
     /// Изменяет телефонный код страны при выборе из CountrySelectorComboBox.
     /// </summary>
     private void CountrySelectorComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        PhoneNumberTextBox.Text = CountrySelectorComboBox.SelectedItem.ToString();
-    }
-
-    /// <summary>
-    /// Сохраняет номер телефона до изменения.
-    /// </summary>
-    private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
-    {
-        _currentPhoneNumber = PhoneNumberTextBox.Text;
+        PhoneNumberTextBox.Text = CountrySelectorComboBox.SelectedItem.ToString() + " (";
     }
 
     /// <summary>
@@ -272,6 +204,83 @@ public partial class ContactForm : Form
 
             VkIdTextBox.BackColor = Color.LightPink;
         }
+    }
+
+    /// <summary>
+    /// Проверяет присутствуют ли ошибки в заполнении полей контакта.
+    /// </summary>
+    /// <returns>
+    ///     <b>true</b>: если нет ошибок при вводе данных. <br/>
+    ///     <b>false</b>: если есть ошибки при вводе данных.
+    /// </returns>
+    private bool CheckFormOnErrors()
+    {
+        string errorMessage = string.Empty;
+
+        errorMessage += AddToErrorMessage(_fullnameError);
+        errorMessage += AddToErrorMessage(_emailError);
+        errorMessage += AddToErrorMessage(_phoneNumberError);
+        errorMessage += AddToErrorMessage(_dateOfBirthError);
+        errorMessage += AddToErrorMessage(_vkIdError);
+
+        if (errorMessage != string.Empty)
+        {
+            MessageBox.Show(errorMessage);
+            return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// Проверяет номер телефона на изменение кода страны.
+    /// Если пользователь пытается его изменить, то изменения не применяются.
+    /// </summary>
+    private void CheckOnPhoneCodeEdit()
+    {
+        var item = CountrySelectorComboBox.SelectedItem;
+
+        var correctPhoneCode = item.ToString() + " (";
+        var currentPhoneCode = new string(
+            PhoneNumberTextBox.Text
+                .Take(item.ToString()!.Length + 2)
+                .ToArray());
+
+        if (correctPhoneCode != currentPhoneCode)
+        {
+            PhoneNumberTextBox.Text = _currentPhoneNumber;
+            PhoneNumberTextBox.SelectionStart = PhoneNumberTextBox.Text.Length;
+        }
+    }
+
+    /// <summary>
+    /// Позволяет ввести в поле для номера телефона только цифры
+    /// и разделительные символы ')' '-' ' '.
+    /// </summary>
+    private bool IsAllowedChar(KeyPressEventArgs e)
+    {
+        if (!char.IsControl(e.KeyChar) &&
+            !char.IsDigit(e.KeyChar) &&
+            e.KeyChar != ')' &&
+            e.KeyChar != '-' &&
+            e.KeyChar != ' ')
+            return true;
+
+        if (e.KeyChar == ')'
+            && PhoneNumberTextBox.Text.IndexOf(')') > -1)
+            return true;
+        
+        return false;
+    }
+
+    /// <summary>
+    /// Сохраняет номер телефона до изменения.
+    /// </summary>
+    private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        e.Handled = IsAllowedChar(e);
+
+        _currentPhoneNumber = PhoneNumberTextBox.Text;
     }
 
     /// <summary>
