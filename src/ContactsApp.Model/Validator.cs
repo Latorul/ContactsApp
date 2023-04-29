@@ -36,12 +36,6 @@ public static class Validator
 
 
     /// <summary>
-    /// Допустимые символы для номера телефона.
-    /// </summary>
-    private const string ValidPhoneNumberChars = "1234567890 +-()";
-
-
-    /// <summary>
     /// Проверяет длину полученной строки.
     /// </summary>
     /// <param name="value">Строка для проверки.</param>

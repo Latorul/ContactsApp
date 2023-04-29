@@ -47,10 +47,7 @@ public partial class ContactForm : Form
 
     public Contact Contact
     {
-        get
-        {
-            return _contact;
-        }
+        get => _contact;
         set
         {
             _contact = (Contact)value.Clone();
