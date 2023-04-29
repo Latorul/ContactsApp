@@ -68,7 +68,7 @@ public partial class MainForm : Form
             {
                 FullName = "Филатов Мирон",
                 Email = "filatov@mail.ru",
-                PhoneNumber = "1",
+                PhoneNumber = "+1 (234) 567-89",
                 DateOfBirth = DateTime.Today,
                 VkId = "https://vk.com/filatov"
             });
@@ -77,7 +77,7 @@ public partial class MainForm : Form
             {
                 FullName = "Ткачев Артём",
                 Email = "tkachev@mail.ru",
-                PhoneNumber = "2",
+                PhoneNumber = "+1 (234) 567-89",
                 DateOfBirth = DateTime.Today,
                 VkId = "https://vk.com/tkachev"
             });
@@ -86,7 +86,7 @@ public partial class MainForm : Form
             {
                 FullName = "Козин Марк",
                 Email = "kozin@mail.ru",
-                PhoneNumber = "3",
+                PhoneNumber = "+1 (234) 567-89",
                 DateOfBirth = DateTime.Today,
                 VkId = "https://vk.com/kozin"
             });
@@ -95,7 +95,7 @@ public partial class MainForm : Form
             {
                 FullName = "Журавлев Владимир",
                 Email = "zhuravlev@mail.ru",
-                PhoneNumber = "4",
+                PhoneNumber = "+1 (234) 567-89",
                 DateOfBirth = DateTime.Today,
                 VkId = "https://vk.com/zhuravlev"
             });
@@ -104,7 +104,7 @@ public partial class MainForm : Form
             {
                 FullName = "Белоусов Андрей",
                 Email = "belousov@mail.ru",
-                PhoneNumber = "5",
+                PhoneNumber = "+1 (234) 567-89",
                 DateOfBirth = DateTime.Today,
                 VkId = "https://vk.com/belousov"
             });

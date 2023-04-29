@@ -234,6 +234,7 @@
             Name = "ContactForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
+            Load += ContactForm_Load;
             KeyDown += ContactForm_KeyDown;
             ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).EndInit();
             ButtonsPanel.ResumeLayout(false);

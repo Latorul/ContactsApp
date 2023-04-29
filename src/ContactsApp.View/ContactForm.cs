@@ -70,17 +70,17 @@ public partial class ContactForm : Form
     {
         InitializeComponent();
 
-        _contact.FullName = "FullName";
-        _contact.Email = "Email";
-        _contact.PhoneNumber = "+93 (123) 456 78 98";
-        _contact.DateOfBirth = new DateTime(2002, 10, 16);
-        _contact.VkId = "VkId";
-
         _countriesInfo = CountryInfo.LoadInfo();
         foreach (var item in _countriesInfo)
         {
             CountrySelectorComboBox.Items.Add(new CountryDropDownItem(item));
         }
+
+        Contact.FullName = "FullName";
+        Contact.Email = "Email";
+        Contact.PhoneNumber = "+93 (123) 456 78 98";
+        Contact.DateOfBirth = new DateTime(2002, 10, 16);
+        Contact.VkId = "VkId";
 
         CountrySelectorComboBox.SelectedIndex = 0;
 
@@ -286,7 +286,7 @@ public partial class ContactForm : Form
         if (e.KeyChar == ')'
             && PhoneNumberTextBox.Text.IndexOf(')') > -1)
             return true;
-        
+
         return false;
     }
 
@@ -345,5 +345,13 @@ public partial class ContactForm : Form
     {
         AddPhotoButton.Image = Properties.Resources.add_photo_32x32_grey;
         AddPhotoButton.BackColor = Color.White;
+    }
+
+    private void ContactForm_Load(object sender, EventArgs e)
+    {
+        var code = Contact.PhoneNumber.Substring(0, Contact.PhoneNumber.IndexOf(' '));
+        var currentCountry = _countriesInfo.Where(x => x.PhoneCode == code).First();
+        var index = _countriesInfo.IndexOf(currentCountry);
+        CountrySelectorComboBox.SelectedItem = CountrySelectorComboBox.Items[index];
     }
 }
