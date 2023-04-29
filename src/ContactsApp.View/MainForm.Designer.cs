@@ -32,7 +32,7 @@
             TableLayoutPanel = new TableLayoutPanel();
             ContactPanel = new Panel();
             NotifyPanel = new Panel();
-            BirthdayPeopleLabel = new Label();
+            BirthdayContactsLabel = new Label();
             BirthdayNotifyLabel = new Label();
             CloseNotifyPictureBox = new PictureBox();
             NotifyPictureBox = new PictureBox();
@@ -106,7 +106,7 @@
             // NotifyPanel
             // 
             NotifyPanel.BackColor = Color.FromArgb(245, 245, 255);
-            NotifyPanel.Controls.Add(BirthdayPeopleLabel);
+            NotifyPanel.Controls.Add(BirthdayContactsLabel);
             NotifyPanel.Controls.Add(BirthdayNotifyLabel);
             NotifyPanel.Controls.Add(CloseNotifyPictureBox);
             NotifyPanel.Controls.Add(NotifyPictureBox);
@@ -116,16 +116,16 @@
             NotifyPanel.Size = new Size(544, 75);
             NotifyPanel.TabIndex = 0;
             // 
-            // BirthdayPeopleLabel
+            // BirthdayContactsLabel
             // 
-            BirthdayPeopleLabel.AutoSize = true;
-            BirthdayPeopleLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            BirthdayPeopleLabel.ForeColor = Color.FromArgb(0, 144, 255);
-            BirthdayPeopleLabel.Location = new Point(78, 40);
-            BirthdayPeopleLabel.Name = "BirthdayPeopleLabel";
-            BirthdayPeopleLabel.Size = new Size(176, 15);
-            BirthdayPeopleLabel.TabIndex = 3;
-            BirthdayPeopleLabel.Text = "Новикова, Кондратьева и др.";
+            BirthdayContactsLabel.AutoSize = true;
+            BirthdayContactsLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            BirthdayContactsLabel.ForeColor = Color.FromArgb(0, 144, 255);
+            BirthdayContactsLabel.Location = new Point(78, 40);
+            BirthdayContactsLabel.Name = "BirthdayContactsLabel";
+            BirthdayContactsLabel.Size = new Size(176, 15);
+            BirthdayContactsLabel.TabIndex = 3;
+            BirthdayContactsLabel.Text = "Новикова, Кондратьева и др.";
             // 
             // BirthdayNotifyLabel
             // 
@@ -141,7 +141,7 @@
             // CloseNotifyPictureBox
             // 
             CloseNotifyPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            CloseNotifyPictureBox.Image = Properties.Resources.close_32x32;
+            CloseNotifyPictureBox.Image = (Image)resources.GetObject("CloseNotifyPictureBox.Image");
             CloseNotifyPictureBox.Location = new Point(509, 3);
             CloseNotifyPictureBox.Name = "CloseNotifyPictureBox";
             CloseNotifyPictureBox.Size = new Size(32, 32);
@@ -152,7 +152,7 @@
             // 
             // NotifyPictureBox
             // 
-            NotifyPictureBox.Image = Properties.Resources.info_48x48;
+            NotifyPictureBox.Image = (Image)resources.GetObject("NotifyPictureBox.Image");
             NotifyPictureBox.Location = new Point(3, 3);
             NotifyPictureBox.Name = "NotifyPictureBox";
             NotifyPictureBox.Size = new Size(69, 69);
@@ -258,7 +258,7 @@
             // 
             // ProfilePictureBox
             // 
-            ProfilePictureBox.Image = Properties.Resources.photo_placeholder_100x100;
+            ProfilePictureBox.Image = (Image)resources.GetObject("ProfilePictureBox.Image");
             ProfilePictureBox.Location = new Point(3, 3);
             ProfilePictureBox.Name = "ProfilePictureBox";
             ProfilePictureBox.Size = new Size(100, 100);
@@ -297,7 +297,7 @@
             // RemoveContactButton
             // 
             RemoveContactButton.Dock = DockStyle.Fill;
-            RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_grey;
+            RemoveContactButton.Image = (Image)resources.GetObject("RemoveContactButton.Image");
             RemoveContactButton.Location = new Point(162, 0);
             RemoveContactButton.Margin = new Padding(0);
             RemoveContactButton.Name = "RemoveContactButton";
@@ -312,7 +312,7 @@
             // EditContactButton
             // 
             EditContactButton.Dock = DockStyle.Fill;
-            EditContactButton.Image = Properties.Resources.edit_contact_32x32_grey;
+            EditContactButton.Image = (Image)resources.GetObject("EditContactButton.Image");
             EditContactButton.Location = new Point(81, 0);
             EditContactButton.Margin = new Padding(0);
             EditContactButton.Name = "EditContactButton";
@@ -327,7 +327,7 @@
             // AddContactButton
             // 
             AddContactButton.Dock = DockStyle.Fill;
-            AddContactButton.Image = Properties.Resources.add_contact_32x32_grey;
+            AddContactButton.Image = (Image)resources.GetObject("AddContactButton.Image");
             AddContactButton.Location = new Point(0, 0);
             AddContactButton.Margin = new Padding(0);
             AddContactButton.Name = "AddContactButton";
@@ -423,7 +423,7 @@
         private TextBox DateOfBirthTextBox;
         private TextBox FullNameTextBox;
         private Label FindLabel;
-        private Label BirthdayPeopleLabel;
+        private Label BirthdayContactsLabel;
         private Label BirthdayNotifyLabel;
         private Label VkLabel;
         private Label DateOfBirthLabel;

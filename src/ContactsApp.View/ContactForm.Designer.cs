@@ -193,6 +193,8 @@
             DateOfBirthDateTimePicker.Size = new Size(261, 23);
             DateOfBirthDateTimePicker.TabIndex = 4;
             DateOfBirthDateTimePicker.ValueChanged += DateOfBirthDateTimePicker_ValueChanged;
+            DateOfBirthDateTimePicker.MinDate = new DateTime(1900, 1, 1);
+            DateOfBirthDateTimePicker.MaxDate = DateTime.Today;
             // 
             // CountrySelectorComboBox
             // 

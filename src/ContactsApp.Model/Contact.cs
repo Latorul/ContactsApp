@@ -6,7 +6,7 @@
 public class Contact : ICloneable
 {
     /// <summary>
-    /// Максимальная длина для ФИО.
+    /// Максимальная длина для полного имени.
     /// </summary>
     private const int MaxFullNameLength = 100;
 
@@ -26,7 +26,7 @@ public class Contact : ICloneable
     private const int MinDateOfBirthYear = 1900;
 
     /// <summary>
-    /// Фио.
+    /// Полное имя.
     /// </summary>
     private string _fullName;
 
@@ -52,7 +52,7 @@ public class Contact : ICloneable
 
 
     /// <summary>
-    /// Возвращает или задаёт ФИО.
+    /// Возвращает или задаёт полное имя.
     /// </summary>
     public string FullName
     {
@@ -64,7 +64,7 @@ public class Contact : ICloneable
             TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 
             //todo разобраться с ирландскими МакКтото / McKtoto
-            //value.ToLower() предотвращает написание ФИО полностью заглавными буквами
+            //value.ToLower() предотвращает написание полного имени полностью заглавными буквами
             _fullName = textInfo.ToTitleCase(value.ToLower());
         }
     }
@@ -131,7 +131,7 @@ public class Contact : ICloneable
     /// <summary>
     /// Конструктор класса <see cref="Contact"/>.
     /// </summary>
-    /// <param name="fullName">ФИО.</param>
+    /// <param name="fullName">Полное имя.</param>
     /// <param name="email">Электронная почта.</param>
     /// <param name="phoneNumber">Номер телефона.</param>
     /// <param name="dateOfBirth">Дата рождения.</param>

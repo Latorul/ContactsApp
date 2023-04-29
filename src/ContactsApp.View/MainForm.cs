@@ -8,7 +8,7 @@ public partial class MainForm : Form
     /// <summary>
     /// Максимальная длина строки с перечислением людей, у которых сегодня день рождения. 
     /// </summary>
-    private const int MaxBirthdayPeopleMessageLength = 50;
+    private const int MaxBirthdayContactsMessageLength = 50;
 
     /// <summary>
     /// Хранит список всех контактов. 
@@ -30,7 +30,7 @@ public partial class MainForm : Form
 
         _project = ProjectManager.LoadProject();
         if (_project.Contacts.Count == 0)
-            GenerateContacts();
+            ContactFactory.GenerateContacts(_project);
         _currentContacts = _project.Contacts;
     }
 
@@ -41,7 +41,7 @@ public partial class MainForm : Form
     {
         UpdateListBox();
         ClearSelectedContact();
-        UpdateBirthdayPeopleNotify();
+        UpdateBirthdayContactNotify();
     }
 
     /// <summary>
@@ -59,64 +59,14 @@ public partial class MainForm : Form
     }
 
     /// <summary>
-    /// Добавляет контакты для проверки работоспособности программы.
-    /// </summary>
-    private void GenerateContacts()
-    {
-        _project.Contacts.Add(
-            new Contact()
-            {
-                FullName = "Филатов Мирон",
-                Email = "filatov@mail.ru",
-                PhoneNumber = "+1 (234) 567-89",
-                DateOfBirth = DateTime.Today,
-                VkId = "https://vk.com/filatov"
-            });
-        _project.Contacts.Add(
-            new Contact()
-            {
-                FullName = "Ткачев Артём",
-                Email = "tkachev@mail.ru",
-                PhoneNumber = "+1 (234) 567-89",
-                DateOfBirth = DateTime.Today,
-                VkId = "https://vk.com/tkachev"
-            });
-        _project.Contacts.Add(
-            new Contact()
-            {
-                FullName = "Козин Марк",
-                Email = "kozin@mail.ru",
-                PhoneNumber = "+1 (234) 567-89",
-                DateOfBirth = DateTime.Today,
-                VkId = "https://vk.com/kozin"
-            });
-        _project.Contacts.Add(
-            new Contact()
-            {
-                FullName = "Журавлев Владимир",
-                Email = "zhuravlev@mail.ru",
-                PhoneNumber = "+1 (234) 567-89",
-                DateOfBirth = DateTime.Today,
-                VkId = "https://vk.com/zhuravlev"
-            });
-        _project.Contacts.Add(
-            new Contact()
-            {
-                FullName = "Белоусов Андрей",
-                Email = "belousov@mail.ru",
-                PhoneNumber = "+1 (234) 567-89",
-                DateOfBirth = DateTime.Today,
-                VkId = "https://vk.com/belousov"
-            });
-    }
-
-    /// <summary>
     /// Добавляет новый контакт с введёнными пользователем данными.
     /// </summary>
     private void AddContact()
     {
-        ContactForm form = new ContactForm();
-        form.Contact = new Contact("", "", "+93 (000) 000 00", DateTime.Today, "");
+        var form = new ContactForm
+        {
+            Contact = new Contact("", "", "+93 (000) 000 00", DateTime.Today, "")
+        };
 
         if (form.ShowDialog() == DialogResult.OK)
         {
@@ -131,9 +81,11 @@ public partial class MainForm : Form
     /// <param name="index">Индекс выбранного контакта в ContactsListBox.</param>
     private void EditContact(int index)
     {
-        ContactForm form = new ContactForm();
         Contact selectedContact = _currentContacts[index];
-        form.Contact = selectedContact;
+        var form = new ContactForm
+        {
+            Contact = selectedContact
+        };
 
         if (form.ShowDialog() == DialogResult.OK)
         {
@@ -166,8 +118,6 @@ public partial class MainForm : Form
         _currentContacts.RemoveAt(index);
         ClearSelectedContact();
     }
-
-    //Обновление отображаемой информации
 
     /// <summary>
     /// Обновляет список контактов в ContactsListBox.
@@ -203,11 +153,13 @@ public partial class MainForm : Form
     /// <param name="index">Индекс выбранного контакта в списке ContactsListBox.</param>
     private void UpdateSelectedContact(int index)
     {
-        FullNameTextBox.Text = _currentContacts[index].FullName;
-        EmailTextBox.Text = _currentContacts[index].Email;
-        PhoneNumberTextBox.Text = _currentContacts[index].PhoneNumber;
-        DateOfBirthTextBox.Text = _currentContacts[index].DateOfBirth.ToLongDateString();
-        VkIdTextBox.Text = _currentContacts[index].VkId;
+        var contact = _currentContacts[index];
+
+        FullNameTextBox.Text = contact.FullName;
+        EmailTextBox.Text = contact.Email;
+        PhoneNumberTextBox.Text = contact.PhoneNumber;
+        DateOfBirthTextBox.Text = contact.DateOfBirth.ToLongDateString();
+        VkIdTextBox.Text = contact.VkId;
     }
 
     /// <summary>
@@ -232,48 +184,46 @@ public partial class MainForm : Form
     /// <summary>
     /// Обновляет информацию в оповещении о днях рождениях.
     /// </summary>
-    private void UpdateBirthdayPeopleNotify()
+    private void UpdateBirthdayContactNotify()
     {
-        List<Contact> birthdayPeople =
+        List<Contact> birthdayContact =
             _project.SortByFullName(
-                _project.FindBirthDayContacts(_project.Contacts));
+                _project.FindBirthDayContacts(_project.Contacts, DateTime.Today));
 
-        if (birthdayPeople.Count == 0)
+        if (birthdayContact.Count == 0)
         {
             NotifyPanel.Visible = false;
             return;
         }
 
-        BirthdayPeopleLabel.Text = CreateBirthdayNotifyMessage(birthdayPeople);
+        BirthdayContactsLabel.Text = CreateBirthdayNotifyMessage(birthdayContact);
     }
 
     /// <summary>
     /// Заполняет строку с напоминанием о днях рождениях контактов.
     /// </summary>
-    /// <param name="birthdayPeople">Список контактов, у которых сегодня день рождения.</param>
+    /// <param name="birthdayContacts">Список контактов, у которых сегодня день рождения.</param>
     /// <returns>Строка со списком контактов, у которых сегодня день рождения.</returns>
-    private string CreateBirthdayNotifyMessage(List<Contact> birthdayPeople)
+    private string CreateBirthdayNotifyMessage(List<Contact> birthdayContacts)
     {
         string message = string.Empty;
         int i;
-        for (i = 0; i < birthdayPeople.Count; i++)
+        for (i = 0; i < birthdayContacts.Count; i++)
         {
-            if (message.Length >= MaxBirthdayPeopleMessageLength)
+            if (message.Length >= MaxBirthdayContactsMessageLength)
             {
                 break;
             }
 
-            message += birthdayPeople[i].FullName + ", ";
+            message += birthdayContacts[i].FullName + ", ";
         }
 
         message = message.Remove(message.Length - 2);
-        if (i < birthdayPeople.Count)
+        if (i < birthdayContacts.Count)
             message += " и др.";
 
         return message;
     }
-
-    //Обработка нажатий на кнопки
 
     /// <summary>
     /// Обрабатывает нажатие кнопки добавления контакта. 
@@ -319,8 +269,6 @@ public partial class MainForm : Form
         NotifyPanel.Visible = false;
     }
 
-    //Обработка нажатия клавиш
-
     /// <summary>
     /// Открывает окно About при нажатии клавиши F1.
     /// </summary>
@@ -328,7 +276,7 @@ public partial class MainForm : Form
     {
         if (e.KeyCode == Keys.F1)
         {
-            AboutForm form = new AboutForm();
+            var form = new AboutForm();
             form.ShowDialog();
         }
     }
@@ -398,8 +346,6 @@ public partial class MainForm : Form
         }
     }
 
-    //Смена цвета при наведении курсора на кнопку
-
     /// <summary>
     /// При наведении курсора перекрашивает кнопку добавления контакта в синий цвет.
     /// </summary>
@@ -426,8 +372,6 @@ public partial class MainForm : Form
         RemoveContactButton.Image = Properties.Resources.remove_contact_32x32;
         RemoveContactButton.BackColor = ColorTranslator.FromHtml("#FAF5F5");
     }
-
-    //Смена цвета при выведении курсора с кнопки
 
     /// <summary>
     /// При выведении курсора перекрашивает кнопку добавления контакта в белый цвет.

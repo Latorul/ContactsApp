@@ -40,11 +40,11 @@ public class Project
     /// Возвращает список контактов, у которых сегодня день рождения.
     /// </summary>
     /// <param name="contacts">Список контактов.</param>
-    public List<Contact> FindBirthDayContacts(List<Contact> contacts)
+    public List<Contact> FindBirthDayContacts(List<Contact> contacts, DateTime date)
     {
         return contacts.FindAll(c =>
-            c.DateOfBirth.Month == DateTime.Today.Month &&
-            c.DateOfBirth.Day == DateTime.Today.Day);
+            c.DateOfBirth.Month == date.Month &&
+            c.DateOfBirth.Day == date.Day);
     }
 
     /// <summary>

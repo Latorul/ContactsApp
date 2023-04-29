@@ -1,7 +1,8 @@
 ﻿namespace ContactsApp.View.Controls;
 
 /// <summary>
-/// Выпадающий список, элементы которого содержат флаг и название страны.
+/// Выпадающий список, элементы которого содержат флаг и название страны.<para/>
+/// https://stackoverflow.com/a/9706102/18739226
 /// </summary>
 public sealed class CountrySelector : ComboBox
 {

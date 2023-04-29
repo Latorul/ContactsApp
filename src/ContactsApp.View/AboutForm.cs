@@ -16,7 +16,7 @@ public partial class AboutForm : Form
     /// <summary>
     /// При нажатии на надпись открывает ссылку на GitHub автора.
     /// </summary>
-    private void GithubLlinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    private void GithubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         GithubLlinkLabel.LinkVisited = true;
 

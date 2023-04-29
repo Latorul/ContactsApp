@@ -11,49 +11,36 @@ public partial class ContactForm : Form
     private readonly List<CountryInfo> _countriesInfo;
 
     /// <summary>
+    /// Содержит сообщения об ошибках для каждого из полей.
+    /// </summary>
+    private readonly Dictionary<string, string> _errors = new()
+    {
+        {nameof(Model.Contact.FullName), string.Empty },
+        {nameof(Model.Contact.Email), string.Empty},
+        {nameof(Model.Contact.PhoneNumber), string.Empty },
+        {nameof(Model.Contact.DateOfBirth), string.Empty },
+        {nameof(Model.Contact.VkId), string.Empty},
+    };
+
+    /// <summary>
     /// Текущий номер телефона.
     /// </summary>
     private string _currentPhoneNumber = string.Empty;
 
     /// <summary>
-    /// Сообщение об ошибке в ФИО.
-    /// </summary>
-    private string _fullnameError = string.Empty;
-
-    /// <summary>
-    /// Сообщение об ошибке в электронной почте.
-    /// </summary>
-    private string _emailError = string.Empty;
-
-    /// <summary>
-    /// Сообщение об ошибке в номере телефона.
-    /// </summary>
-    private string _phoneNumberError = string.Empty;
-
-    /// <summary>
-    /// Сообщение об ошибке в дате рождения.
-    /// </summary>
-    private string _dateOfBirthError = string.Empty;
-
-    /// <summary>
-    /// Сообщение об ошибке в ссылке на ВКонтакте.
-    /// </summary>
-    private string _vkIdError = string.Empty;
-
-    /// <summary>
     /// Стандартный цвет полей для заполнения.
     /// </summary>
-    private readonly Color DefaultTextBoxColor = Color.White;
+    private static readonly Color DefaultBackgroundColor = Color.White;
 
     /// <summary>
     /// Цвет ошибки полей для заполнения.
     /// </summary>
-    private readonly Color ErrorTextBoxColor = Color.LightPink;
+    private static readonly Color ErrorBackgroundColor = Color.LightPink;
 
     /// <summary>
     /// Добавляемый или редактируемый контакт.
     /// </summary>
-    private Contact _contact = new Contact();
+    private Contact _contact = new();
 
     /// <summary>
     /// Возвращает и задаёт выбранный контакт.
@@ -64,14 +51,12 @@ public partial class ContactForm : Form
         set
         {
             _contact = (Contact)value.Clone();
-            if (_contact != null)
-            {
-                FullNameTextBox.Text = _contact.FullName;
-                EmailTextBox.Text = _contact.Email;
-                PhoneNumberTextBox.Text = _contact.PhoneNumber;
-                DateOfBirthDateTimePicker.Value = _contact.DateOfBirth;
-                VkIdTextBox.Text = _contact.VkId;
-            }
+            
+            FullNameTextBox.Text = _contact.FullName;
+            EmailTextBox.Text = _contact.Email;
+            PhoneNumberTextBox.Text = _contact.PhoneNumber;
+            DateOfBirthDateTimePicker.Value = _contact.DateOfBirth;
+            VkIdTextBox.Text = _contact.VkId;
         }
     }
 
@@ -112,30 +97,12 @@ public partial class ContactForm : Form
     private void UpdateForm()
     {
         _currentPhoneNumber = _contact.PhoneNumber;
-        
+
         FullNameTextBox.Text = _contact.FullName;
         EmailTextBox.Text = _contact.Email;
         PhoneNumberTextBox.Text = _contact.PhoneNumber;
         DateOfBirthDateTimePicker.Value = _contact.DateOfBirth;
         VkIdTextBox.Text = _contact.VkId;
-    }
-
-    /// <summary>
-    /// Добавляет строку для отображения её в сообщении об ошибке.
-    /// </summary>
-    /// <param name="errorMessage">Строка с сообщением об ошибке.</param>
-    /// <returns>
-    ///     Пустую строку, если сообщения об ошибке нет. <br/>
-    ///     Строку с сообщением и переходом на новую строку.
-    /// </returns>
-    private string AddToErrorMessage(string errorMessage)
-    {
-        if (!string.IsNullOrEmpty(errorMessage))
-        {
-            return errorMessage + "\n";
-        }
-
-        return string.Empty;
     }
 
     /// <summary>
@@ -147,14 +114,14 @@ public partial class ContactForm : Form
         {
             _contact.FullName = FullNameTextBox.Text;
 
-            _fullnameError = string.Empty;
-            FullNameTextBox.BackColor = DefaultTextBoxColor;
+            _errors[nameof(Contact.FullName)] = string.Empty;
+            FullNameTextBox.BackColor = DefaultBackgroundColor;
         }
         catch (ArgumentException ex)
         {
-            _fullnameError = ex.Message;
+            _errors[nameof(Contact.FullName)] = ex.Message;
 
-            FullNameTextBox.BackColor = ErrorTextBoxColor;
+            FullNameTextBox.BackColor = ErrorBackgroundColor;
         }
     }
 
@@ -167,14 +134,14 @@ public partial class ContactForm : Form
         {
             _contact.Email = EmailTextBox.Text;
 
-            _emailError = string.Empty;
-            EmailTextBox.BackColor = DefaultTextBoxColor;
+            _errors[nameof(Contact.Email)] = string.Empty;
+            EmailTextBox.BackColor = DefaultBackgroundColor;
         }
         catch (ArgumentException ex)
         {
-            _emailError = ex.Message;
+            _errors[nameof(Contact.Email)] = ex.Message;
 
-            EmailTextBox.BackColor = ErrorTextBoxColor;
+            EmailTextBox.BackColor = ErrorBackgroundColor;
         }
     }
 
@@ -188,14 +155,14 @@ public partial class ContactForm : Form
             CheckOnPhoneCodeEdit();
             _contact.PhoneNumber = PhoneNumberTextBox.Text;
 
-            _phoneNumberError = string.Empty;
-            PhoneNumberTextBox.BackColor = DefaultTextBoxColor;
+            _errors[nameof(Contact.PhoneNumber)] = string.Empty;
+            PhoneNumberTextBox.BackColor = DefaultBackgroundColor;
         }
         catch (ArgumentException ex)
         {
-            _phoneNumberError = ex.Message;
+            _errors[nameof(Contact.PhoneNumber)] = ex.Message;
 
-            PhoneNumberTextBox.BackColor = ErrorTextBoxColor;
+            PhoneNumberTextBox.BackColor = ErrorBackgroundColor;
         }
     }
 
@@ -204,7 +171,7 @@ public partial class ContactForm : Form
     /// </summary>
     private void CountrySelectorComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        PhoneNumberTextBox.Text = CountrySelectorComboBox.SelectedItem.ToString() + " (";
+        PhoneNumberTextBox.Text = CountrySelectorComboBox.SelectedItem + " (";
     }
 
     /// <summary>
@@ -216,11 +183,11 @@ public partial class ContactForm : Form
         {
             _contact.DateOfBirth = DateOfBirthDateTimePicker.Value;
 
-            _dateOfBirthError = string.Empty;
+            _errors[nameof(Contact.DateOfBirth)] = string.Empty;
         }
         catch (ArgumentException ex)
         {
-            _dateOfBirthError = ex.Message;
+            _errors[nameof(Contact.DateOfBirth)] = ex.Message;
         }
     }
 
@@ -233,14 +200,14 @@ public partial class ContactForm : Form
         {
             _contact.VkId = VkIdTextBox.Text;
 
-            _vkIdError = string.Empty;
-            VkIdTextBox.BackColor = DefaultTextBoxColor;
+            _errors[nameof(Contact.VkId)] = string.Empty;
+            VkIdTextBox.BackColor = DefaultBackgroundColor;
         }
         catch (ArgumentException ex)
         {
-            _vkIdError = ex.Message;
+            _errors[nameof(Contact.VkId)] = ex.Message;
 
-            VkIdTextBox.BackColor = ErrorTextBoxColor;
+            VkIdTextBox.BackColor = ErrorBackgroundColor;
         }
     }
 
@@ -255,11 +222,10 @@ public partial class ContactForm : Form
     {
         string errorMessage = string.Empty;
 
-        errorMessage += AddToErrorMessage(_fullnameError);
-        errorMessage += AddToErrorMessage(_emailError);
-        errorMessage += AddToErrorMessage(_phoneNumberError);
-        errorMessage += AddToErrorMessage(_dateOfBirthError);
-        errorMessage += AddToErrorMessage(_vkIdError);
+        foreach (var error in _errors)
+        {
+            errorMessage += AddToErrorMessage(error.Value);
+        }
 
         if (errorMessage != string.Empty)
         {
@@ -271,6 +237,24 @@ public partial class ContactForm : Form
     }
 
     /// <summary>
+    /// Добавляет строку для отображения её в сообщении об ошибке.
+    /// </summary>
+    /// <param name="errorMessage">Строка с сообщением об ошибке.</param>
+    /// <returns>
+    ///     Пустую строку, если сообщения об ошибке нет. <br/>
+    ///     Строку с сообщением и переходом на новую строку.
+    /// </returns>
+    private string AddToErrorMessage(string errorMessage)
+    {
+        if (!string.IsNullOrEmpty(errorMessage))
+        {
+            return "• " + errorMessage + "\n";
+        }
+
+        return string.Empty;
+    }
+
+    /// <summary>
     /// Проверяет номер телефона на изменение кода страны.
     /// Если пользователь пытается его изменить, то изменения не применяются.
     /// </summary>
@@ -278,7 +262,7 @@ public partial class ContactForm : Form
     {
         var item = CountrySelectorComboBox.SelectedItem;
 
-        var correctPhoneCode = item.ToString() + " (";
+        var correctPhoneCode = item + " (";
         var currentPhoneCode = new string(
             PhoneNumberTextBox.Text
                 .Take(item.ToString()!.Length + 2)
@@ -297,6 +281,7 @@ public partial class ContactForm : Form
     /// </summary>
     private bool IsAllowedChar(KeyPressEventArgs e)
     {
+        //Запрещает нажатие любых клавиш, кроме цифр, клавиш управления и ')', '-', ' '
         if (!char.IsControl(e.KeyChar) &&
             !char.IsDigit(e.KeyChar) &&
             e.KeyChar != ')' &&
@@ -304,8 +289,9 @@ public partial class ContactForm : Form
             e.KeyChar != ' ')
             return true;
 
-        if (e.KeyChar == ')'
-            && PhoneNumberTextBox.Text.IndexOf(')') > -1)
+        //Запрещает ввод второй ')' в PhoneNumberTextBox
+        if (e.KeyChar == ')' &&
+            PhoneNumberTextBox.Text.IndexOf(')') > -1)
             return true;
 
         return false;
@@ -328,7 +314,7 @@ public partial class ContactForm : Form
     {
         if (e.KeyCode == Keys.F1)
         {
-            AboutForm form = new AboutForm();
+            AboutForm form = new();
             form.ShowDialog();
         }
     }
