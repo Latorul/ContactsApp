@@ -65,7 +65,7 @@ public static class ProjectManager
             }
 
             using FileStream fileStream = File.OpenRead(FilePath);
-            Project? project = JsonSerializer.Deserialize<Project>(fileStream);
+            var project = JsonSerializer.Deserialize<Project>(fileStream);
             fileStream.Close();
 
             project ??= new Project();

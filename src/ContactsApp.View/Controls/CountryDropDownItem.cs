@@ -1,14 +1,15 @@
 ﻿namespace ContactsApp.View.Controls;
 
 /// <summary>
-/// Элемент в выпадающем списке <see cref="CountrySelector"/>.
+/// Элемент в выпадающем списке <see cref="CountrySelector"/>.<para/>
+/// https://stackoverflow.com/a/9706102/18739226
 /// </summary>
 public sealed class CountryDropDownItem
 {
     /// <summary>
     /// Размеры изображения флага.
     /// </summary>
-    private readonly Size _flagSize = new Size(21, 15);
+    private readonly Size _flagSize = new(21, 15);
 
     /// <summary>
     /// Флаг страны.
@@ -34,8 +35,8 @@ public sealed class CountryDropDownItem
     }
 
     /// <summary>
-    /// Возвращает телефенный код страны.
+    /// Возвращает телефонный код страны.
     /// </summary>
-    /// <returns>Телефенный код.</returns>
+    /// <returns>Телефонный код.</returns>
     public override string ToString() => CountryInfo.PhoneCode;
 }

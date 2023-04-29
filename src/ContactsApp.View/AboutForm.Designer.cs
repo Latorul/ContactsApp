@@ -98,7 +98,7 @@
             GithubLlinkLabel.TabIndex = 35;
             GithubLlinkLabel.TabStop = true;
             GithubLlinkLabel.Text = "https://github.com/Latorul";
-            GithubLlinkLabel.LinkClicked += GithubLlinkLabel_LinkClicked;
+            GithubLlinkLabel.LinkClicked += GithubLinkLabel_LinkClicked;
             // 
             // GithubLabel
             // 
