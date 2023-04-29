@@ -166,7 +166,6 @@
             // 
             // OkButton
             // 
-            OkButton.DialogResult = DialogResult.OK;
             OkButton.Location = new Point(362, 12);
             OkButton.Name = "OkButton";
             OkButton.Size = new Size(75, 23);

@@ -41,6 +41,16 @@ public partial class ContactForm : Form
     private string _vkIdError = string.Empty;
 
     /// <summary>
+    /// Стандартный цвет полей для заполнения.
+    /// </summary>
+    private readonly Color DefaultTextBoxColor = Color.White;
+
+    /// <summary>
+    /// Цвет ошибки полей для заполнения.
+    /// </summary>
+    private readonly Color ErrorTextBoxColor = Color.LightPink;
+
+    /// <summary>
     /// Добавляемый или редактируемый контакт.
     /// </summary>
     private Contact _contact = new Contact();
@@ -111,6 +121,32 @@ public partial class ContactForm : Form
     }
 
     /// <summary>
+    /// Проверяет присутствуют ли ошибки в заполнении полей контакта.
+    /// </summary>
+    /// <returns>
+    ///     <b>true</b>: если нет ошибок при вводе данных. <para/>
+    ///     <b>false</b>: если есть ошибки при вводе данных.
+    /// </returns>
+    private bool CheckFormOnErrors()
+    {
+        string errorMessage = string.Empty;
+
+        errorMessage += AddToErrorMessage(_fullnameError);
+        errorMessage += AddToErrorMessage(_emailError);
+        errorMessage += AddToErrorMessage(_phoneNumberError);
+        errorMessage += AddToErrorMessage(_dateOfBirthError);
+        errorMessage += AddToErrorMessage(_vkIdError);
+
+        if (!string.IsNullOrEmpty(errorMessage))
+        {
+            MessageBox.Show(errorMessage);
+            return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
     /// Добавляет строку для отображения её в сообщении об ошибке.
     /// </summary>
     /// <param name="errorMessage">Строка с сообщением об ошибке.</param>
@@ -120,7 +156,7 @@ public partial class ContactForm : Form
     /// </returns>
     private string AddToErrorMessage(string errorMessage)
     {
-        if (errorMessage != string.Empty)
+        if (!string.IsNullOrEmpty(errorMessage))
         {
             return errorMessage + "\n";
         }
@@ -138,13 +174,13 @@ public partial class ContactForm : Form
             _contact.FullName = FullNameTextBox.Text;
 
             _fullnameError = string.Empty;
-            FullNameTextBox.BackColor = Color.White;
+            FullNameTextBox.BackColor = DefaultTextBoxColor;
         }
         catch (ArgumentException ex)
         {
             _fullnameError = ex.Message;
 
-            FullNameTextBox.BackColor = Color.LightPink;
+            FullNameTextBox.BackColor = ErrorTextBoxColor;
         }
     }
 
@@ -158,13 +194,13 @@ public partial class ContactForm : Form
             _contact.Email = EmailTextBox.Text;
 
             _emailError = string.Empty;
-            EmailTextBox.BackColor = Color.White;
+            EmailTextBox.BackColor = DefaultTextBoxColor;
         }
         catch (ArgumentException ex)
         {
             _emailError = ex.Message;
 
-            EmailTextBox.BackColor = Color.LightPink;
+            EmailTextBox.BackColor = ErrorTextBoxColor;
         }
     }
 
@@ -179,13 +215,13 @@ public partial class ContactForm : Form
             _contact.PhoneNumber = PhoneNumberTextBox.Text;
 
             _phoneNumberError = string.Empty;
-            PhoneNumberTextBox.BackColor = Color.White;
+            PhoneNumberTextBox.BackColor = DefaultTextBoxColor;
         }
         catch (ArgumentException ex)
         {
             _phoneNumberError = ex.Message;
 
-            PhoneNumberTextBox.BackColor = Color.LightPink;
+            PhoneNumberTextBox.BackColor = ErrorTextBoxColor;
         }
     }
 
@@ -224,13 +260,13 @@ public partial class ContactForm : Form
             _contact.VkId = VkIdTextBox.Text;
 
             _vkIdError = string.Empty;
-            VkIdTextBox.BackColor = Color.White;
+            VkIdTextBox.BackColor = DefaultTextBoxColor;
         }
         catch (ArgumentException ex)
         {
             _vkIdError = ex.Message;
 
-            VkIdTextBox.BackColor = Color.LightPink;
+            VkIdTextBox.BackColor = ErrorTextBoxColor;
         }
     }
 
@@ -329,7 +365,10 @@ public partial class ContactForm : Form
     private void OkButton_Click(object sender, EventArgs e)
     {
         if (CheckFormOnErrors())
+        {
+            DialogResult = DialogResult.OK;
             Close();
+        }
     }
 
     /// <summary>
