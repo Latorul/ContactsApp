@@ -45,6 +45,9 @@ public partial class ContactForm : Form
     /// </summary>
     private Contact _contact = new Contact();
 
+    /// <summary>
+    /// Возвращает и задаёт выбранный контакт.
+    /// </summary>
     public Contact Contact
     {
         get => _contact;
@@ -75,16 +78,22 @@ public partial class ContactForm : Form
         {
             CountrySelectorComboBox.Items.Add(new CountryDropDownItem(item));
         }
-
-        //Contact.FullName = "FullName";
-        //Contact.Email = "Email";
-        //Contact.PhoneNumber = "";
-        //Contact.DateOfBirth = new DateTime(2002, 10, 16);
-        //Contact.VkId = "VkId";
-
         CountrySelectorComboBox.SelectedIndex = 0;
 
         UpdateForm();
+    }
+
+    /// <summary>
+    /// Обновляет страну текущего контакта.
+    /// </summary>
+    private void ContactForm_Load(object sender, EventArgs e)
+    {
+        var code = Contact.PhoneNumber.Substring(0, Contact.PhoneNumber.IndexOf(' '));
+        var currentCountry = _countriesInfo.Where(с => с.PhoneCode == code).First();
+        var index = _countriesInfo.IndexOf(currentCountry);
+        CountrySelectorComboBox.SelectedItem = CountrySelectorComboBox.Items[index];
+
+        PhoneNumberTextBox.Text = Contact.PhoneNumber;
     }
 
     /// <summary>
@@ -93,6 +102,7 @@ public partial class ContactForm : Form
     private void UpdateForm()
     {
         _currentPhoneNumber = _contact.PhoneNumber;
+        
         FullNameTextBox.Text = _contact.FullName;
         EmailTextBox.Text = _contact.Email;
         PhoneNumberTextBox.Text = _contact.PhoneNumber;
@@ -346,15 +356,5 @@ public partial class ContactForm : Form
     {
         AddPhotoButton.Image = Properties.Resources.add_photo_32x32_grey;
         AddPhotoButton.BackColor = Color.White;
-    }
-
-    private void ContactForm_Load(object sender, EventArgs e)
-    {
-        var code = Contact.PhoneNumber.Substring(0, Contact.PhoneNumber.IndexOf(' '));
-        var currentCountry = _countriesInfo.Where(x => x.PhoneCode == code).First();
-        var index = _countriesInfo.IndexOf(currentCountry);
-        CountrySelectorComboBox.SelectedItem = CountrySelectorComboBox.Items[index];
-
-        PhoneNumberTextBox.Text = Contact.PhoneNumber;
     }
 }
