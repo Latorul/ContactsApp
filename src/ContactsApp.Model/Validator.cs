@@ -77,20 +77,6 @@ public static class Validator
     }
 
     /// <summary>
-    /// Проверяет номер телефона на наличие посторонних символов.
-    /// </summary>
-    /// <param name="value">Проверяемый номер телефона.</param>
-    public static void AssertOnPhoneNumberCahrs(string value)
-    {
-        if (value.Any(c => !ValidPhoneNumberChars.Contains(c)))
-        {
-            //todo поменять сообщение на "номер телефона должен быть в таком формате +7 (900) 123 45-67"
-            throw new ArgumentException(
-                "Phone number can only contain numbers and characters ‘+’, ‘(’ ‘)’ ‘-’ ‘ ’");
-        }
-    }
-
-    /// <summary>
     /// Проверяет введённый номер телефона на соответствие формату.
     /// </summary>
     /// <param name="value">Номер телефона.</param>
