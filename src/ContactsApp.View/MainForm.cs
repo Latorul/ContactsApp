@@ -116,7 +116,7 @@ public partial class MainForm : Form
     private void AddContact()
     {
         ContactForm form = new ContactForm();
-        form.Contact = new Contact();
+        form.Contact = new Contact("", "", "+93 (000) 000 00", DateTime.Today, "");
 
         if (form.ShowDialog() == DialogResult.OK)
         {
@@ -176,7 +176,7 @@ public partial class MainForm : Form
     {
         ContactsListBox.Items.Clear();
 
-        _currentContacts = 
+        _currentContacts =
             _project.SortByFullName(
             _project.FindBySubstring(_project.Contacts, SearchTextBox.Text));
         foreach (Contact contact in _currentContacts)
@@ -269,7 +269,7 @@ public partial class MainForm : Form
         message = message.Remove(message.Length - 2);
         if (i < birthdayPeople.Count)
             message += " и др.";
-        
+
         return message;
     }
 
