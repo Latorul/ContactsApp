@@ -31,6 +31,16 @@ public partial class ContactForm : Form
     private string _vkIdError = string.Empty;
 
     /// <summary>
+    /// Стандартный цвет полей для заполнения.
+    /// </summary>
+    private readonly Color DefaultTextBoxColor = Color.White;
+    
+    /// <summary>
+    /// Цвет ошибки полей для заполнения.
+    /// </summary>
+    private readonly Color ErrorTextBoxColor = Color.LightPink;
+
+    /// <summary>
     /// Добавляемый или редактируемый контакт.
     /// </summary>
     private Contact _contact = new Contact();
@@ -93,17 +103,17 @@ public partial class ContactForm : Form
     /// </returns>
     private bool CheckFormOnErrors()
     {
-        string erroeMessage = string.Empty;
+        string errorMessage = string.Empty;
 
-        erroeMessage += AddToErrorMessage(_fullnameError);
-        erroeMessage += AddToErrorMessage(_emailError);
-        erroeMessage += AddToErrorMessage(_phoneNumberError);
-        erroeMessage += AddToErrorMessage(_dateOfBirthError);
-        erroeMessage += AddToErrorMessage(_vkIdError);
+        errorMessage += AddToErrorMessage(_fullnameError);
+        errorMessage += AddToErrorMessage(_emailError);
+        errorMessage += AddToErrorMessage(_phoneNumberError);
+        errorMessage += AddToErrorMessage(_dateOfBirthError);
+        errorMessage += AddToErrorMessage(_vkIdError);
 
-        if (erroeMessage != string.Empty)
+        if (string.IsNullOrEmpty(errorMessage))
         {
-            MessageBox.Show(erroeMessage);
+            MessageBox.Show(errorMessage);
             return false;
         }
 
@@ -120,7 +130,7 @@ public partial class ContactForm : Form
     /// </returns>
     private string AddToErrorMessage(string errorMessage)
     {
-        if (errorMessage != string.Empty)
+        if (string.IsNullOrEmpty(errorMessage))
         {
             return errorMessage + "\n";
         }
@@ -138,13 +148,13 @@ public partial class ContactForm : Form
             _contact.FullName = FullNameTextBox.Text;
 
             _fullnameError = string.Empty;
-            FullNameTextBox.BackColor = Color.White;
+            FullNameTextBox.BackColor = DefaultTextBoxColor;
         }
         catch (ArgumentException ex)
         {
             _fullnameError = ex.Message;
 
-            FullNameTextBox.BackColor = Color.LightPink;
+            FullNameTextBox.BackColor = ErrorTextBoxColor;
         }
     }
 
@@ -158,13 +168,13 @@ public partial class ContactForm : Form
             _contact.Email = EmailTextBox.Text;
 
             _emailError = string.Empty;
-            EmailTextBox.BackColor = Color.White;
+            EmailTextBox.BackColor = DefaultTextBoxColor;
         }
         catch (ArgumentException ex)
         {
             _emailError = ex.Message;
 
-            EmailTextBox.BackColor = Color.LightPink;
+            EmailTextBox.BackColor = ErrorTextBoxColor;
         }
     }
 
@@ -178,13 +188,13 @@ public partial class ContactForm : Form
             _contact.PhoneNumber = PhoneNumberTextBox.Text;
 
             _phoneNumberError = string.Empty;
-            PhoneNumberTextBox.BackColor = Color.White;
+            PhoneNumberTextBox.BackColor = DefaultTextBoxColor;
         }
         catch (ArgumentException ex)
         {
             _phoneNumberError = ex.Message;
 
-            PhoneNumberTextBox.BackColor = Color.LightPink;
+            PhoneNumberTextBox.BackColor = ErrorTextBoxColor;
         }
     }
 
@@ -215,13 +225,13 @@ public partial class ContactForm : Form
             _contact.VkId = VkIdTextBox.Text;
 
             _vkIdError = string.Empty;
-            VkIdTextBox.BackColor = Color.White;
+            VkIdTextBox.BackColor = DefaultTextBoxColor;
         }
         catch (ArgumentException ex)
         {
             _vkIdError = ex.Message;
 
-            VkIdTextBox.BackColor = Color.LightPink;
+            VkIdTextBox.BackColor = ErrorTextBoxColor;
         }
     }
 
