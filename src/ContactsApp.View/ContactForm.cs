@@ -121,32 +121,6 @@ public partial class ContactForm : Form
     }
 
     /// <summary>
-    /// Проверяет присутствуют ли ошибки в заполнении полей контакта.
-    /// </summary>
-    /// <returns>
-    ///     <b>true</b>: если нет ошибок при вводе данных. <para/>
-    ///     <b>false</b>: если есть ошибки при вводе данных.
-    /// </returns>
-    private bool CheckFormOnErrors()
-    {
-        string errorMessage = string.Empty;
-
-        errorMessage += AddToErrorMessage(_fullnameError);
-        errorMessage += AddToErrorMessage(_emailError);
-        errorMessage += AddToErrorMessage(_phoneNumberError);
-        errorMessage += AddToErrorMessage(_dateOfBirthError);
-        errorMessage += AddToErrorMessage(_vkIdError);
-
-        if (!string.IsNullOrEmpty(errorMessage))
-        {
-            MessageBox.Show(errorMessage);
-            return false;
-        }
-
-        return true;
-    }
-
-    /// <summary>
     /// Добавляет строку для отображения её в сообщении об ошибке.
     /// </summary>
     /// <param name="errorMessage">Строка с сообщением об ошибке.</param>
