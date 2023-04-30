@@ -4,11 +4,11 @@
 public class ValidatorTest
 {
     [Test(Description = "Проверка пустой строки, не выходящей за пределы заданного значения.")]
-    [TestCase("", TestName = "Проверка пустой строки")]
-    [TestCase("Короткая строка", TestName = "Проверка короткой строки")]
+    [TestCase("", TestName = "Проверка пустой строки.")]
+    [TestCase("Короткая строка", TestName = "Проверка короткой строки.")]
     [TestCase("В этой строке содержится ровно сто символов, что является " +
               "максимально допустимой длиной для проверки",
-        TestName = "Проверка строки максимально допустимой длины")]
+        TestName = "Проверка строки максимально допустимой длины.")]
     public void AssertOnStringLength_ShortString(string shortString)
     {
         var maxLength = 100;
@@ -64,14 +64,14 @@ public class ValidatorTest
     }
 
     [Test]
-    [Ignore("Нет реализации теста")]
+    [Ignore("Нет реализации теста.")]
     public void AssertOnPhoneNumberFormat_CorrectFormat()
     {
         
     }
 
     [Test]
-    [Ignore("Нет реализации теста")]
+    [Ignore("Нет реализации теста.")]
     public void AssertOnPhoneNumberFormat_IncorrectFormat()
     {
         
