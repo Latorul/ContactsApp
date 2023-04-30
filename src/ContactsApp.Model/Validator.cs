@@ -34,6 +34,11 @@ public static class Validator
     private static readonly Regex Regex =
         new(@"^\+\d{1,4} \(\d{3}\) \d{3}(( |-)\d{2}){1,3}( \d{1}){0,1} *$");
 
+    /// <summary>
+    /// Самый ранний год даты рождения.
+    /// </summary>
+    private const int MinDateOfBirthYear = 1900;
+
 
     /// <summary>
     /// Проверяет длину полученной строки.
@@ -54,13 +59,12 @@ public static class Validator
     /// Проверяет дату рождения на вхождение в интервал от минимального года до сегодняшнего дня.
     /// </summary>
     /// <param name="value">Дата для проверки.</param>
-    /// <param name="minYear">Минимальный год.</param>
-    public static void AssertOnDateGap(DateTime value, int minYear)
+    public static void AssertOnDateGap(DateTime value)
     {
-        if (value.Year < minYear)
+        if (value.Year < MinDateOfBirthYear)
         {
             throw new ArgumentException(
-                $"Date of birth can't be earlier than {minYear} year.");
+                $"Date of birth can't be earlier than {MinDateOfBirthYear} year.");
         }
 
         if (value > DateTime.Today)

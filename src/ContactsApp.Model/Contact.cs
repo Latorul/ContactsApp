@@ -21,11 +21,6 @@ public class Contact : ICloneable
     private const int MaxVkIdLength = 50;
 
     /// <summary>
-    /// Самый ранний год даты рождения.
-    /// </summary>
-    private const int MinDateOfBirthYear = 1900;
-
-    /// <summary>
     /// Полное имя.
     /// </summary>
     private string _fullName;
@@ -103,7 +98,7 @@ public class Contact : ICloneable
         get => _dateOfBirth;
         set
         {
-            Validator.AssertOnDateGap(value, MinDateOfBirthYear);
+            Validator.AssertOnDateGap(value);
             _dateOfBirth = value;
         }
     }
