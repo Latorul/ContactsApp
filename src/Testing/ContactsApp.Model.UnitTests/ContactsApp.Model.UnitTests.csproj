@@ -20,4 +20,8 @@
       <Compile Remove="UnitTest1.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\ContactsApp.Model\ContactsApp.Model.csproj" />
+    </ItemGroup>
+
 </Project>
