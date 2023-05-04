@@ -1,4 +1,4 @@
-﻿namespace ContactsApp.View;
+﻿namespace ContactsApp.Model;
 
 /// <summary>
 /// Содержит методы по генерации данных.
@@ -11,7 +11,7 @@ public static class ContactFactory
     public static void GenerateContacts(Project project)
     {
         project.Contacts.Add(
-            new()
+            new Contact
             {
                 FullName = "Филатов Мирон",
                 Email = "filatov@mail.ru",
@@ -20,7 +20,7 @@ public static class ContactFactory
                 VkId = "https://vk.com/filatov"
             });
         project.Contacts.Add(
-            new()
+            new Contact
             {
                 FullName = "Ткачев Артём",
                 Email = "tkachev@mail.ru",
@@ -29,7 +29,7 @@ public static class ContactFactory
                 VkId = "https://vk.com/tkachev"
             });
         project.Contacts.Add(
-            new()
+            new Contact
             {
                 FullName = "Козин Марк",
                 Email = "kozin@mail.ru",
@@ -38,7 +38,7 @@ public static class ContactFactory
                 VkId = "https://vk.com/kozin"
             });
         project.Contacts.Add(
-            new()
+            new Contact
             {
                 FullName = "Журавлев Владимир",
                 Email = "zhuravlev@mail.ru",
@@ -47,7 +47,7 @@ public static class ContactFactory
                 VkId = "https://vk.com/zhuravlev"
             });
         project.Contacts.Add(
-            new()
+            new Contact
             {
                 FullName = "Белоусов Андрей",
                 Email = "belousov@mail.ru",
