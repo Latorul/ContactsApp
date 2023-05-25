@@ -31,7 +31,7 @@ public class CountryInfo
         {
             PropertyNameCaseInsensitive = true
         };
-        var info = Encoding.Default.GetString(Properties.Resources.countries);
+        var info = Encoding.Default.GetString(Model.Properties.Resources.countries);
 
         return JsonSerializer.Deserialize<List<CountryInfo>>(info, options)!;
     }

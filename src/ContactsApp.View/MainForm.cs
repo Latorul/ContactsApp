@@ -96,6 +96,7 @@ public partial class MainForm : Form
         }
         else
         {
+            //todo убрать этот элс, он бесполезен
             form.Contact = selectedContact;
         }
     }
@@ -128,7 +129,7 @@ public partial class MainForm : Form
 
         _currentContacts =
             _project.SortByFullName(
-            _project.FindBySubstring(_project.Contacts, SearchTextBox.Text));
+                _project.FindBySubstring(_project.Contacts, SearchTextBox.Text));
         foreach (Contact contact in _currentContacts)
         {
             ContactsListBox.Items.Add(contact.FullName);

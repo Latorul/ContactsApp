@@ -51,7 +51,7 @@ public partial class ContactForm : Form
         set
         {
             _contact = (Contact)value.Clone();
-            
+
             FullNameTextBox.Text = _contact.FullName;
             EmailTextBox.Text = _contact.Email;
             PhoneNumberTextBox.Text = _contact.PhoneNumber;
