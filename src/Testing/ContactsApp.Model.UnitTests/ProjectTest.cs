@@ -47,7 +47,7 @@ public class ProjectTest
         Assert.Multiple(() =>
         {
             Assert.That(actualContacts, Has.Count.Not.Zero);
-            Assert.That(actualContacts, Is.EqualTo(expectedContacts));
+            Assert.That(expectedContacts, Is.EqualTo(actualContacts));
         });
     }
 
@@ -73,9 +73,7 @@ public class ProjectTest
         var actualContacts = project.SortByFullName(project.Contacts);
 
         // Assert
-        
-        CollectionAssert.AreEqual(
-            expectedContacts, actualContacts);
+        CollectionAssert.AreEqual(expectedContacts, actualContacts);
     }
 
     [Test(Description = "Проверка поиска именинников.")]

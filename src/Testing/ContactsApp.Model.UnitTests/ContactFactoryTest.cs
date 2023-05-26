@@ -23,6 +23,7 @@ public class ContactFactoryTest
         });
     }
 
+    [Test(Description = "Проверка создания списка с некорректным количеством элементов.")]
     [TestCase(-1, 
         TestName = "Проверка создания списка контактов с отрицательным количеством элементов.")]
     [TestCase(0, 
@@ -40,6 +41,7 @@ public class ContactFactoryTest
         Assert.That(project.Contacts, Has.Count.Zero);
     }
 
+    [Test(Description = "Проверка создания списка с корректным количеством элементов.")]
     [TestCase(1, TestName = "Проверка создания списка контактов с одним элементом.")]
     [TestCase(2, TestName = "Проверка создания списка контактов с несколькими элементами.")]
     public void GenerateContacts_SetPositiveCount_ContactsAdded(int count)
