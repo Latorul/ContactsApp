@@ -58,7 +58,6 @@ public class Contact : ICloneable
 
             TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 
-            //todo разобраться с ирландскими МакКтото / McKtoto
             //value.ToLower() предотвращает написание полного имени полностью заглавными буквами
             _fullName = textInfo.ToTitleCase(value.ToLower());
         }
