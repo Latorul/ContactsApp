@@ -16,7 +16,7 @@ public class ValidatorTest
         var fieldName = nameof(shortString);
 
         // Assert
-        Assert.DoesNotThrow(() => 
+        Assert.DoesNotThrow(() =>
                 // Act
                 Validator.AssertOnStringLength(shortString, maxLength, fieldName),
             "Не должно выбрасывать исключение при передаче строки короче или равной по длине, " +
@@ -77,16 +77,29 @@ public class ValidatorTest
             "Не должно выбрасывать исключение при передаче даты между 1900 годом и сегодняшней.");
     }
 
-    [Test]
-    [Ignore("Нет реализации теста.")]
-    public void AssertOnPhoneNumberFormat_CorrectFormat()
+    [Test(Description = "Проверка номера телефона правильного формата.")]
+    [TestCase("")]
+    //[Ignore("Нет кейсов для теста.")]
+    public void AssertOnPhoneNumberFormat_CorrectFormat(string correctPhoneNumber)
     {
+        // Assert
+        Assert.DoesNotThrow(() =>
+                // Act
+                Validator.AssertOnPhoneNumberFormat(correctPhoneNumber),
+            "Не должно выбрасывать исключение при передаче номера телефона в корректном формате."
+        );
     }
 
-    [Test]
-    [Ignore("Нет реализации теста.")]
-    public void AssertOnPhoneNumberFormat_IncorrectFormat()
+    [Test(Description = "Проверка номера телефона неправильного формата.")]
+    [TestCase("+1 (123) 456 78")]
+    //[Ignore("Нет кейсов для  теста.")]
+    public void AssertOnPhoneNumberFormat_IncorrectFormat(string incorrectPhoneNumber)
     {
+        // Assert
+        Assert.Throws<ArgumentException>(() =>
+                // Act 
+                Validator.AssertOnPhoneNumberFormat(incorrectPhoneNumber),
+            "Должно выбрасывать исключение при передаче номера телефона в некорректном формате.");
     }
 
     /// <summary>
