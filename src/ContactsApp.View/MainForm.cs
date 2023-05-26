@@ -94,11 +94,6 @@ public partial class MainForm : Form
             _project.Contacts.Remove(selectedContact);
             _project.Contacts.Add(updatedContact);
         }
-        else
-        {
-            //todo убрать этот элс, он бесполезен
-            form.Contact = selectedContact;
-        }
     }
 
     /// <summary>
