@@ -80,18 +80,16 @@ public static class Validator
     /// <param name="value">Номер телефона.</param>
     public static void AssertOnPhoneNumberFormat(string value)
     {
-        var code = value.Substring(0, value.IndexOf(' '));
-
         if (!Regex.IsMatch(value))
         {
             throw new ArgumentException(
-                $"Phone number must be written in one of these formats:\n" +
-                $"{code} (123) 456 78\n" +
-                $"{code} (123) 456 78 9\n" +
-                $"{code} (123) 456 78-90\n" +
-                $"{code} (123) 456 78-90 1\n" +
-                $"{code} (123) 456 78-90-12\n" +
-                $"{code} (123) 456 78-90-12 3\n");
+                "Phone number must be written in one of these formats:\n" +
+                "+1 (123) 456 78\n" +
+                "+12 (123) 456 78 9\n" +
+                "+12 (123) 456 78-90\n" +
+                "+123 (123) 456 78-90 1\n" +
+                "+1234 (123) 456 78-90-12\n" +
+                "+1234 (123) 456 78-90-12 3\n");
         }
     }
 }
