@@ -77,11 +77,21 @@ public class ValidatorTest
             "Не должно выбрасывать исключение при передаче даты между 1900 годом и сегодняшней.");
     }
 
-    [Test(Description = "Проверка номера телефона правильного формата.")]
-    [TestCase("")]
-    //[Ignore("Нет кейсов для теста.")]
-    public void AssertOnPhoneNumberFormat_CorrectFormat(string correctPhoneNumber)
+    [Test(Description = "Проверка номера телефона правильного формата."), Combinatorial]
+    public void AssertOnPhoneNumberFormat_CorrectFormat(
+        [Values("+1 ", "+12 ", "+123 ", "+1234 ")]
+        string code,
+        [Values("(123) 456")] string mainBody,
+        [Values(" 12", "-12")] string firstDual,
+        [Values("", " 12", "-12")] string secondDual,
+        [Values("", " 12", "-12")] string thirdDual,
+        [Values("", " 1")] string single,
+        [Values("", " ")] string space)
     {
+        // Setup
+        var correctPhoneNumber =
+            code + mainBody + firstDual + secondDual + thirdDual + single + space;
+
         // Assert
         Assert.DoesNotThrow(() =>
                 // Act
@@ -90,11 +100,19 @@ public class ValidatorTest
         );
     }
 
-    [Test(Description = "Проверка номера телефона неправильного формата.")]
-    [TestCase("+1 (123) 456 78")]
-    //[Ignore("Нет кейсов для  теста.")]
-    public void AssertOnPhoneNumberFormat_IncorrectFormat(string incorrectPhoneNumber)
+    [Test(Description = "Проверка номера телефона неправильного формата."), Combinatorial]
+    public void AssertOnPhoneNumberFormat_IncorrectFormat(
+        [Values("1 ", "+ ", "+123", "+12345 ")] string code,
+        [Values("(123) 456", "123 456", "(123)456")] string mainBody,
+        [Values("12", "-123")] string firstDual,
+        [Values("12", "-12")] string secondDual,
+        [Values(" 12", "12")] string thirdDual,
+        [Values(" 12")] string single,
+        [Values("1")] string space)
     {
+        // Setup
+        var incorrectPhoneNumber =
+            code + mainBody + firstDual + secondDual + thirdDual + single + space;
         // Assert
         Assert.Throws<ArgumentException>(() =>
                 // Act 
