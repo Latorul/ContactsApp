@@ -1,10 +1,13 @@
 ﻿namespace ContactsApp.Model;
 
 /// <summary>
-/// Содержит методы по генерации данных.
+/// Класс для генерации тестовых данных.
 /// </summary>
 public static class ContactFactory
 {
+    /// <summary>
+    /// Список полных имён.
+    /// </summary>
     private static readonly List<string> FullNames = new()
     {
         "Deborah Reeves",
@@ -25,6 +28,9 @@ public static class ContactFactory
         "Tyrone Williams"
     };
 
+    /// <summary>
+    /// Список электронных почт.
+    /// </summary>
     private static readonly List<string> Emails = new()
     {
         "deborahreeves@mail.com",
@@ -45,6 +51,9 @@ public static class ContactFactory
         "tyronewilliams@mail.com"
     };
 
+    /// <summary>
+    /// Список ссылок на ВКонтакте.
+    /// </summary>
     private static readonly List<string> VkId = new()
     {
         "https://vk.com/deborahreeves",
@@ -65,8 +74,14 @@ public static class ContactFactory
         "https://vk.com/tyronewilliams"
     };
 
+        /// <summary>
+        /// Список для кодов номеров телефона.
+        /// </summary>
     private static readonly List<string> PhoneCodes = new();
 
+        /// <summary>
+        /// Конструктор класса <see cref="ContactFactory"/>.
+        /// </summary>
     static ContactFactory()
     {
         var document = JsonDocument.Parse(Properties.Resources.countries);
@@ -82,8 +97,8 @@ public static class ContactFactory
     /// <summary>
     /// Добавляет контакты для проверки работоспособности программы.
     /// </summary>
-    /// <param name="project"></param>
-    /// <param name="count"></param>
+    /// <param name="project">Проект, в список которого будут добавлены контакты.</param>
+    /// <param name="count">Количество добавляемых контактов.</param>
     public static void GenerateContacts(Project project, int count = 5)
     {
         for (int i = 0; i < count; i++)
@@ -92,6 +107,10 @@ public static class ContactFactory
         }
     }
 
+    /// <summary>
+    /// Создаёт экземпляр класса <see cref="Contact"/>.
+    /// </summary>
+    /// <returns>Один контакт.</returns>
     public static Contact CreateContact()
     {
         return new Contact
@@ -104,16 +123,28 @@ public static class ContactFactory
         };
     }
 
+    /// <summary>
+    /// Генерирует полное имя.
+    /// </summary>
+    /// <returns>Случайно выбранное имя из списка.</returns>
     private static string GenerateFullName()
     {
         return FullNames[new Random().Next(FullNames.Count)];
     }
 
+    /// <summary>
+    /// Генерирует электронную почту.
+    /// </summary>
+    /// <returns>Случайно выбранную электронную почту из списка.</returns>
     private static string GenerateEmail()
     {
         return Emails[new Random().Next(Emails.Count)];
     }
 
+    /// <summary>
+    /// Генерирует номер телефона.
+    /// </summary>
+    /// <returns>Случайно сгенерированный номер телефона.</returns>
     private static string GeneratePhoneNumber()
     {
         var phoneNumber = string.Empty;
@@ -142,9 +173,11 @@ public static class ContactFactory
     }
 
     /// <summary>
+    /// Генерирует дату рождения.
     /// https://stackoverflow.com/a/194870/18739226
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Случайно сгенерированная дата рождения между
+    /// 1900.01.01 и сегодняшним днём.</returns>
     private static DateTime GenerateDateOfBirth()
     {
         var start = new DateTime(1900, 1, 1);
@@ -152,6 +185,10 @@ public static class ContactFactory
         return start.AddDays(new Random().Next(range));
     }
 
+    /// <summary>
+    /// Генерирует ссылку на ВКонтакте.
+    /// </summary>
+    /// <returns>Случайно выбранную ссылку из списка.</returns>
     private static string GenerateVkId()
     {
         return VkId[new Random().Next(VkId.Count)];
