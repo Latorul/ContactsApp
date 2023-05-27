@@ -30,6 +30,7 @@ public partial class MainForm : Form
 
         _project = ProjectManager.LoadProject();
 #if DEBUG
+        ContactFactory.Random = new Randomizer();
         if (_project.Contacts.Count == 0)
             ContactFactory.GenerateContacts(_project);
 #endif
