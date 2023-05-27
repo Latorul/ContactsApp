@@ -28,8 +28,29 @@ public static class ProjectManager
 
 
     /// <summary>
+    /// Загружает из файла список контактов в <see cref="Project"/>.
+    /// </summary>
+    public static Project LoadProject()
+    {
+        try
+        {
+            using FileStream fileStream = File.OpenRead(FilePath);
+            var project = JsonSerializer.Deserialize<Project>(fileStream);
+            fileStream.Close();
+
+            project ??= new Project();
+            return project;
+        }
+        catch
+        {
+            return new Project();
+        }
+    }
+
+    /// <summary>
     /// Сохраняет все контакты из <see cref="Project"/> в файл.
     /// </summary>
+    /// <param name="project">Сохраняемый проект.</param>
     public static void SaveProject(Project project)
     {
         try
@@ -67,36 +88,6 @@ public static class ProjectManager
         catch (Exception e)
         {
             throw new Exception(e.Message);
-        }
-    }
-
-    /// <summary>
-    /// Загружает из файла список контактов в <see cref="Project"/>.
-    /// </summary>
-    public static Project LoadProject()
-    {
-        try
-        {
-            if (!Directory.Exists(FolderPath))
-            {
-                Directory.CreateDirectory(FolderPath);
-            }
-
-            if (!File.Exists(FilePath))
-            {
-                File.WriteAllText(FilePath, "{}");
-            }
-
-            using FileStream fileStream = File.OpenRead(FilePath);
-            var project = JsonSerializer.Deserialize<Project>(fileStream);
-            fileStream.Close();
-
-            project ??= new Project();
-            return project;
-        }
-        catch(Exception ex)
-        {
-            throw new Exception(ex.Message);
         }
     }
 }
