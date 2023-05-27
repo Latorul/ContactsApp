@@ -77,7 +77,7 @@ public class ProjectTest
     }
 
     [Test(Description = "Проверка поиска именинников.")]
-    public void FindBirthDayContacts_ThereAreBirthDayContacts_ReturnBirthDayContacts()
+    public void SearchBirthDayContacts_ThereAreBirthDayContacts_ReturnBirthDayContacts()
     {
         // Setup
         var project = new Project();
@@ -95,14 +95,14 @@ public class ProjectTest
 
         // Act
         var actualContacts =
-            project.FindBirthDayContacts(project.Contacts, DateTime.Today);
+            project.SearchBirthDayContacts(project.Contacts, DateTime.Today);
 
         // Assert
         CollectionAssert.AreEqual(expectedContacts, actualContacts);
     }
 
     [Test(Description = "Проверка поиска контактов по подстроке.")]
-    public void FindBySubstring_ThereAreContactsWithSubstring_ReturnedContactsWithSubstring()
+    public void SearchBySubstring_ThereAreContactsWithSubstring_ReturnedContactsWithSubstring()
     {
         // Setup
         var contacts = new List<Contact>()
@@ -133,8 +133,8 @@ public class ProjectTest
         };
 
         // Act
-        var actualContactsWithLettersSubstring = project.FindBySubstring(project.Contacts, "Ohn");
-        var actualContactsWithDigitsSubstring = project.FindBySubstring(project.Contacts, "16");
+        var actualContactsWithLettersSubstring = project.SearchBySubstring(project.Contacts, "Ohn");
+        var actualContactsWithDigitsSubstring = project.SearchBySubstring(project.Contacts, "16");
 
         // Assert
         Assert.Multiple(() =>

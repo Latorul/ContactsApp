@@ -124,7 +124,7 @@ public partial class MainForm : Form
 
         _currentContacts =
             _project.SortByFullName(
-                _project.FindBySubstring(_project.Contacts, SearchTextBox.Text));
+                _project.SearchBySubstring(_project.Contacts, SearchTextBox.Text));
         foreach (Contact contact in _currentContacts)
         {
             ContactsListBox.Items.Add(contact.FullName);
@@ -184,7 +184,7 @@ public partial class MainForm : Form
     {
         List<Contact> birthdayContact =
             _project.SortByFullName(
-                _project.FindBirthDayContacts(_project.Contacts, DateTime.Today));
+                _project.SearchBirthDayContacts(_project.Contacts, DateTime.Today));
 
         if (birthdayContact.Count == 0)
         {

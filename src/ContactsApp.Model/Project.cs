@@ -40,7 +40,7 @@ public class Project
     /// Возвращает список контактов, у которых сегодня день рождения.
     /// </summary>
     /// <param name="contacts">Список контактов.</param>
-    public List<Contact> FindBirthDayContacts(List<Contact> contacts, DateTime date)
+    public List<Contact> SearchBirthDayContacts(List<Contact> contacts, DateTime date)
     {
         return contacts.FindAll(c =>
             c.DateOfBirth.Month == date.Month &&
@@ -52,7 +52,7 @@ public class Project
     /// </summary>
     /// <param name="contacts">Список контактов.</param>
     /// <param name="substring">Строка для поиска.</param>
-    public List<Contact> FindBySubstring(List<Contact> contacts, string substring)
+    public List<Contact> SearchBySubstring(List<Contact> contacts, string substring)
     {
         substring = substring.ToLower();
         return contacts.FindAll(c => c.FullName.ToLower().Contains(substring) ||
