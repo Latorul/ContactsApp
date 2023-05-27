@@ -29,8 +29,10 @@ public partial class MainForm : Form
         InitializeComponent();
 
         _project = ProjectManager.LoadProject();
+#if DEBUG
         if (_project.Contacts.Count == 0)
             ContactFactory.GenerateContacts(_project);
+#endif
         _currentContacts = _project.Contacts;
     }
 
