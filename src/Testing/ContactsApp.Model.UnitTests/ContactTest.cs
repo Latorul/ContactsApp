@@ -85,6 +85,7 @@ public class ContactTest
     public void FullName_SetShortString_StringSet()
     {
         // Setup
+        ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
         var expectedFullName = "John Doe";
 
@@ -100,6 +101,7 @@ public class ContactTest
     public void FullName_SetLongString_ThrowArgumentException()
     {
         // Setup
+        ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
         var longFullName =
             "Hubert Blaine Wolfeschlegelsteinhausenbergerdorff, Sr." +
@@ -117,6 +119,7 @@ public class ContactTest
     public void Email_SetShortString_StringSet()
     {
         // Setup
+        ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
         var expectedEmail = "johndoe@mail.com";
 
@@ -132,6 +135,7 @@ public class ContactTest
     public void Email_SetLongString_ThrowArgumentException()
     {
         // Setup
+        ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
         var longEmail =
             "emailemailemailemailemailemailemailemail" +
@@ -154,6 +158,7 @@ public class ContactTest
     public void PhoneNumber_SetCorrectPhoneNumber_PhoneNumberSet(string expectedPhoneNumber)
     {
         // Setup
+        ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
 
         // Act
@@ -169,15 +174,16 @@ public class ContactTest
     [TestCase("+12 345 678 90 12 3")]
     [TestCase("+123 (456) 789 01-23-45 67")]
     [TestCase("+12345 (678) 901-23 45-67 8")]
-    public void PhoneNumber_SetInCorrectPhoneNumber_ThrowArgumentException(string incorrectPhonenUmber)
+    public void PhoneNumber_SetInCorrectPhoneNumber_ThrowArgumentException(string incorrectPhoneNumber)
     {
         // Setup
+        ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
         
         // Assert
         Assert.Throws<ArgumentException>(() =>
                 // Act
-                contact.PhoneNumber = incorrectPhonenUmber,
+                contact.PhoneNumber = incorrectPhoneNumber,
             "Должно выбрасывать исключение при присвоении в PhoneNumber номера телефона, " +
             "который не соответствует шаблону.");
     }
@@ -188,6 +194,7 @@ public class ContactTest
     public void DateOfBirth_SetCorrectDate_DateSet(DateTime expectedDateOfBirth)
     {
         // Setup
+        ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
 
         // Act
@@ -202,6 +209,7 @@ public class ContactTest
     public void DateOfBirth_SetToday_DateSet()
     {
         // Setup
+        ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
         var expectedDateOfBirth = DateTime.Today;
 
@@ -219,6 +227,7 @@ public class ContactTest
     public void DateOfBirth_SetInCorrectDate_ThrowArgumentException(DateTime incorrectDateOfBirth)
     {
         // Setup
+        ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
 
         // Assert
@@ -233,6 +242,7 @@ public class ContactTest
     public void VkId_SetShortString_StringSet()
     {
         // Setup
+        ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
         var expectedVkId = "https://vk.com/vkid";
 
@@ -248,6 +258,7 @@ public class ContactTest
     public void VkId_SetLongString_ThrowArgumentException()
     {
         // Setup
+        ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
         var longVkId =
             "vkidvkidvkidvkidvkidvkidvkidvkidvkidvkid" +

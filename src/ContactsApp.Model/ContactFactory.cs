@@ -74,14 +74,16 @@ public static class ContactFactory
         "https://vk.com/tyronewilliams"
     };
 
-        /// <summary>
-        /// Список для кодов номеров телефона.
-        /// </summary>
+    /// <summary>
+    /// Список для кодов номеров телефона.
+    /// </summary>
     private static readonly List<string> PhoneCodes = new();
 
-        /// <summary>
-        /// Конструктор класса <see cref="ContactFactory"/>.
-        /// </summary>
+    public static IRandomize Random { get; set; }
+
+    /// <summary>
+    /// Конструктор класса <see cref="ContactFactory"/>.
+    /// </summary>
     static ContactFactory()
     {
         var document = JsonDocument.Parse(Properties.Resources.countries);
@@ -129,7 +131,7 @@ public static class ContactFactory
     /// <returns>Случайно выбранное имя из списка.</returns>
     private static string GenerateFullName()
     {
-        return FullNames[new Random().Next(FullNames.Count)];
+        return FullNames[Random.Next(FullNames.Count)];
     }
 
     /// <summary>
@@ -138,7 +140,7 @@ public static class ContactFactory
     /// <returns>Случайно выбранную электронную почту из списка.</returns>
     private static string GenerateEmail()
     {
-        return Emails[new Random().Next(Emails.Count)];
+        return Emails[Random.Next(Emails.Count)];
     }
 
     /// <summary>
@@ -149,13 +151,13 @@ public static class ContactFactory
     {
         var phoneNumber = string.Empty;
 
-        phoneNumber += PhoneCodes[new Random().Next(PhoneCodes.Count)];
-        phoneNumber += " (" + new Random().Next(100, 1000) + ") " + new Random().Next(100, 1000);
+        phoneNumber += PhoneCodes[Random.Next(PhoneCodes.Count)];
+        phoneNumber += " (" + Random.Next(100, 1000) + ") " + Random.Next(100, 1000);
 
-        var dualCount = new Random().Next(1, 4);
+        var dualCount = Random.Next(1, 4);
         for (int i = 0; i < dualCount; i++)
         {
-            var hyphenOrSpace = new Random().Next(2);
+            var hyphenOrSpace = Random.Next(2);
             if (hyphenOrSpace % 2 == 0)
             {
                 phoneNumber += "-";
@@ -165,10 +167,10 @@ public static class ContactFactory
                 phoneNumber += " ";
             }
 
-            phoneNumber += new Random().Next(10, 100);
+            phoneNumber += Random.Next(10, 100);
         }
 
-        var lastNumber = new Random().Next(-1, 10);
+        var lastNumber = Random.Next(-1, 10);
         return lastNumber == -1 ? phoneNumber : phoneNumber + " " + lastNumber;
     }
 
@@ -182,7 +184,7 @@ public static class ContactFactory
     {
         var start = new DateTime(1900, 1, 1);
         int range = (DateTime.Today - start).Days;
-        return start.AddDays(new Random().Next(range));
+        return start.AddDays(Random.Next(range));
     }
 
     /// <summary>
@@ -191,6 +193,6 @@ public static class ContactFactory
     /// <returns>Случайно выбранную ссылку из списка.</returns>
     private static string GenerateVkId()
     {
-        return VkId[new Random().Next(VkId.Count)];
+        return VkId[Random.Next(VkId.Count)];
     }
 }

@@ -38,6 +38,7 @@ public class ProjectTest
         // Setup
         var expectedContacts = new List<Contact>();
         var project = new Project(expectedContacts);
+        ContactFactory.Random = new FakeRandomizer();
         project.Contacts.Add(ContactFactory.CreateContact());
 
         // Act
@@ -56,6 +57,7 @@ public class ProjectTest
     {
         // Setup
         var project = new Project();
+        ContactFactory.Random = new FakeRandomizer();
         ContactFactory.GenerateContacts(project, 3);
 
         project.Contacts[0].FullName = "John Doe";
@@ -81,6 +83,7 @@ public class ProjectTest
     {
         // Setup
         var project = new Project();
+        ContactFactory.Random = new FakeRandomizer();
         ContactFactory.GenerateContacts(project, 3);
 
         project.Contacts[0].DateOfBirth = DateTime.Today;

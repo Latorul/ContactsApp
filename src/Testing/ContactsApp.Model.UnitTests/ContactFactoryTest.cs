@@ -7,9 +7,10 @@ public class ContactFactoryTest
     public void CreateContact_ReturnNewContact()
     {
         // Setup
-        Contact actual =
-            // Act
-            ContactFactory.CreateContact();
+        ContactFactory.Random = new FakeRandomizer();
+        
+        // Act
+        Contact actual = ContactFactory.CreateContact();
 
         // Assert
         Assert.That(actual, Is.Not.Null);
@@ -24,14 +25,15 @@ public class ContactFactoryTest
     }
 
     [Test(Description = "Проверка создания списка с некорректным количеством элементов.")]
-    [TestCase(-1, 
+    [TestCase(-1,
         TestName = "Проверка создания списка контактов с отрицательным количеством элементов.")]
-    [TestCase(0, 
+    [TestCase(0,
         TestName = "Проверка создания списка контактов с нулевым количеством элементов.")]
     public void GenerateContacts_SetLessThanOneCount_ContactsNotAdded(int count)
     {
         // Setup
         var project = new Project();
+        ContactFactory.Random = new FakeRandomizer();
 
         // Act
         ContactFactory.GenerateContacts(project, count);
@@ -48,6 +50,7 @@ public class ContactFactoryTest
     {
         // Setup
         var project = new Project();
+        ContactFactory.Random = new FakeRandomizer();
 
         // Act
         ContactFactory.GenerateContacts(project, count);
@@ -62,6 +65,7 @@ public class ContactFactoryTest
     {
         // Setup
         var project = new Project();
+        ContactFactory.Random = new FakeRandomizer();
 
         // Act
         ContactFactory.GenerateContacts(project);
