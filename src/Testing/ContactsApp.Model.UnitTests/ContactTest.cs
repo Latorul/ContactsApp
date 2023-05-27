@@ -6,7 +6,7 @@ namespace ContactsApp.Model.UnitTests;
 public class ContactTest
 {
     [Test(Description = "Проверка конструктора без параметров.")]
-    public void EmptyConstructor()
+    public void EmptyConstructor_CreatedEmptyContact()
     {
         // Setup
         string expectedFullName = null!;
@@ -30,7 +30,7 @@ public class ContactTest
     }
 
     [Test(Description = "Проверка конструктора с параметрами.")]
-    public void ConstructorWithParameters()
+    public void ConstructorWithParameters_CreatedFilledContact()
     {
         // Setup
         var expectedFullName = "Логинова Мирослава Артёмовна";
@@ -55,7 +55,7 @@ public class ContactTest
     }
 
     [Test(Description = "Проверка метода клонирования.")]
-    public void CloneContact()
+    public void CloneContact_ReturnSameContact()
     {
         // Setup
         var expectedFullName = "Логинова Мирослава Артёмовна";
@@ -183,8 +183,8 @@ public class ContactTest
     }
     
     [Test(Description = "Проверка присвоения даты рождения, входящей в разрешённый диапазон.")]
-    [TestCase("1900-1-1", TestName = "Проверка нижней границы даты.")]
-    [TestCase("2002-10-16", TestName = "Проверка даты между границами.")]
+    [TestCase("1900-1-1", TestName = "Проверка нижней разрешённой границы даты.")]
+    [TestCase("2002-10-16", TestName = "Проверка даты разрешённой между границами.")]
     public void DateOfBirth_SetCorrectDate_DateSet(DateTime expectedDateOfBirth)
     {
         // Setup
@@ -215,7 +215,7 @@ public class ContactTest
 
     [Test(Description = "Проверка присвоения даты рождения, выходящей за разрешённый диапазон")]
     [TestCase("1899-12-31", TestName = "Проверка нижней границы даты.")]
-    [TestCase("9999-12-31", TestName = "Проверка даты между границами.")]
+    [TestCase("9999-12-31", TestName = "Проверка верхней границы даты.")]
     public void DateOfBirth_SetInCorrectDate_ThrowArgumentException(DateTime incorrectDateOfBirth)
     {
         // Setup

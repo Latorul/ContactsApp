@@ -9,7 +9,7 @@ public class ValidatorTest
     [TestCase("В этой строке содержится ровно сто символов, что является " +
               "максимально допустимой длиной для проверки",
         TestName = "Проверка строки максимально допустимой длины.")]
-    public void AssertOnStringLength_ShortString(string shortString)
+    public void AssertOnStringLength_ShortString_DoesNotThrowArgumentException(string shortString)
     {
         // Setup
         var maxLength = 100;
@@ -24,7 +24,7 @@ public class ValidatorTest
     }
 
     [Test(Description = "Проверка длины строки, выходящей за пределы заданного значения.")]
-    public void AssertOnStringLength_LongString()
+    public void AssertOnStringLength_LongString_ThrowArgumentException()
     {
         // Setup
         var maxLength = 100;
@@ -41,7 +41,7 @@ public class ValidatorTest
     }
 
     [Test(Description = "Проверка более ранней даты, чем 1900 год.")]
-    public void AssertOnDateGap_TooEarly()
+    public void AssertOnDateGap_TooEarly_ThrowArgumentException()
     {
         // Setup
         var earlyDate = new DateTime(1899, 12, 31);
@@ -54,7 +54,7 @@ public class ValidatorTest
     }
 
     [Test(Description = "Проверка будущей даты.")]
-    public void AssertOnDateGap_Future()
+    public void AssertOnDateGap_Future_ThrowArgumentException()
     {
         // Setup
         var tomorrow = DateTime.Today.AddDays(1);
@@ -67,7 +67,7 @@ public class ValidatorTest
     }
 
     [Test(Description = "Проверка даты между 1900 годом и сегодняшней.")]
-    public void AssertOnDateGap_CorrectDate(
+    public void AssertOnDateGap_CorrectDate_DoesNotThrowArgumentException(
         [ValueSource(nameof(GetCorrectDates))] DateTime correctDate)
     {
         // Assert
@@ -78,7 +78,7 @@ public class ValidatorTest
     }
 
     [Test(Description = "Проверка номера телефона правильного формата."), Combinatorial]
-    public void AssertOnPhoneNumberFormat_CorrectFormat(
+    public void AssertOnPhoneNumberFormat_CorrectFormat_DoesNotThrowArgumentException(
         [Values("+1 ", "+12 ", "+123 ", "+1234 ")]
         string code,
         [Values("(123) 456")] string mainBody,
@@ -101,7 +101,7 @@ public class ValidatorTest
     }
 
     [Test(Description = "Проверка номера телефона неправильного формата."), Combinatorial]
-    public void AssertOnPhoneNumberFormat_IncorrectFormat(
+    public void AssertOnPhoneNumberFormat_IncorrectFormat_ThrowArgumentException(
         [Values("1 ", "+ ", "+123", "+12345 ")] string code,
         [Values("(123) 456", "123 456", "(123)456")] string mainBody,
         [Values("12", "-123")] string firstDual,
