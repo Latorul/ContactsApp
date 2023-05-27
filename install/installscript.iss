@@ -7,11 +7,13 @@
 #define MyAppURL "https://github.com/Latorul/ContactsApp"
 #define MyAppExeName "ContactsApp.View.exe"
 #define SetupFileName "ContactsApp_" + GetDateTimeString('yyyy/mm/dd', '', '') + "_setup"
+#define Configuration "Release"
+#define SourceFiles "..\src\ContactsApp.View\bin\" + Configuration + "\net6.0-windows"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{9EE19760-08E1-4745-9286-BD6FC15D92C5}
+AppId={{3015BEA2-C04B-4FE2-89B1-871DC525731E}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -41,9 +43,9 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\src\ContactsApp.View\bin\Release\net6.0-windows\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\ContactsApp.View\bin\Release\net6.0-windows\*.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\src\ContactsApp.View\bin\Release\net6.0-windows\*.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFiles}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFiles}\*.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFiles}\*.json"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
