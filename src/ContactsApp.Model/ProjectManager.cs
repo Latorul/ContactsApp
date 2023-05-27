@@ -12,19 +12,10 @@ public static class ProjectManager
         Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
     /// <summary>
-    /// Путь к каталогу для сохранения контакта.
-    /// </summary>
-    private static readonly string FolderPath = $"{AppData}\\IvanovAA\\ContactsApp";
-
-    /// <summary>
     /// Полный путь к файлу.
     /// </summary>
-    private static readonly string FilePath = $"{FolderPath}\\{FileName}";
-
-    /// <summary>
-    /// Название файла.
-    /// </summary>
-    private const string FileName = "ContactsApp.notes";
+    public static string FilePath { get; set; } =
+        $"{AppData}\\IvanovAA\\ContactsApp\\ContactsApp.notes";
 
 
     /// <summary>
@@ -55,35 +46,13 @@ public static class ProjectManager
     {
         try
         {
-            if (!Directory.Exists(FolderPath))
+            var folder = Path.GetDirectoryName(FilePath);
+            if (!Directory.Exists(folder))
             {
-                Directory.CreateDirectory(FolderPath);
+                Directory.CreateDirectory(folder);
             }
 
             File.WriteAllText(FilePath, JsonSerializer.Serialize(project));
-        }
-        catch (Exception e)
-        {
-            throw new Exception(e.Message);
-        }
-    }
-
-    /// <summary>
-    /// Сохраняет все контакты из <see cref="Project"/> в файл.
-    /// </summary>
-    /// <param name="project">Сохраняемый проект.</param>
-    /// <param name="folderPath">Директория, в которой будет лежать файл с сохранением.</param>
-    /// <param name="filePath">Путь к файлу с сохранением.</param>
-    public static void SaveProject(Project project, string folderPath, string filePath)
-    {
-        try
-        {
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-
-            File.WriteAllText(filePath, JsonSerializer.Serialize(project));
         }
         catch (Exception e)
         {
