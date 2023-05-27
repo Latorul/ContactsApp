@@ -41,9 +41,32 @@ public static class ProjectManager
 
             File.WriteAllText(FilePath, JsonSerializer.Serialize(project));
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            throw new Exception(ex.Message);
+            throw new Exception(e.Message);
+        }
+    }
+
+    /// <summary>
+    /// Сохраняет все контакты из <see cref="Project"/> в файл.
+    /// </summary>
+    /// <param name="project">Сохраняемый проект.</param>
+    /// <param name="folderPath">Директория, в которой будет лежать файл с сохранением.</param>
+    /// <param name="filePath">Путь к файлу с сохранением.</param>
+    public static void SaveProject(Project project, string folderPath, string filePath)
+    {
+        try
+        {
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            File.WriteAllText(filePath, JsonSerializer.Serialize(project));
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
         }
     }
 
