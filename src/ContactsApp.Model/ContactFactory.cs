@@ -79,6 +79,9 @@ public static class ContactFactory
     /// </summary>
     private static readonly List<string> PhoneCodes = new();
 
+    /// <summary>
+    /// Метод генерации случайных чисел.
+    /// </summary>
     public static IRandomize Random { get; set; }
     
     public static IDateTime DateTime { get; set; }
