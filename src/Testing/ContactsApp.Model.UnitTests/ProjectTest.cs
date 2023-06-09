@@ -6,10 +6,8 @@ public class ProjectTest
     [Test(Description = "Проверка конструктора без параметров.")]
     public void EmptyConstructor_ProjectCreated()
     {
-        // Setup
-        var project =
-            // Act
-            new Project();
+        // Act
+        var project = new Project();
 
         // Assert
         Assert.Multiple(() =>
@@ -39,6 +37,7 @@ public class ProjectTest
         var expectedContacts = new List<Contact>();
         var project = new Project(expectedContacts);
         ContactFactory.Random = new FakeRandomizer();
+        ContactFactory.DateTime = new FakeDateTime();
         project.Contacts.Add(ContactFactory.CreateContact());
 
         // Act
@@ -47,7 +46,7 @@ public class ProjectTest
         // Assert
         Assert.Multiple(() =>
         {
-            Assert.That(actualContacts, Has.Count.Not.Zero);
+            Assert.That(actualContacts, Is.Not.Empty);
             Assert.That(expectedContacts, Is.EqualTo(actualContacts));
         });
     }
@@ -58,6 +57,7 @@ public class ProjectTest
         // Setup
         var project = new Project();
         ContactFactory.Random = new FakeRandomizer();
+        ContactFactory.DateTime = new FakeDateTime();
         ContactFactory.GenerateContacts(project, 3);
 
         project.Contacts[0].FullName = "John Doe";
@@ -78,18 +78,39 @@ public class ProjectTest
         CollectionAssert.AreEqual(expectedContacts, actualContacts);
     }
 
+    [Test(Description = "Проверка сортировки пустого списка контактов.")]
+    public void SortByFullName_SortEmptyList_ListStillEmpty()
+    {
+        // Setup
+        var project = new Project();
+        var expectedContacts = new List<Contact>();
+
+        // Act
+        var actualContacts = project.SortByFullName(project.Contacts);
+
+        // Assert
+        CollectionAssert.AreEqual(expectedContacts, actualContacts);
+    }
+
+    [Test(Description = "Проверка сортировки отсутствующего списка контактов.")]
+    public void SortByFullName_SortNullList_ThrowsArgumentNullException()
+    {
+        // Setup
+        var project = new Project(null!);
+
+        // Assert
+        Assert.Throws<ArgumentNullException>(
+            () =>
+                // Act
+                project.SortByFullName(project.Contacts)
+        );
+    }
+
     [Test(Description = "Проверка поиска именинников.")]
     public void SearchBirthDayContacts_ThereAreBirthDayContacts_ReturnBirthDayContacts()
     {
         // Setup
-        var project = new Project();
-        ContactFactory.Random = new FakeRandomizer();
-        ContactFactory.DateTime = new FakeDateTime();
-        ContactFactory.GenerateContacts(project, 3);
-
-        project.Contacts[0].DateOfBirth = Contact.DateTime.Today;
-        project.Contacts[1].DateOfBirth = Contact.DateTime.Today.AddDays(-1);
-        project.Contacts[2].DateOfBirth = Contact.DateTime.Today;
+        var project = FillProjectWithBirthDayContacts();
 
         var expectedContacts = new List<Contact>()
         {
@@ -105,20 +126,58 @@ public class ProjectTest
         CollectionAssert.AreEqual(expectedContacts, actualContacts);
     }
 
+    [Test(Description = "Проверка поиска именинников без совпадения дат.")]
+    public void SearchBirthDayContacts_ThereAreNotBirthDayContacts_ReturnEmptyList()
+    {
+        // Setup
+        var project = FillProjectWithBirthDayContacts();
+
+        // Act
+        var actualContacts =
+            project.SearchBirthDayContacts(project.Contacts, new DateTime(1900, 1, 1));
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(actualContacts, Is.Not.Null);
+            Assert.That(actualContacts, Is.Empty);
+        });
+    }
+
+    [Test(Description = "Проверка поиска именинников в пустом списке.")]
+    public void SearchBirthDayContacts_EmptyList_ReturnEmptyList()
+    {
+        // Setup
+        var project = new Project();
+        var expectedContacts = new List<Contact>();
+
+        // Act
+        var actualContacts =
+            project.SearchBirthDayContacts(project.Contacts, Contact.DateTime.Today);
+
+        // Assert
+        CollectionAssert.AreEqual(expectedContacts, actualContacts);
+    }
+
+    [Test(Description = "Проверка поиска именинников в отсутствующем списке.")]
+    public void SearchBirthDayContacts_NullList_ThrowsNullReferenceException()
+    {
+        // Setup
+        var project = new Project(null!);
+
+        // Assert
+        Assert.Throws<NullReferenceException>(
+            () =>
+                // Act
+                project.SearchBirthDayContacts(project.Contacts, Contact.DateTime.Today)
+        );
+    }
+
     [Test(Description = "Проверка поиска контактов по подстроке.")]
     public void SearchBySubstring_ThereAreContactsWithSubstring_ReturnedContactsWithSubstring()
     {
         // Setup
-        var contacts = new List<Contact>()
-        {
-            new("John Doe", "Email", "+1 (234) 567 89", new DateTime(1900, 1, 1), "VkId"),
-            new("FullName", "johndoe@mail.com", "+1 (234) 567 89", new DateTime(1900, 1, 1), "vkId"),
-            new("FullName", "Email", "+1 (234) 567 16", new DateTime(1900, 1, 1), "vkId"),
-            new("FullName", "Email", "+1 (234) 567 89", new DateTime(2002, 10, 16), "vkId"),
-            new("FullName", "Email", "+1 (234) 567 89", new DateTime(1900, 1, 1), "https://vk.com/johndoe"),
-            new("FullName", "Email", "+1 (234) 567 89", new DateTime(1900, 1, 1), "vkId"),
-        };
-        var project = new Project(contacts);
+        var project = FillProjectWithContacts();
 
         var expectedContactsWithLettersSubstring = new List<Contact>()
         {
@@ -144,5 +203,119 @@ public class ProjectTest
             CollectionAssert.AreEqual(
                 expectedContactsWithDigitsSubstring, actualContactsWithDigitsSubstring);
         });
+    }
+
+    [Test(Description = "Проверка поиска контактов по не совпадающей подстроке.")]
+    public void SearchBySubstring_ThereAreNotContactsWithSubstring_ReturnedEmptyList()
+    {
+        // Setup
+        var project = FillProjectWithContacts();
+
+        // Act
+        var actual = project.SearchBySubstring(project.Contacts, "It not empty");
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual, Is.Empty);
+        });
+    }
+
+    [Test(Description = "Проверка поиска контактов по пустой подстроке.")]
+    public void SearchBySubstring_EmptySubstring_ReturnedSameList()
+    {
+        // Setup
+        var project = FillProjectWithContacts();
+        var expected = project.Contacts;
+
+        // Act
+        var actual = project.SearchBySubstring(project.Contacts, "");
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(actual, Is.Not.Null);
+            CollectionAssert.AreEqual(expected, actual);
+        });
+    }
+
+    [Test(Description = "Проверка поиска контактов по подстроке в пустом списке.")]
+    public void SearchBySubstring_EmptyList_ReturnedEmptyList()
+    {
+        // Setup
+        var project = new Project();
+
+        // Act
+        var actual = project.SearchBySubstring(project.Contacts, "Something");
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual, Is.Empty);
+        });
+    }
+
+    [Test(Description = "Проверка поиска контактов по отсутствующей подстроке.")]
+    public void SearchBySubstring_NullSubstring_ThrowNullReferenceException()
+    {
+        // Setup
+        var project = FillProjectWithContacts();
+
+        // Assert
+        Assert.Throws<NullReferenceException>(() =>
+            // Act
+            project.SearchBySubstring(project.Contacts, null!)
+        );
+    }
+
+    [Test(Description = "Проверка поиска контактов по подстроке в отсутствующем списке.")]
+    public void SearchBySubstring_NullList_ThrowNullReferenceException()
+    {
+        // Setup
+        var project = new Project(null!);
+
+        // Assert
+        Assert.Throws<NullReferenceException>(() =>
+            // Act
+            project.SearchBySubstring(project.Contacts, "Something")
+        );
+    }
+
+    /// <summary>
+    /// Заполняет список контактов данными для поиска по подстроке.
+    /// </summary>
+    /// <returns>Проект со списком заполненных контактов.</returns>
+    private Project FillProjectWithContacts()
+    {
+        var contacts = new List<Contact>()
+        {
+            new("John Doe", "Email", "+1 (234) 567 89", new DateTime(1900, 1, 1), "VkId"),
+            new("FullName", "johndoe@mail.com", "+1 (234) 567 89", new DateTime(1900, 1, 1), "vkId"),
+            new("FullName", "Email", "+1 (234) 567 16", new DateTime(1900, 1, 1), "vkId"),
+            new("FullName", "Email", "+1 (234) 567 89", new DateTime(2002, 10, 16), "vkId"),
+            new("FullName", "Email", "+1 (234) 567 89", new DateTime(1900, 1, 1), "https://vk.com/johndoe"),
+            new("FullName", "Email", "+1 (234) 567 89", new DateTime(1900, 1, 1), "vkId"),
+        };
+        return new Project(contacts);
+    }
+    
+    /// <summary>
+    /// Заполняет список контактов данными для поиска именинников.
+    /// </summary>
+    /// <returns>Проект со списком заполненных контактов.</returns>
+    private Project FillProjectWithBirthDayContacts()
+    {
+        var project = new Project();
+        ContactFactory.Random = new FakeRandomizer();
+        ContactFactory.DateTime = new FakeDateTime();
+        ContactFactory.GenerateContacts(project, 3);
+
+        project.Contacts[0].DateOfBirth = Contact.DateTime.Today;
+        project.Contacts[1].DateOfBirth = Contact.DateTime.Today.AddDays(-1);
+        project.Contacts[2].DateOfBirth = Contact.DateTime.Today;
+        
+        return project;
     }
 }
