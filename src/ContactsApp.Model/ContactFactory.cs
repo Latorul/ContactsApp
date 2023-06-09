@@ -83,7 +83,10 @@ public static class ContactFactory
     /// Метод генерации случайных чисел.
     /// </summary>
     public static IRandomize Random { get; set; }
-    
+
+    /// <summary>
+    /// Метод генерации сегодняшней даты.
+    /// </summary>
     public static IDateTime DateTime { get; set; }
 
     /// <summary>

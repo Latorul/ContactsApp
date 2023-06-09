@@ -106,8 +106,10 @@ public class ValidatorTest
 
     [Test(Description = "Проверка номера телефона неправильного формата."), Pairwise]
     public void AssertOnPhoneNumberFormat_IncorrectFormat_ThrowArgumentException(
-        [Values("1 ", "+ ", "+123", "+12345 ")] string code,
-        [Values("(123) 456", "123 456", "(123)456")] string mainBody,
+        [Values("1 ", "+ ", "+123", "+12345 ")]
+        string code,
+        [Values("(123) 456", "123 456", "(123)456")]
+        string mainBody,
         [Values("12", "-123")] string firstDual,
         [Values("12", "-12")] string secondDual,
         [Values(" 12", "12")] string thirdDual,

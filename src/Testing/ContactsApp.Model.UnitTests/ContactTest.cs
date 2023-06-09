@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace ContactsApp.Model.UnitTests;
+﻿namespace ContactsApp.Model.UnitTests;
 
 [TestFixture]
 public class ContactTest
@@ -180,7 +178,7 @@ public class ContactTest
         // Setup
         ContactFactory.Random = new FakeRandomizer();
         var contact = ContactFactory.CreateContact();
-        
+
         // Assert
         Assert.Throws<ArgumentException>(() =>
                 // Act
@@ -188,7 +186,7 @@ public class ContactTest
             "Должно выбрасывать исключение при присвоении в PhoneNumber номера телефона, " +
             "который не соответствует шаблону.");
     }
-    
+
     [Test(Description = "Проверка присвоения даты рождения, входящей в разрешённый диапазон.")]
     [TestCase("1900-1-1", TestName = "Проверка нижней разрешённой границы даты.")]
     [TestCase("2002-10-16", TestName = "Проверка даты разрешённой между границами.")]
@@ -205,7 +203,7 @@ public class ContactTest
         // Assert
         Assert.That(expectedDateOfBirth, Is.EqualTo(actualDateOfBirth));
     }
-    
+
     [Test(Description = "Проверка присвоения сегодняшнего дня в дату рождения.")]
     public void DateOfBirth_SetToday_DateSet()
     {

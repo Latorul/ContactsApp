@@ -39,7 +39,9 @@ public static class Validator
     /// </summary>
     private const int MinDateOfBirthYear = 1900;
 
-    
+    /// <summary>
+    /// Метод генерации сегодняшней даты.
+    /// </summary>
     public static IDateTime DateTime { get; set; }
 
     /// <summary>
