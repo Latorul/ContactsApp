@@ -80,6 +80,8 @@ public static class ContactFactory
     private static readonly List<string> PhoneCodes = new();
 
     public static IRandomize Random { get; set; }
+    
+    public static IDateTime DateTime { get; set; }
 
     /// <summary>
     /// Конструктор класса <see cref="ContactFactory"/>.
@@ -115,6 +117,7 @@ public static class ContactFactory
     /// <returns>Один контакт.</returns>
     public static Contact CreateContact()
     {
+        Contact.DateTime = DateTime;
         return new Contact
         {
             FullName = GenerateFullName(),

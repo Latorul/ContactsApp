@@ -84,11 +84,12 @@ public class ProjectTest
         // Setup
         var project = new Project();
         ContactFactory.Random = new FakeRandomizer();
+        ContactFactory.DateTime = new FakeDateTime();
         ContactFactory.GenerateContacts(project, 3);
 
-        project.Contacts[0].DateOfBirth = DateTime.Today;
-        project.Contacts[1].DateOfBirth = DateTime.Today.AddDays(-1);
-        project.Contacts[2].DateOfBirth = DateTime.Today;
+        project.Contacts[0].DateOfBirth = Contact.DateTime.Today;
+        project.Contacts[1].DateOfBirth = Contact.DateTime.Today.AddDays(-1);
+        project.Contacts[2].DateOfBirth = Contact.DateTime.Today;
 
         var expectedContacts = new List<Contact>()
         {
@@ -98,7 +99,7 @@ public class ProjectTest
 
         // Act
         var actualContacts =
-            project.SearchBirthDayContacts(project.Contacts, DateTime.Today);
+            project.SearchBirthDayContacts(project.Contacts, Contact.DateTime.Today);
 
         // Assert
         CollectionAssert.AreEqual(expectedContacts, actualContacts);
@@ -110,16 +111,12 @@ public class ProjectTest
         // Setup
         var contacts = new List<Contact>()
         {
-            // todo Вопрос про длину строк
-            // Разделять ли строку на две, если кол-во символов соответствует стандарту,
-            // но IDE вставляет названия свойств перед каждым из параметров?
-            // Например, здесь в четвёртой строке кол-во символов 93, но выглядит как 150.
-            new("John Doe", "Email", "+1 (234) 567 89", DateTime.Today, "VkId"),
-            new("FullName", "johndoe@mail.com", "+1 (234) 567 89", DateTime.Today, "vkId"),
+            new("John Doe", "Email", "+1 (234) 567 89", new DateTime(1900, 1, 1), "VkId"),
+            new("FullName", "johndoe@mail.com", "+1 (234) 567 89", new DateTime(1900, 1, 1), "vkId"),
             new("FullName", "Email", "+1 (234) 567 16", new DateTime(1900, 1, 1), "vkId"),
             new("FullName", "Email", "+1 (234) 567 89", new DateTime(2002, 10, 16), "vkId"),
-            new("FullName", "Email", "+1 (234) 567 89", DateTime.Today, "https://vk.com/johndoe"),
-            new("FullName", "Email", "+1 (234) 567 89", DateTime.Today, "vkId"),
+            new("FullName", "Email", "+1 (234) 567 89", new DateTime(1900, 1, 1), "https://vk.com/johndoe"),
+            new("FullName", "Email", "+1 (234) 567 89", new DateTime(1900, 1, 1), "vkId"),
         };
         var project = new Project(contacts);
 

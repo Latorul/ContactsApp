@@ -8,6 +8,7 @@ public class ContactFactoryTest
     {
         // Setup
         ContactFactory.Random = new FakeRandomizer();
+        ContactFactory.DateTime = new FakeDateTime();
         
         // Act
         Contact actual = ContactFactory.CreateContact();
@@ -34,6 +35,7 @@ public class ContactFactoryTest
         // Setup
         var project = new Project();
         ContactFactory.Random = new FakeRandomizer();
+        ContactFactory.DateTime = new FakeDateTime();
 
         // Act
         ContactFactory.GenerateContacts(project, count);
@@ -51,6 +53,7 @@ public class ContactFactoryTest
         // Setup
         var project = new Project();
         ContactFactory.Random = new FakeRandomizer();
+        ContactFactory.DateTime = new FakeDateTime();
 
         // Act
         ContactFactory.GenerateContacts(project, count);
@@ -66,6 +69,7 @@ public class ContactFactoryTest
         // Setup
         var project = new Project();
         ContactFactory.Random = new FakeRandomizer();
+        ContactFactory.DateTime = new FakeDateTime();
 
         // Act
         ContactFactory.GenerateContacts(project);

@@ -46,6 +46,8 @@ public class Contact : ICloneable
     private string _vkId;
 
 
+    public static IDateTime DateTime { get; set; }
+
     /// <summary>
     /// Возвращает или задаёт полное имя.
     /// </summary>
@@ -97,6 +99,7 @@ public class Contact : ICloneable
         get => _dateOfBirth;
         set
         {
+            Validator.DateTime = DateTime;
             Validator.AssertOnDateGap(value);
             _dateOfBirth = value;
         }
@@ -113,6 +116,11 @@ public class Contact : ICloneable
             Validator.AssertOnStringLength(value, MaxVkIdLength, nameof(VkId));
             _vkId = value;
         }
+    }
+
+    static Contact()
+    {
+        DateTime ??= new RealDateTime();
     }
 
     /// <summary>

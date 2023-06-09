@@ -29,7 +29,9 @@ public partial class MainForm : Form
         InitializeComponent();
 
         _project = ProjectManager.LoadProject();
+
 #if DEBUG
+        ContactFactory.DateTime = new RealDateTime();
         ContactFactory.Random = new Randomizer();
         if (_project.Contacts.Count == 0)
             ContactFactory.GenerateContacts(_project);

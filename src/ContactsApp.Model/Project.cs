@@ -40,6 +40,7 @@ public class Project
     /// Возвращает список контактов, у которых сегодня день рождения.
     /// </summary>
     /// <param name="contacts">Список контактов.</param>
+    /// <param name="date">Дата для проверки на дату рождения.</param>
     public List<Contact> SearchBirthDayContacts(List<Contact> contacts, DateTime date)
     {
         return contacts.FindAll(c =>

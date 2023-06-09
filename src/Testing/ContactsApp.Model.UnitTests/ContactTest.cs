@@ -9,10 +9,11 @@ public class ContactTest
     public void EmptyConstructor_CreatedEmptyContact()
     {
         // Setup
+        Contact.DateTime = new FakeDateTime();
         string expectedFullName = null!;
         string expectedEmail = null!;
         string expectedPhoneNumber = null!;
-        var expectedDateOfBirth = DateTime.Today;
+        var expectedDateOfBirth = Contact.DateTime.Today;
         string expectedVkId = null!;
 
         // Act
@@ -210,8 +211,9 @@ public class ContactTest
     {
         // Setup
         ContactFactory.Random = new FakeRandomizer();
+        Contact.DateTime = new FakeDateTime();
         var contact = ContactFactory.CreateContact();
-        var expectedDateOfBirth = DateTime.Today;
+        var expectedDateOfBirth = Contact.DateTime.Today;
 
         // Act
         contact.DateOfBirth = expectedDateOfBirth;

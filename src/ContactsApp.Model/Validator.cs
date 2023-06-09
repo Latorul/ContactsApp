@@ -39,6 +39,8 @@ public static class Validator
     /// </summary>
     private const int MinDateOfBirthYear = 1900;
 
+    
+    public static IDateTime DateTime { get; set; }
 
     /// <summary>
     /// Проверяет длину полученной строки.

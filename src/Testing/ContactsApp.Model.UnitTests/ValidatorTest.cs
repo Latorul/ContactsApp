@@ -57,7 +57,8 @@ public class ValidatorTest
     public void AssertOnDateGap_Future_ThrowArgumentException()
     {
         // Setup
-        var tomorrow = DateTime.Today.AddDays(1);
+        Contact.DateTime = new FakeDateTime();
+        var tomorrow = Contact.DateTime.Today.AddDays(1);
 
         // Assert
         Assert.Throws<ArgumentException>(() =>
@@ -70,6 +71,9 @@ public class ValidatorTest
     public void AssertOnDateGap_CorrectDate_DoesNotThrowArgumentException(
         [ValueSource(nameof(GetCorrectDates))] DateTime correctDate)
     {
+        // Setup
+        Contact.DateTime = new FakeDateTime();
+        
         // Assert
         Assert.DoesNotThrow(() =>
                 // Act
@@ -128,6 +132,6 @@ public class ValidatorTest
     {
         yield return new DateTime(1900, 1, 1);
         yield return new DateTime(2000, 2, 28);
-        yield return DateTime.Today;
+        yield return Contact.DateTime.Today;
     }
 }
