@@ -72,8 +72,8 @@ public class ValidatorTest
         [ValueSource(nameof(GetCorrectDates))] DateTime correctDate)
     {
         // Setup
-        Contact.DateTime = new FakeDateTime();
-        
+        Validator.DateTime = new FakeDateTime();
+
         // Assert
         Assert.DoesNotThrow(() =>
                 // Act
@@ -81,7 +81,7 @@ public class ValidatorTest
             "Не должно выбрасывать исключение при передаче даты между 1900 годом и сегодняшней.");
     }
 
-    [Test(Description = "Проверка номера телефона правильного формата."), Combinatorial]
+    [Test(Description = "Проверка номера телефона правильного формата."), Pairwise]
     public void AssertOnPhoneNumberFormat_CorrectFormat_DoesNotThrowArgumentException(
         [Values("+1 ", "+12 ", "+123 ", "+1234 ")]
         string code,
@@ -104,7 +104,7 @@ public class ValidatorTest
         );
     }
 
-    [Test(Description = "Проверка номера телефона неправильного формата."), Combinatorial]
+    [Test(Description = "Проверка номера телефона неправильного формата."), Pairwise]
     public void AssertOnPhoneNumberFormat_IncorrectFormat_ThrowArgumentException(
         [Values("1 ", "+ ", "+123", "+12345 ")] string code,
         [Values("(123) 456", "123 456", "(123)456")] string mainBody,
@@ -130,6 +130,8 @@ public class ValidatorTest
     /// <returns>Список дат.</returns>
     private static IEnumerable<DateTime> GetCorrectDates()
     {
+        Contact.DateTime = new FakeDateTime();
+
         yield return new DateTime(1900, 1, 1);
         yield return new DateTime(2000, 2, 28);
         yield return Contact.DateTime.Today;
