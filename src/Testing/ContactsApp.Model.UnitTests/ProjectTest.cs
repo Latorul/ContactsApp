@@ -102,7 +102,8 @@ public class ProjectTest
         Assert.Throws<ArgumentNullException>(
             () =>
                 // Act
-                project.SortByFullName(project.Contacts)
+                project.SortByFullName(project.Contacts),
+            "Должно выбрасываться ArgumentNullException при передачи null в качестве списка контактов."
         );
     }
 
@@ -169,7 +170,8 @@ public class ProjectTest
         Assert.Throws<NullReferenceException>(
             () =>
                 // Act
-                project.SearchBirthDayContacts(project.Contacts, Contact.DateTime.Today)
+                project.SearchBirthDayContacts(project.Contacts, Contact.DateTime.Today),
+            "Должно выбрасываться NullReferenceException при передачи null в качестве списка контактов."
         );
     }
 
@@ -266,7 +268,8 @@ public class ProjectTest
         // Assert
         Assert.Throws<NullReferenceException>(() =>
             // Act
-            project.SearchBySubstring(project.Contacts, null!)
+            project.SearchBySubstring(project.Contacts, null!),
+            "Должно выбрасываться NullReferenceException при передачи null в качестве подстроки."
         );
     }
 
@@ -279,7 +282,8 @@ public class ProjectTest
         // Assert
         Assert.Throws<NullReferenceException>(() =>
             // Act
-            project.SearchBySubstring(project.Contacts, "Something")
+            project.SearchBySubstring(project.Contacts, "Something"),
+            "Должно выбрасываться NullReferenceException при передачи null в качестве списка контактов."
         );
     }
 
