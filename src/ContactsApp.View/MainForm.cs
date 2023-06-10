@@ -127,12 +127,19 @@ public partial class MainForm : Form
     {
         ContactsListBox.Items.Clear();
 
+        var updatedContact = _project.Contacts.Except(_currentContacts).ToList();
+
         _currentContacts =
             _project.SortByFullName(
                 _project.SearchBySubstring(_project.Contacts, SearchTextBox.Text));
         foreach (Contact contact in _currentContacts)
         {
             ContactsListBox.Items.Add(contact.FullName);
+        }
+
+        if (updatedContact.Count > 0)
+        {
+            ContactsListBox.SelectedIndex = _currentContacts.IndexOf(updatedContact[0]);
         }
     }
 
