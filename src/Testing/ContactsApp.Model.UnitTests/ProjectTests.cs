@@ -1,7 +1,7 @@
 ﻿namespace ContactsApp.Model.UnitTests;
 
 [TestFixture]
-public class ProjectTest
+public class ProjectTests
 {
     [Test(Description = "Проверка конструктора без параметров.")]
     public void EmptyConstructor_ProjectCreated()
@@ -37,7 +37,7 @@ public class ProjectTest
         var expectedContacts = new List<Contact>();
         var project = new Project(expectedContacts);
         ContactFactory.Random = new FakeRandomizer();
-        ContactFactory.DateTime = new FakeDateTime();
+        ContactFactory.DateTime = new FakeDater();
         project.Contacts.Add(ContactFactory.CreateContact());
 
         // Act
@@ -57,7 +57,7 @@ public class ProjectTest
         // Setup
         var project = new Project();
         ContactFactory.Random = new FakeRandomizer();
-        ContactFactory.DateTime = new FakeDateTime();
+        ContactFactory.DateTime = new FakeDater();
         ContactFactory.GenerateContacts(project, 3);
 
         project.Contacts[0].FullName = "John Doe";
@@ -313,7 +313,7 @@ public class ProjectTest
     {
         var project = new Project();
         ContactFactory.Random = new FakeRandomizer();
-        ContactFactory.DateTime = new FakeDateTime();
+        ContactFactory.DateTime = new FakeDater();
         ContactFactory.GenerateContacts(project, 3);
 
         project.Contacts[0].DateOfBirth = Contact.DateTime.Today;

@@ -1,4 +1,4 @@
-﻿namespace ContactsApp.Model;
+﻿namespace ContactsApp.Model.Services;
 
 /// <summary>
 /// Класс для генерации тестовых данных.
@@ -87,7 +87,7 @@ public static class ContactFactory
     /// <summary>
     /// Метод генерации сегодняшней даты.
     /// </summary>
-    public static IDateTime DateTime { get; set; }
+    public static IDater DateTime { get; set; }
 
     /// <summary>
     /// Конструктор класса <see cref="ContactFactory"/>.

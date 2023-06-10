@@ -1,4 +1,4 @@
-﻿namespace ContactsApp.Model;
+﻿namespace ContactsApp.Model.UnitTests.Fakes;
 
 /// <summary>
 /// Псевдослучайная генерация чисел.

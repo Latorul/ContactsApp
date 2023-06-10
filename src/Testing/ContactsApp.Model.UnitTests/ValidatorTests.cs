@@ -1,7 +1,7 @@
 ﻿namespace ContactsApp.Model.UnitTests;
 
 [TestFixture]
-public class ValidatorTest
+public class ValidatorTests
 {
     [Test(Description = "Проверка пустой строки, не выходящей за пределы заданного значения.")]
     [TestCase("", TestName = "Проверка пустой строки.")]
@@ -57,7 +57,7 @@ public class ValidatorTest
     public void AssertOnDateGap_Future_ThrowArgumentException()
     {
         // Setup
-        Contact.DateTime = new FakeDateTime();
+        Contact.DateTime = new FakeDater();
         var tomorrow = Contact.DateTime.Today.AddDays(1);
 
         // Assert
@@ -72,7 +72,7 @@ public class ValidatorTest
         [ValueSource(nameof(GetCorrectDates))] DateTime correctDate)
     {
         // Setup
-        Validator.DateTime = new FakeDateTime();
+        Validator.DateTime = new FakeDater();
 
         // Assert
         Assert.DoesNotThrow(() =>
@@ -132,7 +132,7 @@ public class ValidatorTest
     /// <returns>Список дат.</returns>
     private static IEnumerable<DateTime> GetCorrectDates()
     {
-        Contact.DateTime = new FakeDateTime();
+        Contact.DateTime = new FakeDater();
 
         yield return new DateTime(1900, 1, 1);
         yield return new DateTime(2000, 2, 28);

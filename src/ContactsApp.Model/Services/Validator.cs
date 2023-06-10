@@ -1,4 +1,4 @@
-﻿namespace ContactsApp.Model;
+﻿namespace ContactsApp.Model.Services;
 
 /// <summary>
 /// Сервисный класс для проверки введённых значений.
@@ -42,7 +42,7 @@ public static class Validator
     /// <summary>
     /// Метод генерации сегодняшней даты.
     /// </summary>
-    public static IDateTime DateTime { get; set; }
+    public static IDater DateTime { get; set; }
 
     /// <summary>
     /// Проверяет длину полученной строки.

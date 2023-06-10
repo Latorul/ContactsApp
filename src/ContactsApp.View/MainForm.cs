@@ -1,4 +1,6 @@
-﻿namespace ContactsApp.View;
+﻿using ContactsApp.Model.Services;
+
+namespace ContactsApp.View;
 
 /// <summary>
 /// Главное окно приложения.
@@ -31,7 +33,7 @@ public partial class MainForm : Form
         _project = ProjectManager.LoadProject();
 
 #if DEBUG
-        ContactFactory.DateTime = new RealDateTime();
+        ContactFactory.DateTime = new Dater();
         ContactFactory.Random = new Randomizer();
         if (_project.Contacts.Count == 0)
             ContactFactory.GenerateContacts(_project);
@@ -139,8 +141,21 @@ public partial class MainForm : Form
 
         if (updatedContact.Count > 0)
         {
-            ContactsListBox.SelectedIndex = _currentContacts.IndexOf(updatedContact[0]);
+            var updatedContactIndex = _currentContacts.IndexOf(updatedContact[0]);
+            ContactsListBox.SelectedIndex = updatedContactIndex;
+            UpdateSelectedIndexChanged();
         }
+    }
+
+    /// <summary>
+    /// Принудительно проверяет обновление индекса ContactsListBox.
+    /// </summary>
+    private void UpdateSelectedIndexChanged()
+    {
+        if (ContactsListBox.SelectedIndex == -1)
+            ClearSelectedContact();
+        else
+            UpdateSelectedContact(ContactsListBox.SelectedIndex);
     }
 
     /// <summary>
@@ -175,10 +190,7 @@ public partial class MainForm : Form
     /// </summary>
     private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (ContactsListBox.SelectedIndex == -1)
-            ClearSelectedContact();
-        else
-            UpdateSelectedContact(ContactsListBox.SelectedIndex);
+        UpdateSelectedIndexChanged();
     }
 
     /// <summary>

@@ -1,4 +1,4 @@
-﻿namespace ContactsApp.Model;
+﻿namespace ContactsApp.Model.Services;
 
 /// <summary>
 /// Случайная генерация чисел.

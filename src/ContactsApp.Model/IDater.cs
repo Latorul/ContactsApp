@@ -3,7 +3,7 @@
 /// <summary>
 /// Интерфейс для подмены сегодняшнего дня.
 /// </summary>
-public interface IDateTime
+public interface IDater
 {
     /// <summary>
     /// Задаёт дату сегодняшнего дня.

@@ -1,14 +1,14 @@
 ﻿namespace ContactsApp.Model.UnitTests;
 
 [TestFixture]
-public class ContactFactoryTest
+public class ContactFactoryTests
 {
     [Test(Description = "Проверка создания нового контакта со всеми заполненными полями.")]
     public void CreateContact_ReturnNewContact()
     {
         // Setup
         ContactFactory.Random = new FakeRandomizer();
-        ContactFactory.DateTime = new FakeDateTime();
+        ContactFactory.DateTime = new FakeDater();
 
         // Act
         Contact actual = ContactFactory.CreateContact();
@@ -35,7 +35,7 @@ public class ContactFactoryTest
         // Setup
         var project = new Project();
         ContactFactory.Random = new FakeRandomizer();
-        ContactFactory.DateTime = new FakeDateTime();
+        ContactFactory.DateTime = new FakeDater();
 
         // Act
         ContactFactory.GenerateContacts(project, count);
@@ -53,7 +53,7 @@ public class ContactFactoryTest
         // Setup
         var project = new Project();
         ContactFactory.Random = new FakeRandomizer();
-        ContactFactory.DateTime = new FakeDateTime();
+        ContactFactory.DateTime = new FakeDater();
 
         // Act
         ContactFactory.GenerateContacts(project, count);
@@ -69,7 +69,7 @@ public class ContactFactoryTest
         // Setup
         var project = new Project();
         ContactFactory.Random = new FakeRandomizer();
-        ContactFactory.DateTime = new FakeDateTime();
+        ContactFactory.DateTime = new FakeDater();
 
         // Act
         ContactFactory.GenerateContacts(project);

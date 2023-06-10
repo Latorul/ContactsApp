@@ -1,9 +1,9 @@
-﻿namespace ContactsApp.Model;
+﻿namespace ContactsApp.Model.Services;
 
 /// <summary>
 /// Настоящий DateTime.
 /// </summary>
-public class RealDateTime : IDateTime
+public class Dater : IDater
 {
     /// <summary>
     /// Задаёт настоящий сегодняшний день.

@@ -1,4 +1,6 @@
-﻿namespace ContactsApp.Model;
+﻿using ContactsApp.Model.Services;
+
+namespace ContactsApp.Model;
 
 /// <summary>
 /// Контакт.
@@ -49,7 +51,7 @@ public class Contact : ICloneable
     /// <summary>
     /// Метод генерации сегодняшней даты.
     /// </summary>
-    public static IDateTime DateTime { get; set; }
+    public static IDater DateTime { get; set; }
 
     /// <summary>
     /// Возвращает или задаёт полное имя.
@@ -125,7 +127,7 @@ public class Contact : ICloneable
     /// </summary>
     static Contact()
     {
-        DateTime ??= new RealDateTime();
+        DateTime ??= new Dater();
         Validator.DateTime = DateTime;
     }
 

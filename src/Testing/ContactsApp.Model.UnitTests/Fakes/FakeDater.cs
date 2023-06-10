@@ -1,9 +1,9 @@
-﻿namespace ContactsApp.Model;
+﻿namespace ContactsApp.Model.UnitTests.Fakes;
 
 /// <summary>
 /// Подменённый DateTime. 
 /// </summary>
-public class FakeDateTime : IDateTime
+public class FakeDater : IDater
 {
     /// <summary>
     /// Задаёт ненастоящий сегодняшний день.

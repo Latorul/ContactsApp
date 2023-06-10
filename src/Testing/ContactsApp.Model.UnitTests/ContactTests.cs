@@ -1,13 +1,13 @@
 ﻿namespace ContactsApp.Model.UnitTests;
 
 [TestFixture]
-public class ContactTest
+public class ContactTests
 {
     [Test(Description = "Проверка конструктора без параметров.")]
     public void EmptyConstructor_CreatedEmptyContact()
     {
         // Setup
-        Contact.DateTime = new FakeDateTime();
+        Contact.DateTime = new FakeDater();
         string expectedFullName = null!;
         string expectedEmail = null!;
         string expectedPhoneNumber = null!;
@@ -209,7 +209,7 @@ public class ContactTest
     {
         // Setup
         ContactFactory.Random = new FakeRandomizer();
-        Contact.DateTime = new FakeDateTime();
+        Contact.DateTime = new FakeDater();
         var contact = ContactFactory.CreateContact();
         var expectedDateOfBirth = Contact.DateTime.Today;
 
